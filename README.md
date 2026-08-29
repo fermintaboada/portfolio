@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio — Fermín Taboada
 
-## Getting Started
+Portafolio de desarrollo con cuatro casos de estudio. Español por defecto, con traducción al inglés desde el header.
 
-First, run the development server:
+**En vivo:** pendiente de desplegar
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+| Capa | Tecnología |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Lenguaje | TypeScript |
+| Estilos | Tailwind CSS v4 |
+| Animación | Motion (Framer Motion) + CSS |
+| Scroll | Lenis |
+| Tipografías | Bricolage Grotesque · Instrument Sans · Spline Sans Mono |
+| Deploy | Vercel |
+
+## Idea de diseño
+
+La página abre con una corrección real: un panel en producción informaba **42** seguidores de Instagram cuando la cuenta tenía **103.286**. El número equivocado aparece tachado a mano; el correcto cuenta hasta su valor.
+
+Ese gesto es la firma del sitio y se repite en cada hallazgo de los casos de estudio. El color carga significado: el rojo marca lo que estaba mal, la tinta plena lo verificado.
+
+## Contenido
+
+Todo el texto vive en `content/`, tipado y bilingüe. No hay copy suelto en los componentes.
+
+```
+content/
+  site.ts              # Datos de contacto y textos del home
+  types.ts             # Modelo de proyecto (hallazgos, decisiones, stack)
+  projects/
+    upscale-lab.ts
+    boleto-click.ts
+    barras-nomades.ts
+    petotatts.ts
+    index.ts           # Orden de aparición; filtra los borradores
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Un proyecto con `draft: true` no se publica: queda fuera del índice y no genera su ruta.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  page.tsx                    # Home
+  proyectos/[slug]/page.tsx   # Caso de estudio (SSG)
+  globals.css                 # Tokens de color, tipografía y easings
 
-## Learn More
+components/
+  chrome/     # Header, footer, tema, scroll suavizado
+  home/       # Hero, índice de trabajo, criterios, contacto
+  case/       # Vista de caso de estudio
+  motion/     # Primitivos de revelado, contador y tachado
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Criterios de animación
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Sólo `transform` y `opacity`: ni layout ni paint.
+- Curva propia `cubic-bezier(0.23, 1, 0.32, 1)` para todo lo que entra.
+- Escalonado de 55 ms entre elementos hermanos.
+- `prefers-reduced-motion` respetado: se va el desplazamiento, queda el fundido.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Desarrollo
 
-## Deploy on Vercel
+```bash
+npm install
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Abre en http://localhost:3000.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npx tsc --noEmit
+```

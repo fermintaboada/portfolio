@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
+/* Dark mode manejado por atributo, no por media query:
+   el visitante elige y la elección persiste. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ─────────────────────────────────────────────────────────────
+   Paleta: papel técnico frío + dos tintas con significado.
+   El rojo marca lo que estaba mal. El verde, lo verificado.
+   No son decoración: en los hallazgos, el color ES el dato.
+   ───────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper:        #edeff1;
+  --paper-raised: #f7f8f9;
+  --paper-sunken: #e2e6e9;
+  --ink:          #14181d;
+  --ink-2:        #4c5560;
+  --ink-3:        #79838e;
+  --rule:         #d2d7dc;
+  --rule-strong:  #b9c1c8;
+  --correction:   #c3352b;
+  --verified:     #1d6b52;
+  --highlight:    rgba(195, 53, 43, 0.10);
+
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+[data-theme="dark"] {
+  --paper:        #0e1216;
+  --paper-raised: #161b21;
+  --paper-sunken: #090c0f;
+  --ink:          #e8ecef;
+  --ink-2:        #a0aab4;
+  --ink-3:        #6c7681;
+  --rule:         #232a31;
+  --rule-strong:  #333c45;
+  --correction:   #ff6a5c;
+  --verified:     #4fbf95;
+  --highlight:    rgba(255, 106, 92, 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper:        var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sunken: var(--paper-sunken);
+  --color-ink:          var(--ink);
+  --color-ink-2:        var(--ink-2);
+  --color-ink-3:        var(--ink-3);
+  --color-rule:         var(--rule);
+  --color-rule-strong:  var(--rule-strong);
+  --color-correction:   var(--correction);
+  --color-verified:     var(--verified);
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-spline-mono), ui-monospace, monospace;
+
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--correction);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--correction);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* En la capa de componentes: así una utilidad suelta (text-correction,
+   tracking-*) puede sobrescribir cualquiera de estas sin pelear. */
+@layer components {
+  /* Bricolage tiene ejes variables: los fijo por rol en vez de
+     dejar que el navegador elija defaults blandos. */
+  .font-display {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 100, "opsz" 40;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .font-display-tight {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 88, "opsz" 48;
+    letter-spacing: -0.035em;
+  }
+
+  /* Numerales tabulares para todo lo que sea dato comparable */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ─── Etiquetas de aparato: el andamiaje del documento ─── */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+  }
+}
+
+/* Textura de papel: muy sutil, sólo se nota si falta. */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .grain::after { opacity: 0.05; }
+
+/* Reduced motion: se van los desplazamientos, se quedan
+   las transiciones de opacidad y color que ayudan a entender. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
