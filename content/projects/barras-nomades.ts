@@ -32,6 +32,41 @@ export const barrasNomades: Project = {
       "The work covered design, all the copy, development and technical SEO. It is in production and it is the page the client shares when someone asks for a quote.",
     ],
   },
+  shots: [
+    {
+      src: "/proyectos/barras-1-hero.webp",
+      alt: {
+        es: "Portada de Barras Nómades con foto de una barra en un evento",
+        en: "Barras Nómades home page with a photo of a bar at an event",
+      },
+      caption: {
+        es: "La entrada del hero es CSS puro: arranca apenas pinta el navegador, sin esperar a que hidrate y sin mover el layout.",
+        en: "The hero entrance is pure CSS: it starts the moment the browser paints, without waiting for hydration and without shifting the layout.",
+      },
+    },
+    {
+      src: "/proyectos/barras-2-servicio.webp",
+      alt: {
+        es: "Sección de servicio con navegación numerada y foto del montaje",
+        en: "Service section with numbered navigation and a photo of the setup",
+      },
+      caption: {
+        es: "Qué incluye el servicio, punto por punto. El cliente cobra por un paquete cerrado y la página tenía que dejarlo tan claro como él lo explica por teléfono.",
+        en: "What the service includes, item by item. The client charges for a fixed package, and the page had to make it as clear as he does on the phone.",
+      },
+    },
+    {
+      src: "/proyectos/barras-3-carta.webp",
+      alt: {
+        es: "Galería de fotos de eventos de Barras Nómades",
+        en: "Photo gallery of Barras Nómades events",
+      },
+      caption: {
+        es: "La galería es la prueba del oficio. Imágenes en WebP con carga diferida: pesa poco en el teléfono, que es donde se abre.",
+        en: "The gallery is the proof of the craft. WebP images with lazy loading: light on the phone, which is where it gets opened.",
+      },
+    },
+  ],
   metrics: [
     {
       value: "1",

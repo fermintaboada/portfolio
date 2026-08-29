@@ -32,6 +32,41 @@ export const boletoClick: Project = {
       "It was a team project: eleven contributors across different countries, coordinating by pull request against a shared branch. My work was on the frontend, with twenty-six pull requests merged into the repository.",
     ],
   },
+  shots: [
+    {
+      src: "/proyectos/boleto-1-home.webp",
+      alt: {
+        es: "Portada de Boleto Click con la cartelera de eventos",
+        en: "Boleto Click home page with the event listings",
+      },
+      caption: {
+        es: "La portada pública y sus patrones visuales — navbar, footer, tipografía y modo oscuro — fueron parte de mi trabajo.",
+        en: "The public home page and its visual patterns — navbar, footer, typography and dark mode — were part of my work.",
+      },
+    },
+    {
+      src: "/proyectos/boleto-4-mapa.webp",
+      alt: {
+        es: "Detalle de evento con el mapa del recinto en Mapbox",
+        en: "Event detail with the venue map rendered in Mapbox",
+      },
+      caption: {
+        es: "Ubicación del recinto con Mapbox GL. El organizador carga el venue desde su panel y el mapa se arma con esas coordenadas.",
+        en: "Venue location with Mapbox GL. The organiser loads the venue from their dashboard and the map is built from those coordinates.",
+      },
+    },
+    {
+      src: "/proyectos/boleto-5-registro.webp",
+      alt: {
+        es: "Formulario de registro de Boleto Click",
+        en: "Boleto Click sign-up form",
+      },
+      caption: {
+        es: "El registro define el rol desde el principio: de esa elección dependen la navegación y el perfil que ve cada persona.",
+        en: "Sign-up sets the role from the start: navigation and profile both follow from that choice.",
+      },
+    },
+  ],
   metrics: [
     {
       value: "11",

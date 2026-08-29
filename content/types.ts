@@ -40,6 +40,14 @@ export type Metric = {
   label: L;
 };
 
+/** Captura del proyecto real. El pie dice qué mirar, no repite lo evidente. */
+export type Shot = {
+  /** Ruta bajo /public. Todas se capturaron a 1800×1125. */
+  src: string;
+  alt: L;
+  caption: L;
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -59,6 +67,8 @@ export type Project = {
   /** La tesis del proyecto: qué problema real resuelve. */
   thesis: L;
   overview: LL;
+  /** Capturas del producto real, en el orden en que se muestran. */
+  shots?: Shot[];
   metrics?: Metric[];
   flow?: { title: L; intro: L; steps: Step[] };
   stack?: StackGroup[];

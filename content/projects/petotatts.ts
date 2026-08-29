@@ -31,6 +31,41 @@ export const petotatts: Project = {
       "It is six pages — work, inspiration, booking, about and contact — with the creative process, the styles and the booking terms written plainly, so the WhatsApp conversation starts with the questions already answered.",
     ],
   },
+  shots: [
+    {
+      src: "/proyectos/peto-1-hero.webp",
+      alt: {
+        es: "Portada de peto.tatts con estética japonesa",
+        en: "peto.tatts home page with Japanese-inspired imagery",
+      },
+      caption: {
+        es: "La portada compromete el estilo antes que el texto: quien llega tiene que reconocer el trazo en los primeros dos segundos.",
+        en: "The opening commits to the style before the copy does: whoever lands has to recognise the line within two seconds.",
+      },
+    },
+    {
+      src: "/proyectos/peto-2-trabajos.webp",
+      alt: {
+        es: "Galería de tatuajes destacados agrupados por estilo",
+        en: "Gallery of featured tattoos grouped by style",
+      },
+      caption: {
+        es: "Los destacados vienen etiquetados por estilo — blackwork, japonés, realismo — porque el visitante ya sabe cuál busca.",
+        en: "Featured work is tagged by style — blackwork, Japanese, realism — because visitors already know which one they came for.",
+      },
+    },
+    {
+      src: "/proyectos/peto-3-inspiracion.webp",
+      alt: {
+        es: "Sección de inspiración con el proceso de trabajo paso a paso",
+        en: "Inspiration section describing the working process step by step",
+      },
+      caption: {
+        es: "El proceso, escrito antes de que lo pregunten. Acá el orden sí es información: la conversación, el diseño, la sesión, el resultado.",
+        en: "The process, written before anyone asks. Here the order really is information: the conversation, the design, the session, the result.",
+      },
+    },
+  ],
   decisions: [
     {
       title: { es: "La galería manda", en: "The gallery leads" },

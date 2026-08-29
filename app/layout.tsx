@@ -51,6 +51,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* Los revelados salen del servidor en opacidad cero, esperando a que
+            los anime el cliente. Sin JavaScript nunca llegaría ese momento:
+            acá se los devuelve a la vista. */}
+        <noscript>
+          <style>{`[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;transform:none!important;clip-path:none!important}`}</style>
+        </noscript>
       </head>
       <body className="grain flex min-h-full flex-col">
         <ThemeProvider>

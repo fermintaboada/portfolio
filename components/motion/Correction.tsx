@@ -1,8 +1,11 @@
 "use client";
 
 import { motion, useInView, useReducedMotion, useSpring } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+
+/** useLayoutEffect avisa en el servidor; en el servidor no hay nada que medir. */
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const;
 
@@ -44,11 +47,21 @@ export function CountUp({
   const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
   const reduced = useReducedMotion();
   const parsed = parseValue(value);
-  const [display, setDisplay] = useState(() =>
-    parsed ? `${parsed.prefix}${format(0, parsed.decimals)}${parsed.suffix}` : value,
-  );
+
+  // El valor real es el estado inicial: así es lo que sale del servidor y lo
+  // que ve alguien sin JavaScript. Un contador que arranca en cero y no llega
+  // nunca no es una animación perdida, es un número equivocado.
+  const [display, setDisplay] = useState(value);
 
   const spring = useSpring(0, { duration: 1.1, bounce: 0 });
+
+  // Ya en el cliente y antes de pintar, se baja a cero para que haya algo que contar.
+  useIsomorphicLayoutEffect(() => {
+    if (!parsed || reduced) return;
+    setDisplay(`${parsed.prefix}${format(0, parsed.decimals)}${parsed.suffix}`);
+    // Sólo al montar: después manda la animación.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!parsed || reduced) return;

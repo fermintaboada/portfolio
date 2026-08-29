@@ -139,6 +139,7 @@ export const caseLabels = {
   impact: { es: "Impacto medido", en: "Measured impact" } as L,
   fix: { es: "Fix", en: "Fix" } as L,
   overview: { es: "Qué es", en: "What it is" } as L,
+  shots: { es: "En pantalla", en: "On screen" } as L,
   architecture: { es: "Arquitectura", en: "Architecture" } as L,
   engineering: { es: "Ingeniería", en: "Engineering" } as L,
   next: { es: "Siguiente proyecto", en: "Next project" } as L,

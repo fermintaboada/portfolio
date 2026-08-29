@@ -31,6 +31,41 @@ export const upscaleLab: Project = {
       "Every record in the database carries its clientId at the query level, integration credentials are stored encrypted per tenant, and each client's branding (colours, tone of voice, brand story, copy examples, banned words) is injected into every AI prompt that client triggers.",
     ],
   },
+  shots: [
+    {
+      src: "/proyectos/upscale-1-analisis.webp",
+      alt: {
+        es: "Panel de análisis de Upscale Lab con hallazgos de rentabilidad",
+        en: "Upscale Lab analysis panel showing profitability findings",
+      },
+      caption: {
+        es: "El análisis, sobre el tenant de demostración. Cada hallazgo cierra con un qué hacer concreto, redactado sobre señales ya calculadas por código — el modelo interpreta, no cuenta.",
+        en: "The analysis view, on the demo tenant. Every finding closes with a concrete next step, written over signals already computed in code — the model interprets, it does not count.",
+      },
+    },
+    {
+      src: "/proyectos/upscale-5-sugerencias.webp",
+      alt: {
+        es: "Sugerencias de contenido generadas por IA, con botones de feedback",
+        en: "AI-generated content suggestions with feedback controls",
+      },
+      caption: {
+        es: "Las sugerencias llegan al cliente sólo después de la aprobación del admin, y cada una pide feedback: es el dato que después afina el contexto de marca.",
+        en: "Suggestions reach the client only after admin approval, and each one asks for feedback: that is the signal that later sharpens the brand context.",
+      },
+    },
+    {
+      src: "/proyectos/upscale-4-instagram.webp",
+      alt: {
+        es: "Panel de métricas de Instagram con seguidores y engagement",
+        en: "Instagram metrics panel with followers and engagement",
+      },
+      caption: {
+        es: "El panel de Instagram: el mismo lugar donde el total de seguidores mostraba el cambio del día en vez del acumulado.",
+        en: "The Instagram panel: the same place where the follower total was showing the daily change instead of the running total.",
+      },
+    },
+  ],
   metrics: [
     {
       value: "11",

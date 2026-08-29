@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLang } from "@/lib/i18n";
 import { caseLabels, nav } from "@/content/site";
-import type { Finding, Project } from "@/content/types";
+import type { Finding, Project, Shot } from "@/content/types";
 import { Reveal, RevealGroup, RevealItem, ClipReveal } from "@/components/motion/Reveal";
 import { CountUp, StrikeOut } from "@/components/motion/Correction";
 
@@ -26,6 +27,56 @@ function Note({ label, children }: { label: string; children: React.ReactNode })
       <dt className="label sm:col-span-3">{label}</dt>
       <dd className="text-[15px] leading-relaxed text-ink-2 sm:col-span-9">{children}</dd>
     </div>
+  );
+}
+
+/** Una captura con su pie. El marco es fino a propósito: la imagen manda. */
+function ShotFigure({ shot, priority = false }: { shot: Shot; priority?: boolean }) {
+  const { t } = useLang();
+
+  return (
+    <figure>
+      <div className="overflow-hidden rounded-sm border border-rule bg-paper-raised">
+        <Image
+          src={shot.src}
+          alt={t(shot.alt)}
+          width={1800}
+          height={1125}
+          priority={priority}
+          sizes="(max-width: 768px) 100vw, (max-width: 1240px) 90vw, 1160px"
+          className="block w-full transition-transform duration-[600ms] ease-[var(--ease-out)] hover:scale-[1.012]"
+        />
+      </div>
+      <figcaption className="mt-4 max-w-2xl text-[14px] leading-relaxed text-ink-2">
+        {t(shot.caption)}
+      </figcaption>
+    </figure>
+  );
+}
+
+function Shots({ shots }: { shots: Shot[] }) {
+  const { t } = useLang();
+  const [lead, ...rest] = shots;
+
+  return (
+    <section className="border-b border-rule py-16 md:py-20">
+      <div className="shell">
+        <SectionHead eyebrow={t(caseLabels.shots)} />
+        <Reveal className="mt-8">
+          <ShotFigure shot={lead} priority />
+        </Reveal>
+
+        {rest.length > 0 && (
+          <RevealGroup className="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-2" stagger={0.08}>
+            {rest.map((shot) => (
+              <RevealItem key={shot.src}>
+                <ShotFigure shot={shot} />
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        )}
+      </div>
+    </section>
   );
 }
 
@@ -157,6 +208,9 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
           </div>
         </div>
       </section>
+
+      {/* ── Capturas del producto real ── */}
+      {project.shots && project.shots.length > 0 && <Shots shots={project.shots} />}
 
       {/* ── Números del proyecto ── */}
       {project.metrics && project.metrics.length > 0 && (
