@@ -4,12 +4,12 @@ export const barrasNomades: Project = {
   slug: "barras-nomades",
   name: "Barras Nómades",
   tagline: {
-    es: "Landing en producción para un servicio de barra con veinte años de oficio, sin una sola librería de animación.",
-    en: "Production landing page for a bar service with twenty years of craft, without a single animation library.",
+    es: "Landing para un servicio de barra con veinte años de oficio, sin una sola librería de animación.",
+    en: "Landing page for a bar service with twenty years of craft, without a single animation library.",
   },
   year: "2026",
   kind: { es: "Encargo de cliente", en: "Client commission" },
-  status: { es: "En producción", en: "In production" },
+  status: { es: "Entregado y en línea", en: "Delivered and live" },
   role: {
     es: "Diseño, desarrollo y SEO técnico — proyecto completo",
     en: "Design, development and technical SEO — end to end",

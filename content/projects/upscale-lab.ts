@@ -4,12 +4,12 @@ export const upscaleLab: Project = {
   slug: "upscale-lab",
   name: "Upscale Lab",
   tagline: {
-    es: "Plataforma de marketing con IA, multi-tenant, con un cliente real en producción.",
-    en: "Multi-tenant AI marketing platform, running in production with a real client.",
+    es: "Plataforma de marketing con IA, multi-tenant. Corre en producción y la está probando su primer cliente.",
+    en: "Multi-tenant AI marketing platform. It runs in production and its first client is trialling it.",
   },
   year: "2026",
   kind: { es: "Producto propio", en: "Own product" },
-  status: { es: "En producción", en: "In production" },
+  status: { es: "En prueba con un cliente", en: "In trial with a client" },
   role: {
     es: "Diseño, desarrollo e infraestructura — proyecto completo",
     en: "Design, development and infrastructure — end to end",

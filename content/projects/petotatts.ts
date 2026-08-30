@@ -9,7 +9,7 @@ export const petotatts: Project = {
   },
   year: "2026",
   kind: { es: "Encargo de cliente", en: "Client commission" },
-  status: { es: "En producción", en: "In production" },
+  status: { es: "Entregado y en línea", en: "Delivered and live" },
   role: {
     es: "Diseño, desarrollo, contenido y SEO — proyecto completo",
     en: "Design, development, copy and SEO — end to end",

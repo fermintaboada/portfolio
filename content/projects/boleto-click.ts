@@ -4,18 +4,18 @@ export const boletoClick: Project = {
   slug: "boleto-click",
   name: "Boleto Click",
   tagline: {
-    es: "Plataforma de venta de entradas construida por once desarrolladores repartidos por Latinoamérica. Trabajé el frontend.",
-    en: "Ticketing platform built by eleven developers spread across Latin America. I worked on the frontend.",
+    es: "Plataforma de venta de entradas construida por once desarrolladores repartidos por Latinoamérica. Trabajé el frontend y la autenticación, de la pantalla a la API.",
+    en: "Ticketing platform built by eleven developers spread across Latin America. I worked on the frontend and on authentication, from the screen to the API.",
   },
   year: "2026",
   kind: { es: "Equipo de 11", en: "Team of 11" },
-  status: { es: "Desplegado", en: "Deployed" },
+  status: { es: "Finalizado", en: "Completed" },
   role: {
-    es: "Frontend — autenticación y roles, checkout, mapas y sistema visual",
-    en: "Frontend — authentication and roles, checkout, maps and design system",
+    es: "Frontend y autenticación — OAuth en NestJS, roles, checkout, mapas y sistema visual",
+    en: "Frontend and authentication — OAuth in NestJS, roles, checkout, maps and design system",
   },
   domain: { es: "Ticketing · Equipo distribuido", en: "Ticketing · Distributed team" },
-  chips: ["Next.js", "Supabase Auth", "Stripe", "Mapbox"],
+  chips: ["Next.js", "NestJS", "OAuth", "Mapbox"],
   liveUrl: "https://boletoclick-front.vercel.app",
   repoUrl: "https://github.com/henrypf2026/boletoclick_front",
   thesis: {
@@ -25,11 +25,11 @@ export const boletoClick: Project = {
   overview: {
     es: [
       "Boleto Click vende entradas para recitales, partidos y shows: el comprador filtra la cartelera, elige zona, aplica cupones y recibe su entrada con código QR; el organizador administra sus eventos, tipos de boleto y ventas desde un panel propio. El backend es una API modular en NestJS con bloqueo temporal de stock para evitar sobreventa y webhooks de Stripe para conciliar las órdenes.",
-      "Fue un proyecto de equipo: once colaboradores en distintos países, coordinando por pull request contra una rama común. Mi trabajo estuvo del lado del frontend, con veintiséis pull requests mergeados sobre el repositorio.",
+      "Fue un proyecto de equipo: once colaboradores en distintos países, coordinando por pull request contra una rama común. Mi trabajo estuvo del lado del frontend — veintiséis pull requests mergeados — y también en la autenticación de la API: el flujo de OAuth y la sesión se diseñaron de los dos lados a la vez, en NestJS y en el cliente.",
     ],
     en: [
       "Boleto Click sells tickets for concerts, matches and live shows: buyers filter the listings, pick a section, apply coupons and receive a QR ticket; organisers manage their events, ticket types and sales from their own dashboard. The backend is a modular NestJS API with temporary stock locking to prevent overselling and Stripe webhooks to reconcile orders.",
-      "It was a team project: eleven contributors across different countries, coordinating by pull request against a shared branch. My work was on the frontend, with twenty-six pull requests merged into the repository.",
+      "It was a team project: eleven contributors across different countries, coordinating by pull request against a shared branch. My work was on the frontend — twenty-six pull requests merged — and also on the API's authentication: the OAuth flow and the session were designed from both sides at once, in NestJS and in the client.",
     ],
   },
   shots: [
@@ -91,10 +91,10 @@ export const boletoClick: Project = {
     },
   ],
   engineering: {
-    title: { es: "Mi trabajo en el frontend", en: "My work on the frontend" },
+    title: { es: "Mi trabajo en el proyecto", en: "My work on the project" },
     items: {
       es: [
-        "Autenticación completa: registro por rol, inicio de sesión con Google OAuth y recuperación de contraseña, sobre Supabase con sesión compartida entre cliente y servidor.",
+        "Autenticación de punta a punta: en el backend, sobre NestJS, el flujo de OAuth y la emisión y validación de la sesión; en el frontend, el registro por rol, el login con Google y la recuperación de contraseña. Diseñar los dos lados a la vez evitó el ida y vuelta habitual entre quien expone el endpoint y quien lo consume.",
         "El intercambio OAuth se resolvió con PKCE y detección de sesión en la URL, para que el mismo flujo funcione igual en local y en los despliegues de Vercel — el caso donde estas integraciones normalmente se rompen.",
         "Roles de usuario reflejados en la interfaz: la navegación y el perfil cambian según sea comprador, organizador o administrador, en vez de esconder botones a todos por igual.",
         "Flujo de compra: resumen de orden, cupones de descuento y temporizador de reserva, contra el checkout de Stripe.",
@@ -103,7 +103,7 @@ export const boletoClick: Project = {
         "Unificación de la estructura del repositorio: migración de la carpeta client/ a src/ para que once personas trabajaran sobre una convención sola en vez de dos.",
       ],
       en: [
-        "Complete authentication: role-based sign-up, Google OAuth login and password recovery, on Supabase with sessions shared between client and server.",
+        "Authentication end to end: on the backend, in NestJS, the OAuth flow plus issuing and validating the session; on the frontend, role-based sign-up, Google login and password recovery. Designing both sides at once removed the usual back-and-forth between whoever exposes the endpoint and whoever consumes it.",
         "The OAuth exchange was solved with PKCE and session detection in the URL, so the same flow behaves identically in local and on Vercel deployments — precisely where these integrations usually break.",
         "User roles reflected in the interface: navigation and profile change depending on whether you are a buyer, an organiser or an admin, rather than hiding buttons from everyone alike.",
         "Purchase flow: order summary, discount coupons and reservation timer, against Stripe checkout.",
@@ -162,8 +162,8 @@ export const boletoClick: Project = {
       items: ["Supabase Auth (SSR)", "Stripe Checkout", "Mapbox GL", "Recharts"],
     },
     {
-      label: { es: "Backend del equipo", en: "Team backend" },
-      items: ["NestJS", "PostgreSQL", "TypeORM", "Stripe Webhooks"],
+      label: { es: "Backend", en: "Backend" },
+      items: ["NestJS", "OAuth 2.0", "JWT", "PostgreSQL", "TypeORM", "Stripe Webhooks"],
     },
   ],
   closing: {
