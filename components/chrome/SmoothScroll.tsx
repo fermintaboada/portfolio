@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 /**
@@ -9,6 +10,9 @@ import Lenis from "lenis";
  * Con reduced-motion no se monta: se usa el scroll nativo.
  */
 export function SmoothScroll() {
+  const lenisRef = useRef<Lenis | null>(null);
+  const pathname = usePathname();
+
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
@@ -18,6 +22,7 @@ export function SmoothScroll() {
       easing: (t) => 1 - Math.pow(1 - t, 3),
       touchMultiplier: 1.6,
     });
+    lenisRef.current = lenis;
 
     let frame = 0;
     const raf = (time: number) => {
@@ -25,6 +30,14 @@ export function SmoothScroll() {
       frame = requestAnimationFrame(raf);
     };
     frame = requestAnimationFrame(raf);
+
+    // Lenis guarda el alto del documento para saber hasta dónde puede
+    // desplazarse. Si ese alto cambia y nadie se lo dice, topa el scroll
+    // en el valor viejo: la rueda deja de avanzar y sólo responde el
+    // teclado, que no pasa por acá. Observar el body lo mantiene al día
+    // cuando entran imágenes o terminan de cargar las tipografías.
+    const observer = new ResizeObserver(() => lenis.resize());
+    observer.observe(document.body);
 
     // Los saltos por ancla tienen que pasar por Lenis o se pelean con él.
     const onClick = (event: MouseEvent) => {
@@ -43,10 +56,34 @@ export function SmoothScroll() {
 
     return () => {
       document.removeEventListener("click", onClick);
+      observer.disconnect();
       cancelAnimationFrame(frame);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  // Al navegar entre páginas el documento cambia de alto sin que se
+  // recargue nada. Se recalcula después de que el navegador pintó la
+  // ruta nueva; antes de eso, el alto que mediría todavía es el anterior.
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+
+    let second = 0;
+    const first = requestAnimationFrame(() => {
+      second = requestAnimationFrame(() => {
+        lenis.resize();
+        // Una ruta nueva empieza arriba, salvo que apunte a una sección.
+        if (!window.location.hash) lenis.scrollTo(0, { immediate: true });
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(first);
+      cancelAnimationFrame(second);
+    };
+  }, [pathname]);
 
   return null;
 }
