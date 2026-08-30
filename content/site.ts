@@ -48,8 +48,8 @@ export const workSection = {
   eyebrow: { es: "Trabajo", en: "Work" } as L,
   title: { es: "Trabajo seleccionado", en: "Selected work" } as L,
   intro: {
-    es: "Tres están terminados y en línea. El primero corre en producción y lo está probando su primer cliente.",
-    en: "Three are finished and live. The first one runs in production and its first client is trialling it.",
+    es: "Cuatro están terminados y en línea. El primero corre en producción y lo está probando su primer cliente.",
+    en: "Four are finished and live. The first one runs in production and its first client is trialling it.",
   } as L,
 };
 
