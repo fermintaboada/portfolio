@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useLang } from "@/lib/i18n";
+import { useLang, type L } from "@/lib/i18n";
 import { caseLabels, nav } from "@/content/site";
-import type { Finding, Project, Shot } from "@/content/types";
+import type { Finding, Project, Shot, Step } from "@/content/types";
 import { Reveal, RevealGroup, RevealItem, ClipReveal } from "@/components/motion/Reveal";
 import { CountUp, StrikeOut } from "@/components/motion/Correction";
 
@@ -75,6 +75,49 @@ function Shots({ shots }: { shots: Shot[] }) {
             ))}
           </RevealGroup>
         )}
+      </div>
+    </section>
+  );
+}
+
+/**
+ * Una secuencia numerada. La numeración se gana: estos pasos ocurren
+ * en ese orden y el orden es parte de lo que se explica.
+ */
+function StepsSection({
+  eyebrow,
+  block,
+}: {
+  eyebrow: string;
+  block: { title: L; intro: L; steps: Step[] };
+}) {
+  const { t } = useLang();
+
+  return (
+    <section className="border-b border-rule py-16 md:py-20">
+      <div className="shell">
+        <SectionHead eyebrow={eyebrow} title={t(block.title)} />
+        <Reveal delay={0.05}>
+          <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-ink-2">{t(block.intro)}</p>
+        </Reveal>
+
+        <RevealGroup className="mt-12" stagger={0.06}>
+          {block.steps.map((step, index) => (
+            <RevealItem key={step.title.es}>
+              <div className="grid grid-cols-1 gap-x-8 gap-y-3 border-t border-rule py-7 sm:grid-cols-12">
+                <span className="label tnum sm:col-span-1">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-display text-[18px] font-semibold leading-snug text-ink sm:col-span-4">
+                  {t(step.title)}
+                </h3>
+                <p className="text-[15px] leading-relaxed text-ink-2 sm:col-span-7">
+                  {t(step.body)}
+                </p>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
       </div>
     </section>
   );
@@ -236,35 +279,11 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
       )}
 
       {/* ── Arquitectura: acá el orden sí es información ── */}
-      {project.flow && (
-        <section className="border-b border-rule py-16 md:py-20">
-          <div className="shell">
-            <SectionHead eyebrow={t(caseLabels.architecture)} title={t(project.flow.title)} />
-            <Reveal delay={0.05}>
-              <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-ink-2">
-                {t(project.flow.intro)}
-              </p>
-            </Reveal>
+      {project.flow && <StepsSection eyebrow={t(caseLabels.architecture)} block={project.flow} />}
 
-            <RevealGroup className="mt-12" stagger={0.06}>
-              {project.flow.steps.map((step, index) => (
-                <RevealItem key={step.title.es}>
-                  <div className="grid grid-cols-1 gap-x-8 gap-y-3 border-t border-rule py-7 sm:grid-cols-12">
-                    <span className="label tnum sm:col-span-1">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="font-display text-[18px] font-semibold leading-snug text-ink sm:col-span-4">
-                      {t(step.title)}
-                    </h3>
-                    <p className="text-[15px] leading-relaxed text-ink-2 sm:col-span-7">
-                      {t(step.body)}
-                    </p>
-                  </div>
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
-        </section>
+      {/* ── Cómo se verifica que hace lo que dice ── */}
+      {project.evaluation && (
+        <StepsSection eyebrow={t(caseLabels.evaluation)} block={project.evaluation} />
       )}
 
       {/* ── Hallazgos ── */}

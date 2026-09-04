@@ -71,6 +71,8 @@ export type Project = {
   shots?: Shot[];
   metrics?: Metric[];
   flow?: { title: L; intro: L; steps: Step[] };
+  /** Cómo se verifica que el sistema hace lo que dice hacer. */
+  evaluation?: { title: L; intro: L; steps: Step[] };
   stack?: StackGroup[];
   decisions?: Decision[];
   findings?: Finding[];

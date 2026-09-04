@@ -64,8 +64,15 @@ export const principles = {
     {
       title: { es: "El error se encuentra antes que el cliente", en: "Catch the error before the client does" } as L,
       body: {
-        es: "Cuatro bugs de datos en producción, cada uno confirmado leyendo la causa real contra la fuente en vivo antes de tocar código, y verificado después del fix. Ninguno fue un parche de síntoma.",
-        en: "Four production data bugs, each confirmed by reading the real cause against the live source before touching code, and verified again after the fix. None was a symptom patch.",
+        es: "Siete bugs de datos en producción, cada uno confirmado leyendo la causa real antes de tocar código y verificado después del fix. Tres los encontró un sistema de evaluación que construí para eso; ninguno fue un parche de síntoma.",
+        en: "Seven production data bugs, each confirmed by reading the real cause before touching code and verified again after the fix. Three were found by an evaluation system I built for that; none was a symptom patch.",
+      } as L,
+    },
+    {
+      title: { es: "Una IA sin evaluación es una apuesta", en: "An AI with no evaluation is a bet" } as L,
+      body: {
+        es: "Una respuesta plausible y una correcta se parecen demasiado. Construí un sistema de evaluación propio que corre casos diseñados contra el pipeline real y guarda la traza de cada uno, para poder auditar si la respuesta se fundamentó en datos o el modelo improvisó.",
+        en: "A plausible answer and a correct one look too much alike. I built my own evaluation system that runs designed cases against the real pipeline and stores a trace of each, so I can audit whether an answer was grounded in data or the model improvised.",
       } as L,
     },
     {
@@ -129,8 +136,8 @@ export const caseLabels = {
   decisions: { es: "Decisiones", en: "Decisions" } as L,
   findings: { es: "Hallazgos", en: "Findings" } as L,
   findingsIntro: {
-    es: "Bugs reales, verificados contra datos en vivo. Cada uno se confirmó leyendo la causa antes de tocar código.",
-    en: "Real bugs, verified against live data. Each one was confirmed by reading the cause before touching code.",
+    es: "Bugs reales. Cada uno se confirmó leyendo la causa antes de tocar código, y se verificó después del fix.",
+    en: "Real bugs. Each one was confirmed by reading the cause before touching code, and verified again after the fix.",
   } as L,
   showed: { es: "Mostraba", en: "Showed" } as L,
   was: { es: "Era", en: "Was" } as L,
@@ -141,6 +148,7 @@ export const caseLabels = {
   overview: { es: "Qué es", en: "What it is" } as L,
   shots: { es: "En pantalla", en: "On screen" } as L,
   architecture: { es: "Arquitectura", en: "Architecture" } as L,
+  evaluation: { es: "Evaluación", en: "Evaluation" } as L,
   engineering: { es: "Ingeniería", en: "Engineering" } as L,
   next: { es: "Siguiente proyecto", en: "Next project" } as L,
 };
