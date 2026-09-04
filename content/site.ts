@@ -109,6 +109,8 @@ export const contact = {
     es: "Si estás evaluando el perfil para una búsqueda, escribime y te paso acceso a la demo en vivo de Upscale Lab con datos de prueba.",
     en: "If you are evaluating this profile for a role, write to me and I will give you access to the live Upscale Lab demo with test data.",
   } as L,
+  cvLabel: { es: "Descargar CV", en: "Download CV" } as L,
+  cvHref: "/cv-fermin-taboada.pdf",
   /** Aclaración honesta: el proyecto más grande es más nuevo que el perfil público. */
   note: {
     es: "Upscale Lab lo terminé esta semana y todavía no figura en mi LinkedIn. El caso completo está acá.",

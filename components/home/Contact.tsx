@@ -61,7 +61,20 @@ export function Contact() {
           </a>
         </Reveal>
 
-        <Reveal delay={0.14} className="mt-12 flex flex-wrap gap-x-8 gap-y-4">
+        {/* El CV va aparte de los enlaces: es la acción que alguien
+            evaluando el perfil viene a buscar, no un destino más. */}
+        <Reveal delay={0.11} className="mt-10">
+          <a
+            href={contact.cvHref}
+            download
+            className="inline-flex items-center gap-2.5 rounded-sm border border-rule-strong bg-paper-raised px-5 py-3 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-[transform,border-color] duration-200 ease-[var(--ease-out)] hover:border-correction active:scale-[0.97]"
+          >
+            {t(contact.cvLabel)}
+            <span aria-hidden="true">↓</span>
+          </a>
+        </Reveal>
+
+        <Reveal delay={0.16} className="mt-12 flex flex-wrap gap-x-8 gap-y-4">
           {links.map((link) => (
             <DrawLink key={link.label} href={link.href}>
               {link.label}
