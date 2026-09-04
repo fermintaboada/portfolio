@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLang, type L } from "@/lib/i18n";
 import { caseLabels, nav } from "@/content/site";
-import type { Finding, Project, Shot, Step } from "@/content/types";
+import type { Check, Finding, Project, Shot, Step } from "@/content/types";
 import { Reveal, RevealGroup, RevealItem, ClipReveal } from "@/components/motion/Reveal";
 import { CountUp, StrikeOut } from "@/components/motion/Correction";
 
@@ -89,7 +89,12 @@ function StepsSection({
   block,
 }: {
   eyebrow: string;
-  block: { title: L; intro: L; steps: Step[] };
+  block: {
+    title: L;
+    intro: L;
+    steps: Step[];
+    checks?: { title: L; intro: L; items: Check[] };
+  };
 }) {
   const { t } = useLang();
 
@@ -118,8 +123,53 @@ function StepsSection({
             </RevealItem>
           ))}
         </RevealGroup>
+
+        {block.checks && <ChecksTable checks={block.checks} />}
       </div>
     </section>
+  );
+}
+
+/**
+ * Las clases de verificación. Va sin numerar a propósito: no son pasos
+ * de un proceso, son criterios independientes que corren en paralelo.
+ */
+function ChecksTable({
+  checks,
+}: {
+  checks: { title: L; intro: L; items: Check[] };
+}) {
+  const { t } = useLang();
+
+  return (
+    <div className="mt-20">
+      <Reveal>
+        <h3 className="font-display text-[22px] font-semibold leading-tight text-ink md:text-[26px]">
+          {t(checks.title)}
+        </h3>
+        <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-2">{t(checks.intro)}</p>
+      </Reveal>
+
+      <RevealGroup className="mt-10 border-t border-rule-strong" stagger={0.06}>
+        {checks.items.map((check) => (
+          <RevealItem key={check.kind.es}>
+            <div className="grid grid-cols-1 gap-x-8 gap-y-4 border-b border-rule py-7 md:grid-cols-12">
+              <h4 className="font-display text-[16px] font-semibold leading-snug text-ink md:col-span-3">
+                {t(check.kind)}
+              </h4>
+              <div className="md:col-span-5">
+                <span className="label">{t(caseLabels.ensures)}</span>
+                <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{t(check.ensures)}</p>
+              </div>
+              <div className="md:col-span-4">
+                <span className="label">{t(caseLabels.found)}</span>
+                <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{t(check.found)}</p>
+              </div>
+            </div>
+          </RevealItem>
+        ))}
+      </RevealGroup>
+    </div>
   );
 }
 

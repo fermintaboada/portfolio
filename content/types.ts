@@ -30,6 +30,19 @@ export type Step = {
   body: L;
 };
 
+/**
+ * Una clase de verificación. Lo que importa acá es el criterio,
+ * no el caso puntual: el caso ilustra, el criterio se reutiliza.
+ */
+export type Check = {
+  /** Cómo se llama esta verificación. */
+  kind: L;
+  /** Qué queda garantizado cuando pasa. */
+  ensures: L;
+  /** Qué apareció al correrla, o por qué importa que exista. */
+  found: L;
+};
+
 export type StackGroup = {
   label: L;
   items: string[];
@@ -72,7 +85,13 @@ export type Project = {
   metrics?: Metric[];
   flow?: { title: L; intro: L; steps: Step[] };
   /** Cómo se verifica que el sistema hace lo que dice hacer. */
-  evaluation?: { title: L; intro: L; steps: Step[] };
+  evaluation?: {
+    title: L;
+    intro: L;
+    steps: Step[];
+    /** Las clases de verificación: qué se prueba, qué garantiza y qué apareció. */
+    checks?: { title: L; intro: L; items: Check[] };
+  };
   stack?: StackGroup[];
   decisions?: Decision[];
   findings?: Finding[];

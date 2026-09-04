@@ -15,7 +15,7 @@ export const petotatts: Project = {
     en: "Design, development, copy and SEO — end to end",
   },
   domain: { es: "Sitio de autor · Cliente real", en: "Portfolio site · Real client" },
-  chips: ["Next.js", "Tailwind CSS", "JSON-LD", "next/image"],
+  chips: ["React · Next.js", "Tailwind CSS", "JSON-LD", "next/image"],
   liveUrl: "https://peto-tatts.vercel.app",
   thesis: {
     es: "Que el sitio tenga la misma estética que el trabajo que muestra.",
@@ -104,7 +104,7 @@ export const petotatts: Project = {
   stack: [
     {
       label: { es: "Framework", en: "Framework" },
-      items: ["Next.js (App Router)", "TypeScript", "next/image"],
+      items: ["React", "Next.js (App Router)", "TypeScript", "next/image"],
     },
     {
       label: { es: "Estilos", en: "Styling" },

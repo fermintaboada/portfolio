@@ -15,7 +15,7 @@ export const barrasNomades: Project = {
     en: "Design, development and technical SEO — end to end",
   },
   domain: { es: "Landing · Cliente real", en: "Landing page · Real client" },
-  chips: ["Next.js 16", "Tailwind v4", "next/og", "JSON-LD"],
+  chips: ["React · Next.js 16", "Tailwind v4", "next/og", "JSON-LD"],
   liveUrl: "https://barras-nomades.vercel.app",
   repoUrl: "https://github.com/fermintaboada/barras-nomades",
   thesis: {
@@ -158,7 +158,7 @@ export const barrasNomades: Project = {
   stack: [
     {
       label: { es: "Framework", en: "Framework" },
-      items: ["Next.js 16 (App Router)", "TypeScript", "React Server Components"],
+      items: ["React", "Next.js 16 (App Router)", "TypeScript", "React Server Components"],
     },
     {
       label: { es: "Estilos", en: "Styling" },

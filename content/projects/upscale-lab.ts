@@ -15,7 +15,7 @@ export const upscaleLab: Project = {
     en: "Design, development and infrastructure — end to end",
   },
   domain: { es: "SaaS · E-commerce · IA", en: "SaaS · E-commerce · AI" },
-  chips: ["Next.js", "Fastify", "PostgreSQL", "Claude + Gemini"],
+  chips: ["React · Next.js", "Fastify", "PostgreSQL", "Claude + Gemini"],
   liveUrl: "https://marketing-metrics-nine.vercel.app/",
   thesis: {
     es: "Que una PyME o un influencer pueda prescindir de contratar marketing digital.",
@@ -185,11 +185,78 @@ export const upscaleLab: Project = {
         },
       },
     ],
+    checks: {
+      title: {
+        es: "Cinco clases de verificación",
+        en: "Five classes of check",
+      },
+      intro: {
+        es: "Testear un sistema con un modelo de lenguaje adentro no se parece a testear una función: la misma entrada puede dar salidas distintas y ninguna tiene por qué estar mal. Estas son las cinco cosas que se verifican, y qué queda garantizado cuando cada una pasa.",
+        en: "Testing a system with a language model inside is not like testing a function: the same input can produce different outputs and none of them has to be wrong. These are the five things that get checked, and what each one guarantees when it passes.",
+      },
+      items: [
+        {
+          kind: { es: "Aislamiento entre clientes", en: "Cross-tenant isolation" },
+          ensures: {
+            es: "Que el contexto que se le manda al modelo para un cliente no contenga datos de otro, y que ninguna respuesta nombre productos ajenos.",
+            en: "That the context sent to the model for one client carries no data from another, and that no response ever names someone else's products.",
+          },
+          found: {
+            es: "Corre sin gastar una llamada al modelo, y se controla a sí misma: si el contexto de un cliente no trae ni sus propios productos, se reporta rota en vez de dar verde.",
+            en: "It runs without spending a model call, and it checks itself: if a client's context does not even carry their own products, it reports as broken instead of passing.",
+          },
+        },
+        {
+          kind: { es: "Trayectoria del agente", en: "Agent trajectory" },
+          ensures: {
+            es: "Que la respuesta se haya alcanzado por el camino correcto: qué herramientas se llamaron, con qué argumentos y en qué orden.",
+            en: "That the answer was reached the right way: which tools were called, with which arguments and in what order.",
+          },
+          found: {
+            es: "Es la que expuso que el agente trabajaba sobre un catálogo recortado: la respuesta sonaba razonable, el camino no lo era.",
+            en: "This is the one that exposed the agent working on a truncated catalogue: the answer sounded reasonable, the path was not.",
+          },
+        },
+        {
+          kind: { es: "Estabilidad ante repetición", en: "Stability under repetition" },
+          ensures: {
+            es: "Que el mismo pedido no cambie de resultado según la corrida. Cada caso se ejecuta tres veces y se compara.",
+            en: "That the same request does not change result from one run to the next. Each case is executed three times and compared.",
+          },
+          found: {
+            es: "Sin esto, una falla intermitente se lee como un caso aislado y se descarta. Así se midió que un pedido legítimo se rechazaba las tres veces.",
+            en: "Without this, an intermittent failure reads as a one-off and gets dismissed. This is how a legitimate request was measured being rejected all three times.",
+          },
+        },
+        {
+          kind: { es: "Regresión de costo", en: "Cost regression" },
+          ensures: {
+            es: "Que nada volátil se cuele en el bloque cacheado del prompt, que es lo que sostiene el precio por respuesta.",
+            en: "That nothing volatile slips into the cached block of the prompt, which is what holds the price per response down.",
+          },
+          found: {
+            es: "Es la clase de falla que no rompe nada: la aplicación anda igual, sólo sale más cara. Sin un test que la vigile, se descubre con la factura.",
+            en: "It is the class of failure that breaks nothing: the app works the same, it just costs more. Without a test watching it, you find out from the invoice.",
+          },
+        },
+        {
+          kind: { es: "Revisión humana anotada", en: "Annotated human review" },
+          ensures: {
+            es: "Que la respuesta sirva como consejo de negocio, no sólo que sea formalmente correcta. Es la única que no se automatiza.",
+            en: "That the answer works as business advice, not merely that it is formally correct. It is the only one that is not automated.",
+          },
+          found: {
+            es: "Un ranking puede estar bien calculado y ser un mal consejo: fue leyendo respuestas que apareció que confundía sin ventas con agotado.",
+            en: "A ranking can be correctly computed and still be bad advice: reading answers is what surfaced it confusing no sales with out of stock.",
+          },
+        },
+      ],
+    },
   },
   stack: [
     {
       label: { es: "Frontend", en: "Frontend" },
-      items: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "shadcn/ui", "TanStack Query", "Recharts"],
+      items: ["React", "Next.js (App Router)", "TypeScript", "Tailwind CSS", "shadcn/ui", "TanStack Query", "Recharts"],
     },
     {
       label: { es: "Backend", en: "Backend" },

@@ -149,6 +149,8 @@ export const caseLabels = {
   shots: { es: "En pantalla", en: "On screen" } as L,
   architecture: { es: "Arquitectura", en: "Architecture" } as L,
   evaluation: { es: "Evaluación", en: "Evaluation" } as L,
+  ensures: { es: "Qué garantiza", en: "What it guarantees" } as L,
+  found: { es: "Qué apareció", en: "What it surfaced" } as L,
   engineering: { es: "Ingeniería", en: "Engineering" } as L,
   next: { es: "Siguiente proyecto", en: "Next project" } as L,
 };
