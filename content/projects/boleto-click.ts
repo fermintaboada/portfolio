@@ -4,11 +4,11 @@ export const boletoClick: Project = {
   slug: "boleto-click",
   name: "Boleto Click",
   tagline: {
-    es: "Plataforma de venta de entradas construida por once desarrolladores repartidos por Latinoamérica. Trabajé el frontend y la autenticación, de la pantalla a la API.",
-    en: "Ticketing platform built by eleven developers spread across Latin America. I worked on the frontend and on authentication, from the screen to the API.",
+    es: "Plataforma de venta de entradas construida por diez desarrolladores repartidos por Latinoamérica. Trabajé el frontend y la autenticación, de la pantalla a la API.",
+    en: "Ticketing platform built by ten developers spread across Latin America. I worked on the frontend and on authentication, from the screen to the API.",
   },
   year: "2026",
-  kind: { es: "Equipo de 11", en: "Team of 11" },
+  kind: { es: "Equipo de 10", en: "Team of 10" },
   status: { es: "Finalizado", en: "Completed" },
   role: {
     es: "Frontend y autenticación — OAuth en NestJS, roles, checkout, mapas y sistema visual",
@@ -19,17 +19,17 @@ export const boletoClick: Project = {
   liveUrl: "https://boletoclick-front.vercel.app",
   repoUrl: "https://github.com/henrypf2026/boletoclick_front",
   thesis: {
-    es: "Comprar una entrada y recibir el QR sin fricción, sobre una base que once personas tocan al mismo tiempo.",
-    en: "Buying a ticket and getting the QR without friction, on a codebase eleven people touch at once.",
+    es: "Comprar una entrada y recibir el QR sin fricción, sobre una base que diez personas tocan al mismo tiempo.",
+    en: "Buying a ticket and getting the QR without friction, on a codebase ten people touch at once.",
   },
   overview: {
     es: [
       "Boleto Click vende entradas para recitales, partidos y shows: el comprador filtra la cartelera, elige zona, aplica cupones y recibe su entrada con código QR; el organizador administra sus eventos, tipos de boleto y ventas desde un panel propio. El backend es una API modular en NestJS con bloqueo temporal de stock para evitar sobreventa y webhooks de Stripe para conciliar las órdenes.",
-      "Fue un proyecto de equipo: once colaboradores en distintos países, coordinando por pull request contra una rama común. Mi trabajo estuvo del lado del frontend — veintiséis pull requests mergeados — y también en la autenticación de la API: el flujo de OAuth y la sesión se diseñaron de los dos lados a la vez, en NestJS y en el cliente.",
+      "Fue un proyecto de equipo: diez colaboradores en distintos países, coordinando por pull request contra una rama común. Mi trabajo estuvo del lado del frontend — veintiséis pull requests mergeados — y también en la autenticación de la API: el flujo de OAuth y la sesión se diseñaron de los dos lados a la vez, en NestJS y en el cliente.",
     ],
     en: [
       "Boleto Click sells tickets for concerts, matches and live shows: buyers filter the listings, pick a section, apply coupons and receive a QR ticket; organisers manage their events, ticket types and sales from their own dashboard. The backend is a modular NestJS API with temporary stock locking to prevent overselling and Stripe webhooks to reconcile orders.",
-      "It was a team project: eleven contributors across different countries, coordinating by pull request against a shared branch. My work was on the frontend — twenty-six pull requests merged — and also on the API's authentication: the OAuth flow and the session were designed from both sides at once, in NestJS and in the client.",
+      "It was a team project: ten contributors across different countries, coordinating by pull request against a shared branch. My work was on the frontend — twenty-six pull requests merged — and also on the API's authentication: the OAuth flow and the session were designed from both sides at once, in NestJS and in the client.",
     ],
   },
   shots: [
@@ -69,7 +69,7 @@ export const boletoClick: Project = {
   ],
   metrics: [
     {
-      value: "11",
+      value: "10",
       label: {
         es: "desarrolladores en el equipo",
         en: "developers on the team",
@@ -100,7 +100,7 @@ export const boletoClick: Project = {
         "Flujo de compra: resumen de orden, cupones de descuento y temporizador de reserva, contra el checkout de Stripe.",
         "Geolocalización y mapas con Mapbox GL para ubicar recintos, más el formulario de carga de venues del panel de organizador.",
         "Diseño de la landing pública y los patrones visuales de la aplicación: navbar y footer globales, modo oscuro con contraste corregido, y páginas legales.",
-        "Unificación de la estructura del repositorio: migración de la carpeta client/ a src/ para que once personas trabajaran sobre una convención sola en vez de dos.",
+        "Unificación de la estructura del repositorio: migración de la carpeta client/ a src/ para que diez personas trabajaran sobre una convención sola en vez de dos.",
       ],
       en: [
         "Authentication end to end: on the backend, in NestJS, the OAuth flow plus issuing and validating the session; on the frontend, role-based sign-up, Google login and password recovery. Designing both sides at once removed the usual back-and-forth between whoever exposes the endpoint and whoever consumes it.",
@@ -109,7 +109,7 @@ export const boletoClick: Project = {
         "Purchase flow: order summary, discount coupons and reservation timer, against Stripe checkout.",
         "Geolocation and maps with Mapbox GL to place venues, plus the venue creation form in the organiser dashboard.",
         "Design of the public landing page and the app's visual patterns: global navbar and footer, dark mode with corrected contrast, and legal pages.",
-        "Unifying the repository structure: migrating the client/ folder into src/ so eleven people worked against one convention instead of two.",
+        "Unifying the repository structure: migrating the client/ folder into src/ so ten people worked against one convention instead of two.",
       ],
     },
   },
@@ -143,8 +143,8 @@ export const boletoClick: Project = {
         en: "instead of letting client/ and src/ coexist",
       },
       body: {
-        es: "Con once personas trabajando en paralelo, dos estructuras de carpetas conviviendo garantizan conflictos e imports rotos. Migrar todo a src/ fue trabajo que no agrega ninguna función visible, y era la condición para que el resto avanzara sin pisarse.",
-        en: "With eleven people working in parallel, two coexisting folder structures guarantee conflicts and broken imports. Migrating everything to src/ added no visible feature, and it was the precondition for everyone else to move without colliding.",
+        es: "Con diez personas trabajando en paralelo, dos estructuras de carpetas conviviendo garantizan conflictos e imports rotos. Migrar todo a src/ fue trabajo que no agrega ninguna función visible, y era la condición para que el resto avanzara sin pisarse.",
+        en: "With ten people working in parallel, two coexisting folder structures guarantee conflicts and broken imports. Migrating everything to src/ added no visible feature, and it was the precondition for everyone else to move without colliding.",
       },
     },
   ],
@@ -167,7 +167,7 @@ export const boletoClick: Project = {
     },
   ],
   closing: {
-    es: "El desafío técnico más grande de este proyecto no fue ninguna feature: fue que once personas en distintos husos horarios pudieran mergear sobre la misma base sin romperse el trabajo. Buena parte de lo que hice —unificar la estructura, dejar la navegación derivada del rol, hacer que el OAuth ande igual en todos los entornos— existe por eso.",
-    en: "The biggest technical challenge here was not any single feature: it was letting eleven people in different time zones merge into the same codebase without breaking each other's work. A good part of what I did — unifying the structure, deriving navigation from the role, making OAuth behave identically across environments — exists for that reason.",
+    es: "El desafío técnico más grande de este proyecto no fue ninguna feature: fue que diez personas en distintos husos horarios pudieran mergear sobre la misma base sin romperse el trabajo. Buena parte de lo que hice —unificar la estructura, dejar la navegación derivada del rol, hacer que el OAuth ande igual en todos los entornos— existe por eso.",
+    en: "The biggest technical challenge here was not any single feature: it was letting ten people in different time zones merge into the same codebase without breaking each other's work. A good part of what I did — unifying the structure, deriving navigation from the role, making OAuth behave identically across environments — exists for that reason.",
   },
 };

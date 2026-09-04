@@ -234,6 +234,21 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
             <p className="mt-6 max-w-2xl text-[clamp(1.05rem,2vw,1.35rem)] leading-snug text-ink-2">
               {t(project.tagline)}
             </p>
+
+            {/* Con qué está hecho, arriba de todo: es lo primero que
+                busca quien evalúa el perfil, y no debería costar un scroll. */}
+            {project.chips.length > 0 && (
+              <ul className="mt-7 flex flex-wrap gap-x-2 gap-y-2">
+                {project.chips.map((chip) => (
+                  <li
+                    key={chip}
+                    className="rounded-sm border border-rule bg-paper-raised px-2.5 py-1 font-mono text-[11px] tracking-[0.06em] text-ink-2"
+                  >
+                    {chip}
+                  </li>
+                ))}
+              </ul>
+            )}
           </Reveal>
 
           <Reveal delay={0.1} className="mt-12">
@@ -328,12 +343,61 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
         </section>
       )}
 
+      {/* ── Stack ── */}
+      {project.stack && project.stack.length > 0 && (
+        <section className="border-b border-rule py-16">
+          <div className="shell">
+            <SectionHead eyebrow={t(caseLabels.stack)} />
+            <RevealGroup
+              className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-3 lg:grid-cols-6"
+              stagger={0.04}
+            >
+              {project.stack.map((group) => (
+                <RevealItem key={group.label.es}>
+                  <p className="label border-t border-rule pt-4">{t(group.label)}</p>
+                  <ul className="mt-3 space-y-1.5">
+                    {group.items.map((item) => (
+                      <li key={item} className="font-mono text-[13px] leading-snug text-ink-2">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
+
       {/* ── Arquitectura: acá el orden sí es información ── */}
       {project.flow && <StepsSection eyebrow={t(caseLabels.architecture)} block={project.flow} />}
 
       {/* ── Cómo se verifica que hace lo que dice ── */}
       {project.evaluation && (
         <StepsSection eyebrow={t(caseLabels.evaluation)} block={project.evaluation} />
+      )}
+
+      {/* ── Testing e integración continua ── */}
+      {project.engineering && (
+        <section className="border-b border-rule py-16 md:py-20">
+          <div className="shell grid grid-cols-1 gap-x-10 gap-y-8 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <SectionHead
+                eyebrow={t(caseLabels.engineering)}
+                title={t(project.engineering.title)}
+              />
+            </div>
+            <RevealGroup className="lg:col-span-8" stagger={0.05}>
+              {tl(project.engineering.items).map((item) => (
+                <RevealItem key={item.slice(0, 24)}>
+                  <p className="max-w-2xl border-t border-rule py-5 text-[15px] leading-relaxed text-ink-2">
+                    {item}
+                  </p>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
       )}
 
       {/* ── Hallazgos ── */}
@@ -376,55 +440,6 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
                       {t(decision.body)}
                     </p>
                   </div>
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
-        </section>
-      )}
-
-      {/* ── Stack ── */}
-      {project.stack && project.stack.length > 0 && (
-        <section className="border-b border-rule py-16">
-          <div className="shell">
-            <SectionHead eyebrow={t(caseLabels.stack)} />
-            <RevealGroup
-              className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-3 lg:grid-cols-6"
-              stagger={0.04}
-            >
-              {project.stack.map((group) => (
-                <RevealItem key={group.label.es}>
-                  <p className="label border-t border-rule pt-4">{t(group.label)}</p>
-                  <ul className="mt-3 space-y-1.5">
-                    {group.items.map((item) => (
-                      <li key={item} className="font-mono text-[13px] leading-snug text-ink-2">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
-        </section>
-      )}
-
-      {/* ── Testing e integración continua ── */}
-      {project.engineering && (
-        <section className="border-b border-rule py-16 md:py-20">
-          <div className="shell grid grid-cols-1 gap-x-10 gap-y-8 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <SectionHead
-                eyebrow={t(caseLabels.engineering)}
-                title={t(project.engineering.title)}
-              />
-            </div>
-            <RevealGroup className="lg:col-span-8" stagger={0.05}>
-              {tl(project.engineering.items).map((item) => (
-                <RevealItem key={item.slice(0, 24)}>
-                  <p className="max-w-2xl border-t border-rule py-5 text-[15px] leading-relaxed text-ink-2">
-                    {item}
-                  </p>
                 </RevealItem>
               ))}
             </RevealGroup>
