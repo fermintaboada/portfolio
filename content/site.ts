@@ -11,7 +11,7 @@ export const site = {
   github: "https://github.com/fermintaboada",
   linkedin: "https://www.linkedin.com/in/fermin-taboada-dev/",
   /** Dominio final del portafolio, para los metadatos de Open Graph. */
-  url: "https://portfolio-psi-topaz-41.vercel.app",
+  url: "https://fermin-taboada.vercel.app",
 };
 
 export const hero = {
