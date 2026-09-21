@@ -74,11 +74,12 @@ export const upscaleLab: Project = {
   ],
   metrics: [
     {
-      value: "24",
-      label: {
-        es: "casos de evaluación del agente",
-        en: "evaluation cases for the agent",
-      },
+      value: "7",
+      label: { es: "bugs de datos encontrados y verificados", en: "data bugs found and verified" },
+    },
+    {
+      value: "7.546",
+      label: { es: "pedidos históricos procesados", en: "historical orders processed" },
     },
     {
       value: "-40%",
@@ -88,12 +89,11 @@ export const upscaleLab: Project = {
       },
     },
     {
-      value: "7",
-      label: { es: "bugs de datos encontrados y verificados", en: "data bugs found and verified" },
-    },
-    {
-      value: "7.546",
-      label: { es: "pedidos históricos procesados", en: "historical orders processed" },
+      value: "24",
+      label: {
+        es: "casos de evaluación del agente",
+        en: "evaluation cases for the agent",
+      },
     },
   ],
   flow: {
@@ -161,31 +161,17 @@ export const upscaleLab: Project = {
         },
       },
       {
-        title: { es: "Se mide el camino, no sólo la respuesta", en: "The path is measured, not just the answer" },
-        body: {
-          es: "Ante «hacé una imagen de un modelo en tendencia, usá nuestra tipografía», la traza verifica cada eslabón: que haya consultado ventas para determinar la tendencia, que el producto exista, que la foto sea la real y que el prompt mencione la tipografía. Una respuesta linda por el camino equivocado sigue siendo un problema.",
-          en: "For \"make an image of a trending model, use our typeface\", the trace verifies every link: that it queried sales to determine the trend, that the product exists, that the photo is the real one, and that the prompt mentions the typeface. A nice answer reached the wrong way is still a problem.",
-        },
-      },
-      {
         title: { es: "Cada respuesta deja una traza auditable", en: "Every response leaves an auditable trace" },
         body: {
-          es: "Se guarda el prompt, qué herramientas se llamaron con qué argumentos, un recorte de lo que devolvieron, los tokens —incluidos los de caché— y la latencia. Nunca se muestra al cliente: existe para auditar si una respuesta se fundamentó en datos reales o el modelo improvisó.",
-          en: "It stores the prompt, which tools were called with which arguments, a slice of what they returned, the tokens — cached ones included — and the latency. Never shown to the client: it exists to audit whether an answer was grounded in real data or the model improvised.",
+          es: "Se guarda el prompt, qué herramientas se llamaron y qué devolvieron, nunca sólo la respuesta final. Ante «hacé una imagen de un modelo en tendencia», la traza deja ver si de verdad consultó ventas o el modelo lo inventó. Nunca se muestra al cliente: existe para auditar después.",
+          en: "It stores the prompt, which tools were called and what they returned, never just the final answer. For \"make an image of a trending model\", the trace shows whether it actually queried sales or the model made it up. Never shown to the client: it exists to audit afterwards.",
         },
       },
       {
-        title: { es: "Comparar dos corridas dice si el arreglo sirvió", en: "Comparing two runs says whether the fix worked" },
+        title: { es: "Comparar corridas y leer a mano", en: "Comparing runs and reading by hand" },
         body: {
-          es: "Un comparador muestra qué casos cambiaron de herramientas, costo o comportamiento entre una corrida y otra. Sin eso, «lo arreglé» es una impresión; con eso, es una diferencia legible caso por caso.",
-          en: "A comparator shows which cases changed tools, cost or behaviour between runs. Without it, \"I fixed it\" is an impression; with it, it is a difference readable case by case.",
-        },
-      },
-      {
-        title: { es: "Una interfaz para leer y anotar", en: "An interface to read and annotate" },
-        body: {
-          es: "Las corridas se revisan en una interfaz local donde cada respuesta se lee entera y se anota. Si una respuesta de negocio es buena no lo decide un score automático: hay que leerla.",
-          en: "Runs are reviewed in a local interface where each answer is read in full and annotated. Whether a business answer is any good is not decided by an automatic score: it has to be read.",
+          es: "Un comparador muestra qué casos cambiaron de herramientas, costo o comportamiento entre una corrida y otra — sin eso, «lo arreglé» es una impresión. Y las corridas se leen enteras en una interfaz local: si una respuesta de negocio es buena no lo decide un score automático.",
+          en: "A comparator shows which cases changed tools, cost or behaviour between runs — without it, \"I fixed it\" is an impression. And runs are read in full in a local interface: whether a business answer is any good is not decided by an automatic score.",
         },
       },
     ],
@@ -296,25 +282,14 @@ export const upscaleLab: Project = {
       },
     },
     {
-      title: { es: "Un chequeo que siempre da verde no vale nada", en: "A check that always passes is worth nothing" },
+      title: { es: "Se testea lo que falla en silencio", en: "Testing what fails silently" },
       instead: {
-        es: "en vez de confiar en que el detector detecta",
-        en: "instead of trusting that the detector detects",
+        es: "en vez de confiar en que nada se rompe",
+        en: "instead of trusting nothing breaks",
       },
       body: {
-        es: "La verificación de aislamiento entre clientes corre en dos capas: que el contexto que se le manda al modelo para un cliente no contenga datos de otro, y que las respuestas reales no nombren productos ajenos. Además incluye un control sobre sí misma: si el contexto de un cliente no contiene ni siquiera sus propios productos, avisa que el detector está roto en vez de reportar que no hay fugas.",
-        en: "The cross-tenant isolation check runs in two layers: that the context sent to the model for one client carries no data from another, and that real responses never name someone else's products. It also includes a control over itself: if a client's context does not even contain their own products, it reports the detector as broken rather than reporting no leaks.",
-      },
-    },
-    {
-      title: { es: "Testear lo que no rompe nada", en: "Testing what breaks nothing" },
-      instead: {
-        es: "en vez de enterarse por la factura",
-        en: "instead of finding out from the invoice",
-      },
-      body: {
-        es: "Hay un test que verifica que nada volátil se cuele en el bloque cacheado del prompt. Es la clase de regresión que no rompe nada: la aplicación sigue andando igual, sólo sale más cara. Sin un test que la vigile, se descubre cuando llega la cuenta a fin de mes.",
-        en: "There is a test that verifies nothing volatile slips into the cached block of the prompt. It is the kind of regression that breaks nothing: the app keeps working exactly the same, it just costs more. Without a test watching it, you find out when the bill arrives.",
+        es: "Dos ejemplos del mismo criterio. Uno: el detector de fugas entre clientes se controla a sí mismo — si el contexto de un cliente no trae ni sus propios productos, avisa que está roto en vez de reportar que no hay fugas. Otro: un test verifica que nada volátil se cuele en el bloque cacheado del prompt, la clase de regresión que no rompe nada — la app sigue andando, sólo sale más cara. Sin ese test, se entera por la factura a fin de mes.",
+        en: "Two examples of the same standard. One: the cross-tenant leak detector checks itself — if a client's context does not even carry their own products, it reports as broken instead of reporting no leaks. The other: a test verifies nothing volatile slips into the cached block of the prompt, the kind of regression that breaks nothing — the app keeps working, it just costs more. Without that test, you find out from the invoice.",
       },
     },
     {
@@ -466,20 +441,16 @@ export const upscaleLab: Project = {
     title: { es: "Testing e integración continua", en: "Testing and continuous integration" },
     items: {
       es: [
-        "18 archivos de test en el backend con Vitest: lógica de ventas, retención, análisis, ranking de productos, transformadores de datos externos, autenticación, webhooks y jobs programados.",
-        "Los tests de análisis usan datos sintéticos representativos, no casos triviales. El test de retención simula 14 clientes de relleno y 6 recompradores reales — eso fue lo que permitió confirmar el bug de agrupación por color antes de tocar producción.",
-        "Los webhooks tienen tests específicos de verificación de firma HMAC en los tres escenarios. No alcanza con que compile: la seguridad del endpoint está probada.",
-        "Los tests no pegan contra una Postgres real: usan una URL de base dummy que sólo satisface la validación de entorno. Eso obliga a que la lógica de negocio sea función pura que recibe datos, no que hace su propia query — la misma disciplina que después permitió testear retención con datos sintéticos. El trade-off está escrito como decisión en el repositorio, no es un descuido.",
-        "El módulo de IA no tenía ni un test, y era justamente donde estaban saliendo los bugs. Hoy está cubierto: es el lugar del sistema donde una falla es más difícil de ver a simple vista.",
-        "Reportes de error con Sentry para los 500 y para los fallos silenciosos del cron — la clase de error que, sin instrumentar, se descubre cuando el cliente pregunta por qué sus datos no se actualizan.",
+        "18 archivos de test en el backend con Vitest, incluidos los webhooks con verificación de firma HMAC en los tres escenarios: no alcanza con que compile, la seguridad del endpoint está probada.",
+        "Los tests de análisis usan datos sintéticos representativos, no casos triviales. El de retención simula 14 clientes de relleno y 6 recompradores reales — eso fue lo que permitió confirmar el bug de agrupación por color antes de tocar producción.",
+        "Los tests no pegan contra una Postgres real: usan una URL de base dummy que sólo satisface la validación de entorno. Eso obliga a que la lógica de negocio sea función pura que recibe datos, no que hace su propia query. El trade-off está escrito como decisión en el repositorio, no es un descuido.",
+        "El módulo de IA no tenía ni un test, y era justamente donde estaban saliendo los bugs — hoy está cubierto. Sentry reporta los 500 y los fallos silenciosos del cron: la clase de error que, sin instrumentar, se descubre cuando el cliente pregunta por qué sus datos no se actualizan.",
       ],
       en: [
-        "18 backend test files with Vitest: sales logic, retention, analysis, product ranking, external data transformers, authentication, webhooks and scheduled jobs.",
-        "Analysis tests use representative synthetic data, not trivial cases. The retention test simulates 14 filler customers and 6 real repeat buyers — that is what confirmed the colour-grouping bug before it reached production.",
-        "Webhooks have dedicated HMAC signature tests across all three scenarios. Compiling is not enough: the endpoint security is tested.",
-        "Tests do not hit a real Postgres: they use a dummy database URL that only satisfies environment validation. That forces business logic to be pure functions receiving data rather than issuing their own queries — the same discipline that later made synthetic-data retention tests possible. The trade-off is written down as a decision in the repo, not an oversight.",
-        "The AI module had no tests at all, and it was exactly where the bugs were coming from. It is covered now: it is the part of the system where a failure is hardest to spot by eye.",
-        "Error reporting with Sentry for 500s and for silent cron failures — the kind of error that, uninstrumented, gets discovered when the client asks why their data stopped updating.",
+        "18 backend test files with Vitest, including webhooks with dedicated HMAC signature tests across all three scenarios: compiling is not enough, the endpoint security is tested.",
+        "Analysis tests use representative synthetic data, not trivial cases. The retention one simulates 14 filler customers and 6 real repeat buyers — that is what confirmed the colour-grouping bug before it reached production.",
+        "Tests do not hit a real Postgres: they use a dummy database URL that only satisfies environment validation. That forces business logic to be pure functions receiving data rather than issuing their own queries. The trade-off is written down as a decision in the repo, not an oversight.",
+        "The AI module had no tests at all, and it was exactly where the bugs were coming from — it is covered now. Sentry reports 500s and silent cron failures: the kind of error that, uninstrumented, gets discovered when the client asks why their data stopped updating.",
       ],
     },
   },

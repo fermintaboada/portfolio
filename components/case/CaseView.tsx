@@ -374,34 +374,6 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
       {/* ── Arquitectura: acá el orden sí es información ── */}
       {project.flow && <StepsSection eyebrow={t(caseLabels.architecture)} block={project.flow} />}
 
-      {/* ── Cómo se verifica que hace lo que dice ── */}
-      {project.evaluation && (
-        <StepsSection eyebrow={t(caseLabels.evaluation)} block={project.evaluation} />
-      )}
-
-      {/* ── Testing e integración continua ── */}
-      {project.engineering && (
-        <section className="border-b border-rule py-16 md:py-20">
-          <div className="shell grid grid-cols-1 gap-x-10 gap-y-8 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <SectionHead
-                eyebrow={t(caseLabels.engineering)}
-                title={t(project.engineering.title)}
-              />
-            </div>
-            <RevealGroup className="lg:col-span-8" stagger={0.05}>
-              {tl(project.engineering.items).map((item) => (
-                <RevealItem key={item.slice(0, 24)}>
-                  <p className="max-w-2xl border-t border-rule py-5 text-[15px] leading-relaxed text-ink-2">
-                    {item}
-                  </p>
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
-        </section>
-      )}
-
       {/* ── Hallazgos ── */}
       {project.findings && project.findings.length > 0 && (
         <section className="border-b border-rule py-16 md:py-20">
@@ -442,6 +414,34 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
                       {t(decision.body)}
                     </p>
                   </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
+
+      {/* ── Cómo se verifica que hace lo que dice ── */}
+      {project.evaluation && (
+        <StepsSection eyebrow={t(caseLabels.evaluation)} block={project.evaluation} />
+      )}
+
+      {/* ── Testing e integración continua ── */}
+      {project.engineering && (
+        <section className="border-b border-rule py-16 md:py-20">
+          <div className="shell grid grid-cols-1 gap-x-10 gap-y-8 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <SectionHead
+                eyebrow={t(caseLabels.engineering)}
+                title={t(project.engineering.title)}
+              />
+            </div>
+            <RevealGroup className="lg:col-span-8" stagger={0.05}>
+              {tl(project.engineering.items).map((item) => (
+                <RevealItem key={item.slice(0, 24)}>
+                  <p className="max-w-2xl border-t border-rule py-5 text-[15px] leading-relaxed text-ink-2">
+                    {item}
+                  </p>
                 </RevealItem>
               ))}
             </RevealGroup>
