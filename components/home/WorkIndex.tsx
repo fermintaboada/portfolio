@@ -12,8 +12,14 @@ import { SectionHead } from "@/components/ui/SectionHead";
 
 /**
  * La captura real, apilada como un mazo de pantallas. Sólo la de
- * adelante es nítida: las de atrás son la misma imagen, desenfocada,
+ * adelante es nítida: las de atrás son el mismo marco vacío, corrido,
  * y sugieren que hay más pantallas detrás de la que se ve.
+ *
+ * Las capas de atrás son sólo contorno (sin relleno): un relleno con
+ * el color de fondo de la sección desaparece contra ese mismo fondo
+ * en modo oscuro, donde papel/papel-hundido/papel-elevado son casi
+ * el mismo tono. El borde sí tiene contraste garantizado en los dos
+ * temas, porque para eso existe --rule-strong.
  */
 function ProjectMockup({ project }: { project: Project }) {
   const shot = project.shots?.[0];
@@ -21,17 +27,19 @@ function ProjectMockup({ project }: { project: Project }) {
 
   return (
     <div className="relative">
-      {/* Las dos capas de atrás: mismo recorte, corridas y difuminadas. */}
+      {/* Las dos capas de atrás: mismo marco, corrido. El relleno es un
+          tinte de tinta, no un color de fondo — eso es lo que garantiza
+          contraste contra el papel en los dos temas. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 translate-x-3 translate-y-3 rotate-1 rounded-sm border border-rule bg-paper-sunken opacity-40 blur-[1px]"
+        className="absolute inset-0 translate-x-5 translate-y-5 rounded-sm border-2 border-rule-strong bg-ink/[0.05]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 translate-x-1.5 translate-y-1.5 rotate-[0.5deg] rounded-sm border border-rule bg-paper-raised opacity-70"
+        className="absolute inset-0 translate-x-2.5 translate-y-2.5 rounded-sm border-2 border-rule-strong bg-paper"
       />
 
-      <div className="relative overflow-hidden rounded-sm border border-rule bg-paper-raised shadow-[0_18px_36px_-24px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-[var(--ease-out)] group-hover:-translate-y-1">
+      <div className="relative overflow-hidden rounded-sm border border-rule bg-paper-raised shadow-[0_18px_36px_-24px_rgba(0,0,0,0.45)] transition-transform duration-300 ease-[var(--ease-out)] group-hover:-translate-y-1">
         {/* Barra de ventana: ancla la captura como producto, no como imagen suelta. */}
         <div className="flex items-center gap-1.5 border-b border-rule bg-paper-sunken px-3 py-2">
           <span className="h-2 w-2 rounded-full bg-rule-strong" />
