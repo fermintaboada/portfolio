@@ -1,89 +1,125 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLang } from "@/lib/i18n";
 import { workSection } from "@/content/site";
 import { publishedProjects } from "@/content/projects";
+import type { Project } from "@/content/types";
+import { TechIcon } from "@/components/ui/TechIcon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { SectionHead } from "@/components/ui/SectionHead";
 
 /**
- * Índice de trabajo, no galería de tarjetas.
- * Cada proyecto es una entrada del registro: año, nombre, qué es, con qué.
- * El hover no decora: revela el bloque completo como una ficha abierta.
+ * La captura real, apilada como un mazo de pantallas. Sólo la de
+ * adelante es nítida: las de atrás son la misma imagen, desenfocada,
+ * y sugieren que hay más pantallas detrás de la que se ve.
  */
+function ProjectMockup({ project }: { project: Project }) {
+  const shot = project.shots?.[0];
+  if (!shot) return null;
+
+  return (
+    <div className="relative">
+      {/* Las dos capas de atrás: mismo recorte, corridas y difuminadas. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 translate-x-3 translate-y-3 rotate-1 rounded-sm border border-rule bg-paper-sunken opacity-40 blur-[1px]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 translate-x-1.5 translate-y-1.5 rotate-[0.5deg] rounded-sm border border-rule bg-paper-raised opacity-70"
+      />
+
+      <div className="relative overflow-hidden rounded-sm border border-rule bg-paper-raised shadow-[0_18px_36px_-24px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-[var(--ease-out)] group-hover:-translate-y-1">
+        {/* Barra de ventana: ancla la captura como producto, no como imagen suelta. */}
+        <div className="flex items-center gap-1.5 border-b border-rule bg-paper-sunken px-3 py-2">
+          <span className="h-2 w-2 rounded-full bg-rule-strong" />
+          <span className="h-2 w-2 rounded-full bg-rule-strong" />
+          <span className="h-2 w-2 rounded-full bg-rule-strong" />
+        </div>
+        <Image
+          src={shot.src}
+          alt=""
+          aria-hidden="true"
+          width={1800}
+          height={1125}
+          sizes="(max-width: 1024px) 90vw, 520px"
+          className="block w-full"
+        />
+      </div>
+    </div>
+  );
+}
+
+function ProjectRow({ index, project }: { index: number; project: Project }) {
+  const { t } = useLang();
+
+  return (
+    <Link
+      href={`/proyectos/${project.slug}`}
+      className="group grid grid-cols-1 gap-x-10 gap-y-8 border-t border-rule py-12 first:border-t-0 md:grid-cols-12 md:items-center md:py-16"
+    >
+      <div className="md:col-span-6 md:order-1">
+        <span className="tnum font-mono text-[13px] text-correction">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h3 className="font-display-tight mt-2 text-[clamp(1.8rem,4vw,2.6rem)] font-bold leading-[0.98] text-ink">
+          {project.name}
+        </h3>
+        <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-2">
+          {t(project.tagline)}
+        </p>
+
+        <ul className="mt-5 flex flex-wrap gap-2">
+          {project.chips.map((chip) => (
+            <li
+              key={chip.slug}
+              className="flex items-center gap-1.5 rounded-sm border border-rule bg-paper-raised px-2 py-1"
+            >
+              <TechIcon slug={chip.slug} className="h-[12px] w-[12px] shrink-0" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.06em] text-ink-2">
+                {chip.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <span className="mt-6 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] text-ink-2 transition-colors duration-200 group-hover:text-correction">
+          {t(workSection.caseLabel)}
+          <span
+            aria-hidden="true"
+            className="inline-block transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-x-1"
+          >
+            →
+          </span>
+        </span>
+      </div>
+
+      <div className="md:col-span-6 md:order-2">
+        <ProjectMockup project={project} />
+      </div>
+    </Link>
+  );
+}
+
 export function WorkIndex() {
   const { t } = useLang();
 
   return (
-    <section id="trabajo" className="scroll-mt-24 border-t border-rule py-20 md:py-28">
+    <section id="proyectos" className="scroll-mt-24 border-t border-rule py-20 md:py-28">
       <div className="shell">
-        <Reveal className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
-          <div>
-            <p className="label">{t(workSection.eyebrow)}</p>
-            <h2 className="font-display-tight mt-3 text-[clamp(1.9rem,3.6vw,2.9rem)] font-bold leading-tight text-ink">
-              {t(workSection.title)}
-            </h2>
-          </div>
-          <p className="max-w-sm text-[15px] leading-relaxed text-ink-2">
-            {t(workSection.intro)}
-          </p>
-        </Reveal>
+        <SectionHead
+          number="03"
+          eyebrow={t(workSection.eyebrow)}
+          title={t(workSection.title)}
+          lede={t(workSection.intro)}
+        />
 
-        <RevealGroup className="mt-12 border-t border-rule" stagger={0.07}>
-          {publishedProjects.map((project) => (
+        <RevealGroup className="mt-4" stagger={0.08}>
+          {publishedProjects.map((project, index) => (
             <RevealItem key={project.slug}>
-              <Link
-                href={`/proyectos/${project.slug}`}
-                className="group relative block border-b border-rule py-7 transition-transform duration-200 ease-[var(--ease-out)] active:scale-[0.995] sm:py-8"
-              >
-                {/* El fondo se descubre de izquierda a derecha, como si se
-                    corriera una ficha del fichero. */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-[-1.25rem] inset-y-0 -z-10 rounded-sm bg-paper-raised transition-[clip-path] duration-[420ms] ease-[var(--ease-out)] [clip-path:inset(0_100%_0_0)] group-hover:[clip-path:inset(0_0_0_0)]"
-                />
-
-                <div className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-12 md:items-baseline">
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 md:col-span-2 md:block">
-                    <span className="label tnum">{project.year}</span>
-                    <span className="label md:mt-2.5 md:block">{t(project.kind)}</span>
-                    <span className="label text-correction md:hidden">
-                      {t(project.status)}
-                    </span>
-                  </div>
-
-                  <div className="md:col-span-6">
-                    <h3 className="font-display text-[clamp(1.6rem,3vw,2.15rem)] font-semibold leading-none text-ink">
-                      {project.name}
-                    </h3>
-                    <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-ink-2">
-                      {t(project.tagline)}
-                    </p>
-                  </div>
-
-                  <div className="md:col-span-3">
-                    <p className="label hidden text-correction md:block">
-                      {t(project.status)}
-                    </p>
-                    <ul className="mt-0 flex flex-wrap gap-x-3 gap-y-1 md:mt-3">
-                      {project.chips.map((chip) => (
-                        <li key={chip} className="font-mono text-[12px] text-ink-3">
-                          {chip}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="hidden justify-end md:col-span-1 md:flex">
-                    <span
-                      aria-hidden="true"
-                      className="font-mono text-lg text-ink-3 transition-[transform,color] duration-300 ease-[var(--ease-out)] group-hover:translate-x-1 group-hover:text-correction"
-                    >
-                      →
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              <ProjectRow index={index} project={project} />
             </RevealItem>
           ))}
         </RevealGroup>
