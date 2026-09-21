@@ -83,10 +83,10 @@ function SectionPills() {
             key={item.id}
             href={`#${item.id}`}
             className={cn(
-              "group flex items-center gap-2.5 rounded-full border px-4 py-2.5 transition-[background-color,border-color,transform] duration-200 ease-[var(--ease-out)] active:scale-[0.98]",
+              "group flex items-center gap-2.5 rounded-full border px-4 py-2.5 transition-[background-color,border-color,transform,box-shadow] duration-300 ease-[var(--ease-out)] active:scale-[0.98]",
               isActive
                 ? "border-correction bg-correction text-paper"
-                : "border-rule bg-paper-raised text-ink hover:border-rule-strong",
+                : "border-rule bg-paper-raised text-ink hover:translate-x-1 hover:border-correction hover:shadow-[0_10px_28px_-8px_rgba(195,53,43,0.35)]",
             )}
           >
             <span

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import { useLang } from "@/lib/i18n";
 import { useTheme } from "./Theme";
 import { useActiveSection } from "@/lib/useActiveSection";
@@ -23,6 +24,7 @@ export const SECTIONS = [
 ] as const;
 
 const SECTION_IDS = SECTIONS.map((s) => s.id);
+const EASE_OUT = [0.23, 1, 0.32, 1] as const;
 
 /**
  * Selector de idioma con indicador recortado: en vez de cruzar dos colores
@@ -136,31 +138,41 @@ function SectionNav({ compact }: { compact: boolean }) {
   if (compact) return null;
 
   return (
-    <nav className="mr-1 hidden items-center gap-0.5 md:flex">
-      {SECTIONS.map((item) => (
-        <a
-          key={item.id}
-          href={`#${item.id}`}
-          className="group flex items-center gap-1.5 rounded-full px-2.5 py-1.5 transition-colors duration-200"
-        >
-          <span
-            className={cn(
-              "tnum font-mono text-[11px] transition-colors duration-200",
-              active === item.id ? "text-correction" : "text-ink-3 group-hover:text-ink-2",
-            )}
+    <nav className="relative mr-1 hidden items-center gap-0.5 md:flex">
+      {SECTIONS.map((item) => {
+        const isActive = active === item.id;
+        return (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className="group relative z-10 flex items-center gap-1.5 rounded-full px-2.5 py-1.5 transition-colors duration-200"
           >
-            {item.num}
-          </span>
-          <span
-            className={cn(
-              "font-mono text-[11px] uppercase tracking-[0.1em] transition-colors duration-200",
-              active === item.id ? "text-ink" : "text-ink-3 group-hover:text-ink-2",
+            {isActive && (
+              <motion.span
+                layoutId="nav-active-pill"
+                className="absolute inset-0 -z-10 rounded-full bg-paper-sunken"
+                transition={{ duration: 0.4, ease: EASE_OUT }}
+              />
             )}
-          >
-            {t(item.label)}
-          </span>
-        </a>
-      ))}
+            <span
+              className={cn(
+                "tnum font-mono text-[11px] transition-colors duration-200",
+                isActive ? "text-correction" : "text-ink-3 group-hover:text-ink-2",
+              )}
+            >
+              {item.num}
+            </span>
+            <span
+              className={cn(
+                "font-mono text-[11px] uppercase tracking-[0.1em] transition-colors duration-200",
+                isActive ? "text-ink" : "text-ink-3 group-hover:text-ink-2",
+              )}
+            >
+              {t(item.label)}
+            </span>
+          </a>
+        );
+      })}
     </nav>
   );
 }
