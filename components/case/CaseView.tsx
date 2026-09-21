@@ -319,9 +319,6 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
         </div>
       </section>
 
-      {/* ── Capturas del producto real ── */}
-      {project.shots && project.shots.length > 0 && <Shots shots={project.shots} />}
-
       {/* ── Números del proyecto ── */}
       {project.metrics && project.metrics.length > 0 && (
         <section className="border-b border-rule py-14">
@@ -344,6 +341,31 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
           </div>
         </section>
       )}
+
+      {/* ── Hallazgos ── */}
+      {project.findings && project.findings.length > 0 && (
+        <section className="border-b border-rule py-16 md:py-20">
+          <div className="shell">
+            <SectionHead eyebrow={t(caseLabels.findings)} />
+            <Reveal delay={0.05}>
+              <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-ink-2">
+                {t(caseLabels.findingsIntro)}
+              </p>
+            </Reveal>
+            <div className="mt-12">
+              {project.findings.map((finding) => (
+                <FindingBlock key={finding.id} finding={finding} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Capturas del producto real ── */}
+      {project.shots && project.shots.length > 0 && <Shots shots={project.shots} />}
+
+      {/* ── Arquitectura: acá el orden sí es información ── */}
+      {project.flow && <StepsSection eyebrow={t(caseLabels.architecture)} block={project.flow} />}
 
       {/* ── Stack ── */}
       {project.stack && project.stack.length > 0 && (
@@ -371,26 +393,15 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
         </section>
       )}
 
-      {/* ── Arquitectura: acá el orden sí es información ── */}
-      {project.flow && <StepsSection eyebrow={t(caseLabels.architecture)} block={project.flow} />}
-
-      {/* ── Hallazgos ── */}
-      {project.findings && project.findings.length > 0 && (
-        <section className="border-b border-rule py-16 md:py-20">
-          <div className="shell">
-            <SectionHead eyebrow={t(caseLabels.findings)} />
-            <Reveal delay={0.05}>
-              <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-ink-2">
-                {t(caseLabels.findingsIntro)}
-              </p>
-            </Reveal>
-            <div className="mt-12">
-              {project.findings.map((finding) => (
-                <FindingBlock key={finding.id} finding={finding} />
-              ))}
-            </div>
+      {/* ── El quiebre: acá termina el resumen y empieza el detalle ── */}
+      {(project.decisions?.length || project.evaluation || project.engineering) && (
+        <div className="shell">
+          <div className="flex items-center gap-4 py-10 md:py-14">
+            <span className="h-px flex-1 bg-rule" />
+            <p className="label max-w-xs shrink-0 text-center">{t(caseLabels.moreDivider)}</p>
+            <span className="h-px flex-1 bg-rule" />
           </div>
-        </section>
+        </div>
       )}
 
       {/* ── Decisiones ── */}

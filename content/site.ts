@@ -111,6 +111,10 @@ export const caseLabels = {
   found: { es: "Qué apareció", en: "What it surfaced" } as L,
   engineering: { es: "Ingeniería", en: "Engineering" } as L,
   next: { es: "Siguiente proyecto", en: "Next project" } as L,
+  moreDivider: {
+    es: "Lo de arriba es el resumen. Lo que sigue es el criterio completo.",
+    en: "That was the summary. What follows is the full reasoning.",
+  } as L,
 };
 
 export const footerNote: LL = {
