@@ -217,13 +217,14 @@ export const now = {
   /** Fecha de la última vez que se revisó este texto. */
   updated: "2026-09-21",
   updatedLabel: { es: "Actualizado", en: "Updated" } as L,
-  /** PENDIENTE: reemplazar con el tema que definas. */
   body: {
     es: [
-      "PENDIENTE — acá va el texto que definas.",
+      "Turno. — una plataforma SaaS multiempresa para reservar turnos profesionales y espacios deportivos: de peluquerías a canchas de pádel. Next.js, NestJS y PostgreSQL en un monorepo, con un motor de disponibilidad que resuelve asignación, cancelación y reprogramación, y aislamiento de datos entre empresas a nivel de base.",
+      "La arquitectura ya separa la conversación de las reglas de negocio: cuando llegue el agente conversacional, la disponibilidad y la confirmación van a seguir bajo control del backend, no del modelo — el mismo criterio que sostiene el resto de este portafolio. Hoy hay 45 tests automatizados y chequeo de tipos; el agente es la etapa que sigue.",
     ],
     en: [
-      "PENDING — the text you define goes here.",
+      "Turno. — a multi-tenant SaaS platform for booking professional and sports appointments: from hair salons to padel courts. Next.js, NestJS and PostgreSQL in a monorepo, with an availability engine that handles assignment, cancellation and rescheduling, and data isolation between businesses at the database level.",
+      "The architecture already separates conversation from business rules: once the conversational agent arrives, availability and confirmation will stay under the backend's control, not the model's — the same standard that runs through the rest of this portfolio. Today there are 45 automated tests and type checking; the agent is the next stage.",
     ],
   },
   activityLabel: { es: "Actividad reciente", en: "Recent activity" } as L,
