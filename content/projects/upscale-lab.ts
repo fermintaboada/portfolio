@@ -15,7 +15,13 @@ export const upscaleLab: Project = {
     en: "Design, development and infrastructure — end to end",
   },
   domain: { es: "SaaS · E-commerce · IA", en: "SaaS · E-commerce · AI" },
-  chips: ["React · Next.js", "Fastify", "PostgreSQL", "Claude + Gemini"],
+  chips: [
+    { name: "React", slug: "react" },
+    { name: "Next.js", slug: "nextdotjs" },
+    { name: "Fastify", slug: "fastify" },
+    { name: "PostgreSQL", slug: "postgresql" },
+    { name: "Claude", slug: "anthropic" },
+  ],
   liveUrl: "https://marketing-metrics-nine.vercel.app/",
   thesis: {
     es: "Que una PyME o un influencer pueda prescindir de contratar marketing digital.",

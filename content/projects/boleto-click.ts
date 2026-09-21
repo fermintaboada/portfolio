@@ -15,7 +15,12 @@ export const boletoClick: Project = {
     en: "Frontend and authentication — OAuth in NestJS, roles, checkout, maps and design system",
   },
   domain: { es: "Ticketing · Equipo distribuido", en: "Ticketing · Distributed team" },
-  chips: ["React · Next.js", "NestJS", "OAuth", "Mapbox"],
+  chips: [
+    { name: "React", slug: "react" },
+    { name: "Next.js", slug: "nextdotjs" },
+    { name: "NestJS", slug: "nestjs" },
+    { name: "Mapbox", slug: "mapbox" },
+  ],
   liveUrl: "https://boletoclick-front.vercel.app",
   repoUrl: "https://github.com/henrypf2026/boletoclick_front",
   thesis: {

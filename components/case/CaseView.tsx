@@ -7,6 +7,7 @@ import { caseLabels, nav } from "@/content/site";
 import type { Check, Finding, Project, Shot, Step } from "@/content/types";
 import { Reveal, RevealGroup, RevealItem, ClipReveal } from "@/components/motion/Reveal";
 import { CountUp, StrikeOut } from "@/components/motion/Correction";
+import { TechIcon } from "@/components/ui/TechIcon";
 
 function SectionHead({ eyebrow, title }: { eyebrow: string; title?: string }) {
   return (
@@ -241,10 +242,11 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
               <ul className="mt-7 flex flex-wrap gap-x-2 gap-y-2">
                 {project.chips.map((chip) => (
                   <li
-                    key={chip}
-                    className="rounded-sm border border-rule bg-paper-raised px-2.5 py-1 font-mono text-[11px] tracking-[0.06em] text-ink-2"
+                    key={chip.slug}
+                    className="flex items-center gap-1.5 rounded-sm border border-rule bg-paper-raised px-2.5 py-1"
                   >
-                    {chip}
+                    <TechIcon slug={chip.slug} className="h-[13px] w-[13px] shrink-0" />
+                    <span className="font-mono text-[11px] tracking-[0.06em] text-ink-2">{chip.name}</span>
                   </li>
                 ))}
               </ul>

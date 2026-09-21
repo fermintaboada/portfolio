@@ -15,7 +15,12 @@ export const petotatts: Project = {
     en: "Design, development, copy and SEO — end to end",
   },
   domain: { es: "Sitio de autor · Cliente real", en: "Portfolio site · Real client" },
-  chips: ["React · Next.js", "Tailwind CSS", "JSON-LD", "next/image"],
+  chips: [
+    { name: "React", slug: "react" },
+    { name: "Next.js", slug: "nextdotjs" },
+    { name: "Tailwind CSS", slug: "tailwindcss" },
+    { name: "Vercel", slug: "vercel" },
+  ],
   liveUrl: "https://peto-tatts.vercel.app",
   thesis: {
     es: "Que el sitio tenga la misma estética que el trabajo que muestra.",

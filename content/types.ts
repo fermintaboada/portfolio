@@ -73,8 +73,8 @@ export type Project = {
   role: L;
   /** Rubro del cliente o del producto. */
   domain: L;
-  /** Stack resumido para la lista del home: 4 items como máximo. */
-  chips: string[];
+  /** Stack resumido para la lista del home, con su logo. 4-5 como máximo. */
+  chips: { name: string; slug: string }[];
   liveUrl?: string;
   repoUrl?: string;
   /** La tesis del proyecto: qué problema real resuelve. */

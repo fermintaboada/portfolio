@@ -15,7 +15,12 @@ export const qGolf: Project = {
     en: "Full-stack — API, database, frontend and deploy",
   },
   domain: { es: "Reservas · Full-stack", en: "Booking · Full-stack" },
-  chips: ["React", "Express", "TypeORM", "PostgreSQL"],
+  chips: [
+    { name: "React", slug: "react" },
+    { name: "Express", slug: "express" },
+    { name: "TypeORM", slug: "typeorm" },
+    { name: "PostgreSQL", slug: "postgresql" },
+  ],
   liveUrl: "https://appointment-scheduling-system-lime.vercel.app",
   repoUrl: "https://github.com/fermintaboada/appointment-scheduling-system",
   thesis: {
