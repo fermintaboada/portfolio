@@ -26,16 +26,16 @@ export const hero = {
   /** El hallazgo que abre la página. Es real: está documentado en el caso de Upscale Lab. */
   proof: {
     caption: {
-      es: "Un panel en producción informaba los seguidores de Instagram de un cliente:",
-      en: "A production dashboard was reporting a client Instagram followers:",
+      es: "El asistente de un cliente respondía preguntas sobre su catálogo completo de productos. En el contexto que recibía, el catálogo tenía:",
+      en: "A client's AI assistant answered questions about their entire product catalogue. In the context it received, the catalogue had:",
     } as L,
-    wrong: "42",
-    right: "103.286",
+    wrong: "25",
+    right: "197",
     note: {
-      es: "La API devolvía el cambio del día, no el total. Encontrado, verificado contra la cuenta real y corregido antes de que el cliente lo notara.",
-      en: "The API was returning the daily change, not the total. Found, verified against the live account and fixed before the client noticed.",
+      es: "El contexto le pasaba sólo los productos sincronizados más recientemente, como si fueran el catálogo completo. Ante un producto real y con stock, el asistente le decía al cliente que no existía — lo encontraron los evals, no una lectura de código.",
+      en: "The context passed only the most recently synced products, as if they were the whole catalogue. Asked about a real, in-stock product, the assistant told the client it did not exist — caught by the evals, not by reading code.",
     } as L,
-    href: "/proyectos/upscale-lab#instagram-followers",
+    href: "/proyectos/upscale-lab#catalogo-parcial",
     linkLabel: { es: "Ver el caso completo", en: "Read the full case" } as L,
   },
 };
