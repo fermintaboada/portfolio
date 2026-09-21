@@ -14,8 +14,11 @@ export type Role = {
   title: L;
   org: L;
   body: L;
-  chips?: string[];
+  chips?: Tech[];
 };
+
+/** Una tecnología con su logo. El slug es el de simple-icons. */
+export type Tech = { name: string; slug: string };
 
 export const profile = {
   eyebrow: { es: "Perfil", en: "Profile" } as L,
@@ -56,7 +59,13 @@ export const profile = {
         es: "Plataformas web de punta a punta para clientes reales: base de datos, API, integraciones, despliegue y soporte. Dos de los sitios que hice están en producción y son los que sus dueños comparten cuando les piden presupuesto.",
         en: "End-to-end web platforms for real clients: database, API, integrations, deployment and support. Two of the sites I built are in production and are what their owners share when someone asks for a quote.",
       } as L,
-      chips: ["Next.js", "Fastify", "PostgreSQL", "Claude", "Vercel"],
+      chips: [
+        { name: "Next.js", slug: "nextdotjs" },
+        { name: "Fastify", slug: "fastify" },
+        { name: "PostgreSQL", slug: "postgresql" },
+        { name: "Claude", slug: "anthropic" },
+        { name: "Vercel", slug: "vercel" },
+      ],
     },
     {
       period: "2019 — hoy",
@@ -103,8 +112,6 @@ export const profile = {
   ] as Role[],
 };
 
-/** Una tecnología del stack. El slug es el de simple-icons. */
-export type Tech = { name: string; slug: string };
 
 export const stack = {
   eyebrow: { es: "Stack", en: "Stack" } as L,
