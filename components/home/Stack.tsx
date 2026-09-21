@@ -3,7 +3,7 @@
 import { useLang } from "@/lib/i18n";
 import { stack } from "@/content/profile";
 import { TechIcon } from "@/components/ui/TechIcon";
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
 
 /** Una tecnología: logo con su color de marca y el nombre al lado. */
@@ -29,15 +29,11 @@ export function Stack() {
             <Reveal key={group.label.es}>
               <div className="grid grid-cols-1 gap-x-8 gap-y-3 border-t border-rule pt-6 md:grid-cols-12">
                 <p className="label md:col-span-2">{t(group.label)}</p>
-                <RevealGroup className="contents" stagger={0.03}>
-                  <ul className="flex flex-wrap gap-2 md:col-span-10">
-                    {group.items.map((tech) => (
-                      <RevealItem key={tech.slug} distance={6}>
-                        <Pill name={tech.name} slug={tech.slug} />
-                      </RevealItem>
-                    ))}
-                  </ul>
-                </RevealGroup>
+                <ul className="flex flex-wrap gap-2 md:col-span-10">
+                  {group.items.map((tech) => (
+                    <Pill key={tech.slug} name={tech.name} slug={tech.slug} />
+                  ))}
+                </ul>
               </div>
             </Reveal>
           ))}
