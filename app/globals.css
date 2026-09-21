@@ -10,14 +10,19 @@
    No son decoración: en los hallazgos, el color ES el dato.
    ───────────────────────────────────────────────────────────── */
 :root {
-  --paper:        #edeff1;
-  --paper-raised: #f7f8f9;
-  --paper-sunken: #e2e6e9;
-  --ink:          #14181d;
-  --ink-2:        #4c5560;
-  --ink-3:        #79838e;
-  --rule:         #d2d7dc;
-  --rule-strong:  #b9c1c8;
+  /* Papel técnico, pero papel de verdad: tibio, no un blanco de
+     pantalla. El azul-gris frío original leía como plano y crudo —
+     esta versión tira a hueso/piedra clara, con más distancia tonal
+     entre las tres capas para que una tarjeta se sienta apoyada sobre
+     el fondo en vez de flotar blanca encima. */
+  --paper:        #eeece4;
+  --paper-raised: #f5f3eb;
+  --paper-sunken: #e1ddce;
+  --ink:          #1c1a15;
+  --ink-2:        #55503e;
+  --ink-3:        #837b67;
+  --rule:         #ddd6c6;
+  --rule-strong:  #c3bba7;
   --correction:   #c3352b;
   --verified:     #1d6b52;
   --highlight:    rgba(195, 53, 43, 0.10);
