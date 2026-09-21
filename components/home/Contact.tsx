@@ -3,7 +3,7 @@
 import { useLang } from "@/lib/i18n";
 import { contact, site } from "@/content/site";
 import { TechIcon } from "@/components/ui/TechIcon";
-import { MailIcon, LinkedInMark, WhatsAppMark, ArrowUpRightIcon, DownloadIcon } from "@/components/ui/Icons";
+import { MailIcon, LinkedInMark, ArrowUpRightIcon, DownloadIcon } from "@/components/ui/Icons";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
 
@@ -51,7 +51,7 @@ export function Contact() {
     },
     site.whatsapp
       ? {
-          icon: <WhatsAppMark className="h-[14px] w-[14px]" />,
+          icon: <TechIcon slug="whatsapp" className="h-[14px] w-[14px]" />,
           label: "WhatsApp",
           value: "+54 9 11 2233-9430",
           href: site.whatsapp,

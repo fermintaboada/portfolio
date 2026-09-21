@@ -77,15 +77,3 @@ export function MoonIcon({ className }: { className?: string }) {
   );
 }
 
-/** Insignia de WhatsApp: el paquete de logos no trae la marca, se resuelve con el mismo lenguaje que LinkedIn. */
-export function WhatsAppMark({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 20 20" className={className} aria-hidden="true" focusable="false">
-      <circle cx="10" cy="10" r="9" fill="#25D366" />
-      <path
-        fill="#fff"
-        d="M10.02 4.4a5.58 5.58 0 0 0-4.77 8.46l-.62 2.74 2.82-.6a5.58 5.58 0 1 0 2.57-10.6Zm3.28 7.94c-.14.38-.8.72-1.1.76-.28.04-.64.06-1.03-.07a9 9 0 0 1-1.11-.41 6.9 6.9 0 0 1-2.6-2.3c-.27-.37-.55-.8-.63-1.28-.07-.44.05-.72.18-.9.11-.15.25-.25.36-.34.1-.08.18-.14.24-.24.07-.1.1-.19.05-.34-.05-.15-.44-1.06-.6-1.44-.15-.37-.31-.32-.43-.32h-.36c-.13 0-.33.05-.5.24-.17.19-.65.63-.65 1.55 0 .91.67 1.79.76 1.92.09.12 1.32 2.13 3.28 2.9.46.19.81.3 1.09.38.46.14.87.12 1.2.07.36-.05 1.13-.46 1.29-.9.16-.44.16-.82.11-.9-.05-.08-.17-.13-.35-.22Z"
-      />
-    </svg>
-  );
-}

@@ -115,27 +115,33 @@ export function Now() {
       <div className="shell">
         <SectionHead number="04" eyebrow={t(now.eyebrow)} title={t(now.title)} />
 
-        <Reveal delay={0.06} className="mt-10 max-w-2xl">
-          <div className="rounded-sm border border-rule bg-paper-raised p-7">
-            <div className="flex items-center gap-2">
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-1.5 rounded-full bg-verified motion-safe:animate-pulse"
-              />
-              <p className="label">
-                {t(now.updatedLabel)} · {fecha}
-              </p>
-            </div>
+        <Reveal delay={0.06} className="mt-10">
+          <div className="rounded-sm border border-rule bg-paper-raised p-7 md:p-9">
+            <div className="grid grid-cols-1 gap-x-10 gap-y-6 lg:grid-cols-12">
+              <div className="lg:col-span-4">
+                <div className="flex items-center gap-2">
+                  <span
+                    aria-hidden="true"
+                    className="h-1.5 w-1.5 rounded-full bg-verified motion-safe:animate-pulse"
+                  />
+                  <p className="label">
+                    {t(now.updatedLabel)} · {fecha}
+                  </p>
+                </div>
+              </div>
 
-            <div className="mt-5 space-y-4">
-              {tl(now.body).map((paragraph) => (
-                <p key={paragraph.slice(0, 24)} className="text-[15px] leading-relaxed text-ink-2">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+              <div className="lg:col-span-8">
+                <div className="space-y-4">
+                  {tl(now.body).map((paragraph) => (
+                    <p key={paragraph.slice(0, 24)} className="max-w-2xl text-[15px] leading-relaxed text-ink-2">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
 
-            <ActivityFeed />
+                <ActivityFeed />
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>
