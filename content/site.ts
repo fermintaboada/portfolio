@@ -23,10 +23,6 @@ export const hero = {
     es: "Cada número que muestra un sistema mío tiene que poder rastrearse hasta una query verificable.",
     en: "Every number a system of mine displays has to trace back to a verifiable query.",
   } as L,
-  lede: {
-    es: "Construyo productos completos — frontend, backend, base de datos, deploy — y me ocupo de que sigan siendo ciertos cuando entran datos reales de un cliente real.",
-    en: "I build complete products — frontend, backend, database, deploy — and I make sure they stay true once real data from a real client comes in.",
-  } as L,
   /** El hallazgo que abre la página. Es real: está documentado en el caso de Upscale Lab. */
   proof: {
     caption: {
@@ -54,52 +50,6 @@ export const workSection = {
   caseLabel: { es: "Ver caso completo", en: "View full case" } as L,
 };
 
-export const principles = {
-  eyebrow: { es: "Criterios", en: "How I work" } as L,
-  title: { es: "Decisiones, no reflejos", en: "Decisions, not reflexes" } as L,
-  intro: {
-    es: "Cada una de estas fue una elección frente a una alternativa más fácil, y quedó escrita como tal en el repositorio.",
-    en: "Each of these was a choice against an easier alternative, and it was written down as such in the repo.",
-  } as L,
-  items: [
-    {
-      title: { es: "El error se encuentra antes que el cliente", en: "Catch the error before the client does" } as L,
-      body: {
-        es: "Siete bugs de datos en producción, cada uno confirmado leyendo la causa real antes de tocar código y verificado después del fix. Tres los encontró un sistema de evaluación que construí para eso; ninguno fue un parche de síntoma.",
-        en: "Seven production data bugs, each confirmed by reading the real cause before touching code and verified again after the fix. Three were found by an evaluation system I built for that; none was a symptom patch.",
-      } as L,
-    },
-    {
-      title: { es: "Una IA sin evaluación es una apuesta", en: "An AI with no evaluation is a bet" } as L,
-      body: {
-        es: "Una respuesta plausible y una correcta se parecen demasiado. Construí un sistema de evaluación propio que corre casos diseñados contra el pipeline real y guarda la traza de cada uno, para poder auditar si la respuesta se fundamentó en datos o el modelo improvisó.",
-        en: "A plausible answer and a correct one look too much alike. I built my own evaluation system that runs designed cases against the real pipeline and stores a trace of each, so I can audit whether an answer was grounded in data or the model improvised.",
-      } as L,
-    },
-    {
-      title: { es: "Determinístico donde hay que contar", en: "Deterministic where counting happens" } as L,
-      body: {
-        es: "Un modelo de lenguaje no cuenta: interpreta. El código calcula los números verificables y la IA razona sobre esas señales ya cerradas, con la regla explícita de decir que no sabe antes que inventar.",
-        en: "A language model does not count: it interprets. Code computes the verifiable numbers and the AI reasons over those closed signals, under an explicit rule to say it does not know rather than invent.",
-      } as L,
-    },
-    {
-      title: { es: "Sin infraestructura anticipada", en: "No premature infrastructure" } as L,
-      body: {
-        es: "Nada de colas ni cachés distribuidas antes de necesitarlas. Cuando descarto una pieza, dejo escrito el gatillo concreto que obliga a reevaluarla.",
-        en: "No queues or distributed caches before they are needed. When I rule a piece out, I write down the concrete trigger that forces a rethink.",
-      } as L,
-    },
-    {
-      title: { es: "El trade-off se escribe", en: "The trade-off gets written down" } as L,
-      body: {
-        es: "Los tests no pegan contra una base real y eso está documentado como decisión, con su consecuencia de diseño: la lógica de negocio tiene que ser función pura. Un atajo sin explicar es deuda; explicado, es una restricción de diseño.",
-        en: "Tests do not hit a real database, and that is documented as a decision with its design consequence: business logic has to be a pure function. An unexplained shortcut is debt; an explained one is a design constraint.",
-      } as L,
-    },
-  ],
-};
-
 export const contact = {
   eyebrow: { es: "Contacto", en: "Contact" } as L,
   title: {
@@ -121,7 +71,6 @@ export const contact = {
 
 export const nav = {
   work: { es: "Trabajo", en: "Work" } as L,
-  principles: { es: "Criterios", en: "How I work" } as L,
   contact: { es: "Contacto", en: "Contact" } as L,
   home: { es: "Inicio", en: "Home" } as L,
   profile: { es: "Perfil", en: "Profile" } as L,

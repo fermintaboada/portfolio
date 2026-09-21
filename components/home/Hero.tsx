@@ -3,10 +3,16 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { useLang } from "@/lib/i18n";
-import { hero, caseLabels } from "@/content/site";
+import { hero, caseLabels, contact, site } from "@/content/site";
 import { CountUp, StrikeOut } from "@/components/motion/Correction";
+import { TechIcon } from "@/components/ui/TechIcon";
+import { MailIcon, LinkedInMark, DownloadIcon, ArrowUpRightIcon } from "@/components/ui/Icons";
+import { SECTIONS } from "@/components/chrome/Header";
+import { useActiveSection } from "@/lib/useActiveSection";
+import { cn } from "@/lib/utils";
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const;
+const SECTION_IDS = SECTIONS.map((s) => s.id);
 
 /** Entrada orquestada al cargar: cada pieza sale de la anterior. */
 function enter(delay: number, reduced: boolean | null) {
@@ -17,12 +23,102 @@ function enter(delay: number, reduced: boolean | null) {
   };
 }
 
+/** Fila superior: cómo contactar sin bajar, y el CV. */
+function TopActions() {
+  const { t } = useLang();
+  const items = [
+    { href: `mailto:${site.email}`, label: "Email", icon: <MailIcon className="h-[15px] w-[15px] text-ink-2" /> },
+    site.github
+      ? { href: site.github, label: "GitHub", icon: <TechIcon slug="github" className="h-[15px] w-[15px]" /> }
+      : null,
+    site.linkedin
+      ? { href: site.linkedin, label: "LinkedIn", icon: <LinkedInMark className="h-[15px] w-[15px]" /> }
+      : null,
+  ].filter(Boolean) as { href: string; label: string; icon: React.ReactNode }[];
+
+  return (
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+      <div className="flex items-center gap-2">
+        {items.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            target={item.href.startsWith("http") ? "_blank" : undefined}
+            rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+            aria-label={item.label}
+            title={item.label}
+            className="grid h-8 w-8 place-items-center rounded-full border border-rule bg-paper-raised transition-[transform,border-color] duration-150 ease-[var(--ease-out)] hover:border-rule-strong active:scale-[0.94]"
+          >
+            {item.icon}
+          </a>
+        ))}
+      </div>
+      <a
+        href={contact.cvHref}
+        download
+        className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-2 transition-colors duration-200 hover:text-ink"
+      >
+        <DownloadIcon className="h-[13px] w-[13px]" />
+        {t(contact.cvLabel)}
+      </a>
+    </div>
+  );
+}
+
+/**
+ * El menú grande: seis píldoras, la misma numeración que el header
+ * condensado. El color marca dónde está parado el visitante — el
+ * mismo criterio de todo el sitio, aplicado a su elemento más grande.
+ */
+function SectionPills() {
+  const { t } = useLang();
+  const active = useActiveSection(SECTION_IDS);
+
+  return (
+    <nav aria-label={t({ es: "Secciones", en: "Sections" })} className="flex flex-col items-start gap-2">
+      {SECTIONS.map((item) => {
+        const isActive = active === item.id;
+        return (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={cn(
+              "group flex items-center gap-2.5 rounded-full border px-4 py-2.5 transition-[background-color,border-color,transform] duration-200 ease-[var(--ease-out)] active:scale-[0.98]",
+              isActive
+                ? "border-correction bg-correction text-paper"
+                : "border-rule bg-paper-raised text-ink hover:border-rule-strong",
+            )}
+          >
+            <span
+              className={cn(
+                "tnum font-mono text-[11px]",
+                isActive ? "text-paper/70" : "text-ink-3",
+              )}
+            >
+              {item.num}
+            </span>
+            <span className="font-display text-[15px] font-semibold leading-none">
+              {t(item.label)}
+            </span>
+            <ArrowUpRightIcon
+              className={cn(
+                "h-3 w-3 transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+                isActive ? "text-paper/70" : "text-ink-3",
+              )}
+            />
+          </a>
+        );
+      })}
+    </nav>
+  );
+}
+
 export function Hero() {
   const { t } = useLang();
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-clip pb-24 pt-32 md:pb-32 md:pt-40">
+    <section id="inicio" className="relative overflow-clip pb-24 pt-32 md:pb-32 md:pt-40">
       {/* Retícula de plano: la superficie sobre la que se anota. */}
       <div
         aria-hidden="true"
@@ -38,23 +134,27 @@ export function Hero() {
 
       <div className="shell grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
-          <motion.p className="label" {...enter(0, reduced)}>
-            {t(hero.eyebrow)}
-          </motion.p>
+          <motion.div {...enter(0, reduced)}>
+            <TopActions />
+          </motion.div>
 
           <motion.h1
-            className="font-display-tight mt-6 text-[clamp(2.35rem,5.6vw,4.4rem)] font-bold leading-[0.96] text-ink"
-            {...enter(0.09, reduced)}
+            className="font-display-tight mt-8 text-[clamp(2.6rem,7.5vw,5.5rem)] font-bold leading-[0.94] text-ink"
+            {...enter(0.08, reduced)}
           >
-            {t(hero.headline)}
+            {site.name}
           </motion.h1>
 
           <motion.p
-            className="mt-7 max-w-xl text-[17px] leading-relaxed text-ink-2"
-            {...enter(0.2, reduced)}
+            className="mt-5 max-w-lg text-[17px] leading-relaxed text-ink-2"
+            {...enter(0.15, reduced)}
           >
-            {t(hero.lede)}
+            {t(hero.headline)}
           </motion.p>
+
+          <motion.div className="mt-10" {...enter(0.24, reduced)}>
+            <SectionPills />
+          </motion.div>
         </div>
 
         {/* La ficha: el gesto que define la página. */}
