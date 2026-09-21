@@ -8,6 +8,7 @@ import type { Check, Finding, Project, Shot, Step } from "@/content/types";
 import { Reveal, RevealGroup, RevealItem, ClipReveal } from "@/components/motion/Reveal";
 import { CountUp, StrikeOut } from "@/components/motion/Correction";
 import { TechIcon } from "@/components/ui/TechIcon";
+import { ArrowUpRightIcon } from "@/components/ui/Icons";
 
 function SectionHead({ eyebrow, title }: { eyebrow: string; title?: string }) {
   return (
@@ -269,15 +270,16 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
             </dl>
 
             {(project.liveUrl || project.repoUrl) && (
-              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+              <div className="mt-8 flex flex-wrap gap-4">
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-mono text-[12px] uppercase tracking-[0.12em] text-correction hover:underline"
+                    className="group inline-flex items-center gap-2.5 rounded-full bg-correction px-6 py-3.5 font-mono text-[12px] uppercase tracking-[0.12em] text-paper shadow-[0_14px_32px_-12px_rgba(195,53,43,0.55)] transition-[transform,box-shadow] duration-200 ease-[var(--ease-out)] hover:-translate-y-0.5 hover:shadow-[0_18px_38px_-12px_rgba(195,53,43,0.65)] active:scale-[0.98]"
                   >
-                    {t(caseLabels.live)} ↗
+                    {t(caseLabels.live)}
+                    <ArrowUpRightIcon className="h-3.5 w-3.5 transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 )}
                 {project.repoUrl && (
@@ -285,9 +287,10 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
                     href={project.repoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-mono text-[12px] uppercase tracking-[0.12em] text-ink-2 hover:text-ink"
+                    className="group inline-flex items-center gap-2.5 rounded-full border border-rule-strong bg-paper-raised px-6 py-3.5 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-[transform,border-color] duration-200 ease-[var(--ease-out)] hover:border-correction active:scale-[0.98]"
                   >
-                    {t(caseLabels.repo)} ↗
+                    {t(caseLabels.repo)}
+                    <ArrowUpRightIcon className="h-3.5 w-3.5 text-ink-3 transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 )}
               </div>

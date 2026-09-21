@@ -10,6 +10,8 @@ export const site = {
   email: "fermintaboada10@gmail.com",
   github: "https://github.com/fermintaboada",
   linkedin: "https://www.linkedin.com/in/fermintaboada-dev/",
+  /** Formato wa.me: 54 (Argentina) + 9 (celular) + código de área + número. */
+  whatsapp: "https://wa.me/5491122339430",
   /** Dominio final del portafolio, para los metadatos de Open Graph. */
   url: "https://fermin-taboada.vercel.app",
 };

@@ -6,7 +6,7 @@ import { useLang } from "@/lib/i18n";
 import { hero, caseLabels, contact, site } from "@/content/site";
 import { CountUp, StrikeOut } from "@/components/motion/Correction";
 import { TechIcon } from "@/components/ui/TechIcon";
-import { MailIcon, LinkedInMark, DownloadIcon, ArrowUpRightIcon } from "@/components/ui/Icons";
+import { MailIcon, LinkedInMark, WhatsAppMark, DownloadIcon, ArrowUpRightIcon } from "@/components/ui/Icons";
 import { SECTIONS } from "@/components/chrome/Header";
 import { useActiveSection } from "@/lib/useActiveSection";
 import { cn } from "@/lib/utils";
@@ -28,6 +28,9 @@ function TopActions() {
   const { t } = useLang();
   const items = [
     { href: `mailto:${site.email}`, label: "Email", icon: <MailIcon className="h-[15px] w-[15px] text-ink-2" /> },
+    site.whatsapp
+      ? { href: site.whatsapp, label: "WhatsApp", icon: <WhatsAppMark className="h-[15px] w-[15px]" /> }
+      : null,
     site.github
       ? { href: site.github, label: "GitHub", icon: <TechIcon slug="github" className="h-[15px] w-[15px]" /> }
       : null,

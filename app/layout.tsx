@@ -4,6 +4,7 @@ import "./globals.css";
 import { LangProvider } from "@/lib/i18n";
 import { ThemeProvider, themeScript } from "@/components/chrome/Theme";
 import { SmoothScroll } from "@/components/chrome/SmoothScroll";
+import { FloatingControls } from "@/components/chrome/FloatingControls";
 import { site } from "@/content/site";
 
 const bricolage = Bricolage_Grotesque({
@@ -67,6 +68,7 @@ export default function RootLayout({
             <SmoothScroll />
             {children}
             {modal}
+            <FloatingControls />
           </LangProvider>
         </ThemeProvider>
       </body>
