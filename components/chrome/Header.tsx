@@ -168,21 +168,33 @@ function SectionNav({ compact }: { compact: boolean }) {
 export function Header({ compact = false }: { compact?: boolean }) {
   const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
+  // En el home, la portada ya trae su propio menú grande de píldoras:
+  // un segundo nav arriba, encima de eso, es ruido. Se mantiene fuera
+  // de la vista hasta que el visitante pasa la portada y ese menú deja
+  // de estar a mano. En un caso (compact) no hay ese menú propio, así
+  // que el header siempre está — es la única forma de volver al índice.
+  const [pastHero, setPastHero] = useState(compact);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      if (!compact) setPastHero(window.scrollY > 520);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [compact]);
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ease-[var(--ease-out)]",
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter,transform,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
         scrolled
           ? "border-b border-rule bg-paper/85 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
+        pastHero
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none -translate-y-4 opacity-0",
       )}
     >
       <div className="shell flex h-14 items-center justify-between gap-4">

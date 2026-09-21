@@ -80,6 +80,7 @@ export const nav = {
   projects: { es: "Proyectos", en: "Projects" } as L,
   menu: { es: "Secciones", en: "Sections" } as L,
   back: { es: "Volver al índice", en: "Back to index" } as L,
+  close: { es: "Cerrar", en: "Close" } as L,
   theme: { es: "Cambiar tema", en: "Toggle theme" } as L,
   language: { es: "Cambiar idioma", en: "Toggle language" } as L,
 };

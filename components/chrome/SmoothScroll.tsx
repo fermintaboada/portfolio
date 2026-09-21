@@ -4,6 +4,13 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
+declare global {
+  interface Window {
+    /** Señal de una sola lectura: la deja ProjectModal antes de cerrar. */
+    __preserveScrollOnBack?: boolean;
+  }
+}
+
 /**
  * Scroll suavizado. Es el soporte de toda la página: los revelados
  * se leen mejor cuando el desplazamiento tiene inercia.
@@ -69,6 +76,23 @@ export function SmoothScroll() {
   useEffect(() => {
     const lenis = lenisRef.current;
     if (!lenis) return;
+
+    // /proyectos/[slug] se abre como modal interceptado sobre el home:
+    // el home sigue montado debajo y su scroll no debe tocarse. La
+    // página real (navegación directa, sin interceptar) ya arranca en
+    // 0 por ser una carga nueva, así que saltear el reset acá no le
+    // hace falta.
+    if (pathname.startsWith("/proyectos/")) return;
+
+    // La cruz del modal vuelve a "/" con router.back(): mismo destino
+    // que "volver al índice" desde la página real, pero ahí sí hay que
+    // preservar el scroll del home que quedó montado debajo. La señal
+    // la deja el modal antes de volver — sin ella, el reset de abajo
+    // corre como siempre.
+    if (window.__preserveScrollOnBack) {
+      window.__preserveScrollOnBack = false;
+      return;
+    }
 
     let second = 0;
     const first = requestAnimationFrame(() => {

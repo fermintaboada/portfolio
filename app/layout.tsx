@@ -42,7 +42,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+  modal,
+}: LayoutProps<"/"> & { modal: React.ReactNode }) {
   return (
     <html
       lang="es"
@@ -63,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <LangProvider>
             <SmoothScroll />
             {children}
+            {modal}
           </LangProvider>
         </ThemeProvider>
       </body>
