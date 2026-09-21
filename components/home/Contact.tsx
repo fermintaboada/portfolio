@@ -104,7 +104,7 @@ export function Contact() {
                 evaluando el perfil viene a buscar. */}
             <Reveal delay={0.1} className="mt-8">
               <a
-                href={contact.cvHref}
+                href={t(contact.cvHref)}
                 download
                 className="inline-flex items-center gap-2.5 rounded-sm border border-rule-strong bg-paper-raised px-5 py-3 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-[transform,border-color] duration-200 ease-[var(--ease-out)] hover:border-correction active:scale-[0.97]"
               >

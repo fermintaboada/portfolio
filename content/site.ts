@@ -9,7 +9,7 @@ export const site = {
   /** Aparece en el pie y en los metadatos. Cambiar si preferís no exponer el mail. */
   email: "fermintaboada10@gmail.com",
   github: "https://github.com/fermintaboada",
-  linkedin: "https://www.linkedin.com/in/fermin-taboada-dev/",
+  linkedin: "https://www.linkedin.com/in/fermintaboada-dev/",
   /** Dominio final del portafolio, para los metadatos de Open Graph. */
   url: "https://fermin-taboada.vercel.app",
 };
@@ -61,7 +61,8 @@ export const contact = {
     en: "If you are evaluating this profile for a role, write to me and I will give you access to the live Upscale Lab demo with test data.",
   } as L,
   cvLabel: { es: "Descargar CV", en: "Download CV" } as L,
-  cvHref: "/cv-fermin-taboada.pdf",
+  /** Un archivo por idioma: el botón sirve el que corresponde al activo. */
+  cvHref: { es: "/cv-es.pdf", en: "/cv-en.pdf" } as L,
   /** Aclaración honesta: el proyecto más grande es más nuevo que el perfil público. */
   note: {
     es: "Upscale Lab lo terminé esta semana y todavía no figura en mi LinkedIn. El caso completo está acá.",

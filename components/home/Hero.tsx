@@ -54,7 +54,7 @@ function TopActions() {
         ))}
       </div>
       <a
-        href={contact.cvHref}
+        href={t(contact.cvHref)}
         download
         className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-2 transition-colors duration-200 hover:text-ink"
       >
