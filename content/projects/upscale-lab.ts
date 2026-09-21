@@ -336,27 +336,6 @@ export const upscaleLab: Project = {
       },
     },
     {
-      id: "agotado-vs-sin-ventas",
-      headline: {
-        es: "No distinguía «no se vendió» de «estaba agotado».",
-        en: "It could not tell \"did not sell\" from \"was out of stock\".",
-      },
-      wrong: "liquidar",
-      right: "reponer",
-      cause: {
-        es: "La herramienta de ventas omitía los productos con cero ventas y no traía el stock. Un ranking de los peores productos dejaba afuera justamente a los peores.",
-        en: "The sales tool omitted products with zero sales and did not carry stock. A ranking of the worst products left out precisely the worst ones.",
-      },
-      impact: {
-        es: "El modelo recomendaba liquidar productos que en realidad se habían agotado: el consejo opuesto al correcto. De 197 productos activos, 33 sin ventas estaban agotados y 132 tenían stock — y esa diferencia era invisible.",
-        en: "The model recommended discounting products that had actually sold out: the opposite of the right advice. Of 197 active products, 33 with no sales were out of stock and 132 had stock — and that difference was invisible.",
-      },
-      fix: {
-        es: "Incluir los productos sin ventas y traer el stock junto con las ventas, para que agotado y sin demanda dejen de parecer lo mismo.",
-        en: "Include products with no sales and carry stock alongside sales, so sold out and no demand stop looking alike.",
-      },
-    },
-    {
       id: "instagram-followers",
       headline: {
         es: "Instagram mostraba 42 seguidores. La cuenta tiene 103.286.",
@@ -417,23 +396,6 @@ export const upscaleLab: Project = {
       fix: {
         es: "Se recalculan todos los objetivos siempre; el estado se deriva de datos reales en cada corrida.",
         en: "All goals are recalculated every run; state is derived from real data each time.",
-      },
-    },
-    {
-      id: "conversion-inmedible",
-      headline: {
-        es: "Un objetivo de negocio nunca fue medible.",
-        en: "A business goal was never measurable.",
-      },
-      wrong: "0",
-      right: "checkout",
-      cause: {
-        es: "La tasa de conversión dependía de clics y visitas, un dato que la API de la tienda directamente no expone. El valor quedaba en cero de forma permanente.",
-        en: "Conversion rate depended on clicks and visits — data the store API simply does not expose. The value sat at zero permanently.",
-      },
-      fix: {
-        es: "Reemplazado por finalización de checkout: pedidos completos contra carritos abandonados. La misma intención de negocio, con un dato que sí existe.",
-        en: "Replaced with checkout completion: completed orders against abandoned carts. Same business intent, with data that actually exists.",
       },
     },
   ],
