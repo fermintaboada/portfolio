@@ -4,8 +4,25 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { useTheme } from "./Theme";
+import { useActiveSection } from "@/lib/useActiveSection";
 import { nav, site } from "@/content/site";
 import { cn } from "@/lib/utils";
+
+/**
+ * Las seis secciones del home, en orden. El mismo array numera la nav
+ * del header y la píldora grande de la portada: cambiar el orden acá
+ * los cambia en los dos lugares a la vez.
+ */
+export const SECTIONS = [
+  { id: "inicio", num: "00", label: nav.home },
+  { id: "perfil", num: "01", label: nav.profile },
+  { id: "stack", num: "02", label: nav.stack },
+  { id: "proyectos", num: "03", label: nav.projects },
+  { id: "ahora", num: "04", label: nav.now },
+  { id: "contacto", num: "05", label: nav.contact },
+] as const;
+
+const SECTION_IDS = SECTIONS.map((s) => s.id);
 
 /**
  * Selector de idioma con indicador recortado: en vez de cruzar dos colores
@@ -105,6 +122,49 @@ function ThemeToggle() {
   );
 }
 
+/**
+ * La nav numerada del header: utilitaria y compacta, para saltar de
+ * sección desde cualquier punto del scroll. La pieza vistosa —la fila
+ * grande de píldoras— vive en la portada; acá sólo hace falta que
+ * funcione y que el número marque, con el mismo color de siempre,
+ * dónde está parado el visitante.
+ */
+function SectionNav({ compact }: { compact: boolean }) {
+  const { t } = useLang();
+  const active = useActiveSection(compact ? [] : SECTION_IDS);
+
+  if (compact) return null;
+
+  return (
+    <nav className="mr-1 hidden items-center gap-0.5 md:flex">
+      {SECTIONS.map((item) => (
+        <a
+          key={item.id}
+          href={`#${item.id}`}
+          className="group flex items-center gap-1.5 rounded-full px-2.5 py-1.5 transition-colors duration-200"
+        >
+          <span
+            className={cn(
+              "tnum font-mono text-[11px] transition-colors duration-200",
+              active === item.id ? "text-correction" : "text-ink-3 group-hover:text-ink-2",
+            )}
+          >
+            {item.num}
+          </span>
+          <span
+            className={cn(
+              "font-mono text-[11px] uppercase tracking-[0.1em] transition-colors duration-200",
+              active === item.id ? "text-ink" : "text-ink-3 group-hover:text-ink-2",
+            )}
+          >
+            {t(item.label)}
+          </span>
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 export function Header({ compact = false }: { compact?: boolean }) {
   const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
@@ -139,23 +199,7 @@ export function Header({ compact = false }: { compact?: boolean }) {
         </Link>
 
         <div className="flex items-center gap-2.5">
-          {!compact && (
-            <nav className="mr-1 hidden items-center gap-5 md:flex">
-              {[
-                { href: "#trabajo", label: t(nav.work) },
-                { href: "#criterios", label: t(nav.principles) },
-                { href: "#contacto", label: t(nav.contact) },
-              ].map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="label transition-colors duration-200 hover:text-ink"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          )}
+          <SectionNav compact={compact} />
           <LangToggle />
           <ThemeToggle />
         </div>

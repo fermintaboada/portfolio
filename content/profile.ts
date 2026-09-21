@@ -113,8 +113,8 @@ export const stack = {
     en: "What I work with.",
   } as L,
   lede: {
-    es: "Nada de esto está acá por haberlo probado una vez: todo sostiene alguno de los proyectos de abajo.",
-    en: "None of this is here because I tried it once: all of it holds up one of the projects below.",
+    es: "Nada está acá por haberlo probado una vez: todo sostiene alguno de los proyectos de abajo.",
+    en: "Nothing is here because I tried it once: all of it holds up one of the projects below.",
   } as L,
   groups: [
     {
@@ -124,7 +124,12 @@ export const stack = {
         { name: "Next.js", slug: "nextdotjs" },
         { name: "TypeScript", slug: "typescript" },
         { name: "Tailwind CSS", slug: "tailwindcss" },
+        { name: "Vite", slug: "vite" },
+        { name: "shadcn/ui", slug: "shadcnui" },
         { name: "Motion", slug: "framer" },
+        { name: "TanStack Query", slug: "reactquery" },
+        { name: "Formik", slug: "formik" },
+        { name: "Axios", slug: "axios" },
       ] as Tech[],
     },
     {
@@ -136,6 +141,7 @@ export const stack = {
         { name: "Express", slug: "express" },
         { name: "Zod", slug: "zod" },
         { name: "Vitest", slug: "vitest" },
+        { name: "Jest", slug: "jest" },
       ] as Tech[],
     },
     {
@@ -156,15 +162,38 @@ export const stack = {
       ] as Tech[],
     },
     {
+      label: { es: "Integraciones", en: "Integrations" } as L,
+      items: [
+        { name: "Stripe", slug: "stripe" },
+        { name: "Mapbox", slug: "mapbox" },
+        { name: "Resend", slug: "resend" },
+        { name: "JWT", slug: "jsonwebtokens" },
+      ] as Tech[],
+    },
+    {
       label: { es: "Infraestructura", en: "Infrastructure" } as L,
       items: [
         { name: "Vercel", slug: "vercel" },
+        { name: "Render", slug: "render" },
         { name: "GitHub Actions", slug: "githubactions" },
         { name: "Sentry", slug: "sentry" },
         { name: "Docker", slug: "docker" },
         { name: "Git", slug: "git" },
       ] as Tech[],
     },
+  ],
+  /** Lo que sostiene los proyectos pero no es una marca con logo. */
+  alsoLabel: { es: "También", en: "Also" } as L,
+  also: [
+    "React Server Components",
+    "Tool use / agentes",
+    "Evals propios",
+    "OAuth 2.0",
+    "AES-256-GCM",
+    "Webhooks HMAC",
+    "Recharts",
+    "Tienda Nube API",
+    "Instagram Graph API",
   ],
 };
 

@@ -126,6 +126,7 @@ export const nav = {
   profile: { es: "Perfil", en: "Profile" } as L,
   stack: { es: "Stack", en: "Stack" } as L,
   now: { es: "Ahora", en: "Now" } as L,
+  projects: { es: "Proyectos", en: "Projects" } as L,
   menu: { es: "Secciones", en: "Sections" } as L,
   back: { es: "Volver al índice", en: "Back to index" } as L,
   theme: { es: "Cambiar tema", en: "Toggle theme" } as L,
