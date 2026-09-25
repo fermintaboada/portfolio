@@ -1,40 +1,90 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/lib/i18n";
 import { contact, site } from "@/content/site";
 import { TechIcon } from "@/components/ui/TechIcon";
 import { MailIcon, LinkedInMark, ArrowUpRightIcon, DownloadIcon } from "@/components/ui/Icons";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
+import { useCopyToClipboard } from "@/lib/useCopyToClipboard";
 
-/** Fila de contacto directo: icono, etiqueta, valor y flecha — como
-    una línea de ficha, no como un botón. */
+const EASE_OUT = [0.23, 1, 0.32, 1] as const;
+
+/**
+ * Fila de contacto directo: icono, etiqueta, valor y flecha — como
+ * una línea de ficha, no como un botón.
+ *
+ * Con `copyValue` en vez de `href` se vuelve un botón que copia: el
+ * mail no tiene a dónde "ir" si el visitante no tiene un cliente
+ * configurado, así que copiar la dirección es la acción que sí
+ * funciona siempre, con el mismo aviso que el ícono del Hero.
+ */
 function ContactRow({
   icon,
   label,
   value,
   href,
+  copyValue,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
-  href: string;
+  href?: string;
+  copyValue?: string;
 }) {
-  return (
-    <a
-      href={href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel={href.startsWith("http") ? "noreferrer" : undefined}
-      className="group flex items-center gap-4 border-t border-rule py-4 transition-colors duration-200 first:border-t-0"
-    >
+  const { t } = useLang();
+  const { copied, copy } = useCopyToClipboard();
+
+  const content = (
+    <>
       <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-rule bg-paper-raised text-ink-2">
         {icon}
       </span>
       <span className="label w-16 shrink-0 sm:w-20">{label}</span>
-      <span className="flex-1 truncate text-[14px] text-ink transition-colors duration-200 group-hover:text-correction">
+      <span className="flex-1 truncate text-left text-[14px] text-ink transition-colors duration-200 group-hover:text-correction">
         {value}
       </span>
       <ArrowUpRightIcon className="h-3.5 w-3.5 shrink-0 text-ink-3 transition-[transform,color] duration-200 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-correction" />
+    </>
+  );
+
+  if (copyValue) {
+    return (
+      <div className="relative">
+        <button
+          type="button"
+          onClick={() => copy(copyValue)}
+          className="group flex w-full items-center gap-4 border-t border-rule py-4 transition-colors duration-200 first:border-t-0"
+        >
+          {content}
+        </button>
+        <AnimatePresence>
+          {copied && (
+            <motion.span
+              role="status"
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 4 }}
+              transition={{ duration: 0.2, ease: EASE_OUT }}
+              className="pointer-events-none absolute left-12 top-full z-20 mt-0.5 rounded-sm bg-ink px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper shadow-[0_8px_20px_-8px_rgba(0,0,0,0.4)]"
+            >
+              {t(contact.emailCopied)}
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      target={href?.startsWith("http") ? "_blank" : undefined}
+      rel={href?.startsWith("http") ? "noreferrer" : undefined}
+      className="group flex items-center gap-4 border-t border-rule py-4 transition-colors duration-200 first:border-t-0"
+    >
+      {content}
     </a>
   );
 }
@@ -47,7 +97,7 @@ export function Contact() {
       icon: <MailIcon className="h-[14px] w-[14px]" />,
       label: "Email",
       value: site.email,
-      href: `mailto:${site.email}`,
+      copyValue: site.email,
     },
     site.whatsapp
       ? {
@@ -73,7 +123,13 @@ export function Contact() {
           href: site.linkedin,
         }
       : null,
-  ].filter(Boolean) as { icon: React.ReactNode; label: string; value: string; href: string }[];
+  ].filter(Boolean) as {
+    icon: React.ReactNode;
+    label: string;
+    value: string;
+    href?: string;
+    copyValue?: string;
+  }[];
 
   return (
     <section id="contacto" className="scroll-mt-24 border-t border-rule py-20 md:py-28">

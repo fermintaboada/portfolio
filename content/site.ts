@@ -9,7 +9,7 @@ export const site = {
   /** Aparece en el pie y en los metadatos. Cambiar si preferís no exponer el mail. */
   email: "fermintaboada10@gmail.com",
   github: "https://github.com/fermintaboada",
-  linkedin: "https://www.linkedin.com/in/fermintaboada-dev/",
+  linkedin: "https://www.linkedin.com/in/fermin-taboada-dev/",
   /** Formato wa.me: 54 (Argentina) + 9 (celular) + código de área + número. */
   whatsapp: "https://wa.me/5491122339430",
   /** Dominio final del portafolio, para los metadatos de Open Graph. */
@@ -63,6 +63,7 @@ export const contact = {
     en: "If you are evaluating this profile for a role, write to me and I will give you access to the live Upscale Lab demo with test data.",
   } as L,
   cvLabel: { es: "Descargar CV", en: "Download CV" } as L,
+  emailCopied: { es: "Copiado", en: "Copied" } as L,
   /** Un archivo por idioma: el botón sirve el que corresponde al activo. */
   cvHref: { es: "/cv-es.pdf", en: "/cv-en.pdf" } as L,
   /** Aclaración honesta: el proyecto más grande es más nuevo que el perfil público. */

@@ -215,16 +215,16 @@ export const now = {
     en: "What I am working on.",
   } as L,
   /** Fecha de la última vez que se revisó este texto. */
-  updated: "2026-09-21",
+  updated: "2026-09-25",
   updatedLabel: { es: "Actualizado", en: "Updated" } as L,
   body: {
     es: [
-      "Turno. — una plataforma SaaS multiempresa para reservar turnos profesionales y espacios deportivos: de peluquerías a canchas de pádel. Next.js, NestJS y PostgreSQL en un monorepo, con un motor de disponibilidad que resuelve asignación, cancelación y reprogramación, y aislamiento de datos entre empresas a nivel de base.",
-      "La arquitectura ya separa la conversación de las reglas de negocio: cuando llegue el agente conversacional, la disponibilidad y la confirmación van a seguir bajo control del backend, no del modelo — el mismo criterio que sostiene el resto de este portafolio. Hoy hay 45 tests automatizados y chequeo de tipos; el agente es la etapa que sigue.",
+      "Appointment Platform — una plataforma de turnos donde varios negocios operan sobre el mismo producto: cada uno con sus servicios, profesionales, horarios y políticas propias. TypeScript, Next.js, NestJS, Prisma y PostgreSQL en un monorepo con Turborepo. La idea es que el cliente escriba por WhatsApp como a una recepcionista real — y ahí está el desafío: separar la interpretación del lenguaje de las reglas de negocio, para que un motor determinista, no el modelo, calcule disponibilidad y confirme la reserva.",
+      "El flujo web ya corre contra PostgreSQL sobre un consultorio de prueba con cinco profesionales y tres especialidades: asigna al de menor carga diaria, aísla los datos por negocio y protege contra solicitudes simultáneas con transacciones e idempotencia. Veintiséis escenarios automatizados pasan sobre esa base. Sigue el laboratorio conversacional con Gemini y conectar WhatsApp; calculo entre 3 y 4 semanas para tener el código listo para un primer cliente.",
     ],
     en: [
-      "Turno. — a multi-tenant SaaS platform for booking professional and sports appointments: from hair salons to padel courts. Next.js, NestJS and PostgreSQL in a monorepo, with an availability engine that handles assignment, cancellation and rescheduling, and data isolation between businesses at the database level.",
-      "The architecture already separates conversation from business rules: once the conversational agent arrives, availability and confirmation will stay under the backend's control, not the model's — the same standard that runs through the rest of this portfolio. Today there are 45 automated tests and type checking; the agent is the next stage.",
+      "Appointment Platform — a booking platform where several businesses run on the same product: each with its own services, professionals, hours and policies. TypeScript, Next.js, NestJS, Prisma and PostgreSQL in a Turborepo monorepo. The idea is that a client can write over WhatsApp the way they would to a real receptionist — and that is the real challenge: separating language interpretation from business rules, so a deterministic engine, not the model, computes availability and confirms the booking.",
+      "The web flow already runs against PostgreSQL over a test clinic with five professionals and three specialties: it assigns whoever has the lightest daily load, isolates data per business, and guards against simultaneous requests with transactions and idempotency. Twenty-six automated scenarios pass against that base. Next is the conversational lab with Gemini and connecting WhatsApp; I expect 3 to 4 weeks to have the code ready for a first client.",
     ],
   },
   activityLabel: { es: "Actividad reciente", en: "Recent activity" } as L,

@@ -7,6 +7,7 @@ import { hero, caseLabels, contact, site } from "@/content/site";
 import { CountUp, StrikeOut } from "@/components/motion/Correction";
 import { TechIcon } from "@/components/ui/TechIcon";
 import { MailIcon, LinkedInMark, DownloadIcon, ArrowUpRightIcon } from "@/components/ui/Icons";
+import { CopyIconButton } from "@/components/ui/CopyIconButton";
 import { SECTIONS } from "@/components/chrome/Header";
 import { useActiveSection } from "@/lib/useActiveSection";
 import { cn } from "@/lib/utils";
@@ -26,8 +27,7 @@ function enter(delay: number, reduced: boolean | null) {
 /** Fila superior: cómo contactar sin bajar, y el CV. */
 function TopActions() {
   const { t } = useLang();
-  const items = [
-    { href: `mailto:${site.email}`, label: "Email", icon: <MailIcon className="h-[15px] w-[15px] text-ink-2" /> },
+  const links = [
     site.whatsapp
       ? { href: site.whatsapp, label: "WhatsApp", icon: <TechIcon slug="whatsapp" className="h-[15px] w-[15px]" /> }
       : null,
@@ -42,7 +42,12 @@ function TopActions() {
   return (
     <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
       <div className="flex items-center gap-2">
-        {items.map((item) => (
+        <CopyIconButton
+          value={site.email}
+          label="Email"
+          icon={<MailIcon className="h-[15px] w-[15px] text-ink-2" />}
+        />
+        {links.map((item) => (
           <a
             key={item.label}
             href={item.href}
