@@ -2,7 +2,6 @@
 
 import { useLang } from "@/lib/i18n";
 import { profile } from "@/content/profile";
-import { workSection } from "@/content/site";
 import { TechIcon } from "@/components/ui/TechIcon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
@@ -66,20 +65,40 @@ export function Profile() {
   return (
     <section id="perfil" className="scroll-mt-24 border-t border-rule py-20 md:py-28">
       <div className="shell">
-        <SectionHead number="01" eyebrow={t(profile.eyebrow)} title={t(profile.title)} />
+        {/* La tesis va como bajada, igual que en el resto de las secciones. */}
+        <SectionHead
+          number="03"
+          eyebrow={t(profile.eyebrow)}
+          title={t(profile.title)}
+          lede={t(profile.lede)}
+        />
 
-        <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-12">
-          {/* Izquierda: experiencia, la mitad del relato que un CV cuenta con fechas. */}
+        {/* La ficha: una sola franja con lo primero que alguien pregunta —
+            de dónde, cómo, en qué, en qué idioma — antes del relato. */}
+        <RevealGroup
+          className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-rule bg-rule lg:grid-cols-4"
+          stagger={0.04}
+        >
+          {profile.facts.map((fact) => (
+            <RevealItem key={fact.label.es} className="bg-paper-raised px-5 py-5">
+              <p className="label">{t(fact.label)}</p>
+              <p className="mt-2 text-[14px] leading-snug text-ink">{t(fact.value)}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+
+        {/* Dos columnas paralelas, cada una con su título: lo que hice y lo que estudié. */}
+        <div className="mt-14 grid grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <Reveal className="flex items-baseline justify-between border-b border-rule pb-3">
-              <p className="label">{t(profile.experienceLabel)}</p>
+            <Reveal>
+              <p className="label border-b border-rule pb-3">{t(profile.experienceLabel)}</p>
             </Reveal>
             <RevealGroup stagger={0.06}>
               {profile.experience.map((role, index) => (
                 <RevealItem key={role.org.es}>
                   <RoleRow
                     index={index}
-                    period={role.period}
+                    period={t(role.period)}
                     title={t(role.title)}
                     org={t(role.org)}
                     body={t(role.body)}
@@ -88,69 +107,25 @@ export function Profile() {
                 </RevealItem>
               ))}
             </RevealGroup>
-
-            <Reveal delay={0.05}>
-              <a
-                href="#proyectos"
-                className="group mt-8 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] text-ink-2 transition-colors duration-200 hover:text-ink"
-              >
-                <span className="relative">
-                  {t(workSection.eyebrow)}
-                  <span
-                    aria-hidden="true"
-                    className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-100 bg-rule-strong transition-transform duration-300 ease-[var(--ease-out)] group-hover:bg-correction"
-                  />
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="inline-block transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-y-0.5"
-                >
-                  ↓
-                </span>
-              </a>
-            </Reveal>
           </div>
 
-          {/* Derecha: la tesis y los cuatro datos que responden lo primero
-              que alguien pregunta — de dónde, cómo, en qué, en qué idioma. */}
           <div className="lg:col-span-5">
-            <Reveal delay={0.05}>
-              <p className="font-display max-w-sm text-[22px] font-semibold leading-snug text-ink">
-                {t(profile.lede)}
-              </p>
-            </Reveal>
-
-            <RevealGroup className="mt-10 grid grid-cols-2 border-y border-rule" stagger={0.04}>
-              {profile.facts.map((fact, index) => (
-                <RevealItem
-                  key={fact.label.es}
-                  className={
-                    index % 2 === 0
-                      ? "border-r border-rule py-5 pr-4"
-                      : "py-5 pl-4"
-                  }
-                >
-                  <p className="label">{t(fact.label)}</p>
-                  <p className="mt-2 text-[14px] leading-snug text-ink">{t(fact.value)}</p>
-                </RevealItem>
-              ))}
-            </RevealGroup>
-
-            <Reveal delay={0.1} className="mt-10">
+            <Reveal>
               <p className="label border-b border-rule pb-3">{t(profile.educationLabel)}</p>
-              <div>
-                {profile.education.map((edu, index) => (
+            </Reveal>
+            <RevealGroup stagger={0.06}>
+              {profile.education.map((edu, index) => (
+                <RevealItem key={edu.org.es}>
                   <RoleRow
-                    key={edu.org.es}
                     index={index}
-                    period={edu.period}
+                    period={t(edu.period)}
                     title={t(edu.title)}
                     org={t(edu.org)}
                     body={t(edu.body)}
                   />
-                ))}
-              </div>
-            </Reveal>
+                </RevealItem>
+              ))}
+            </RevealGroup>
           </div>
         </div>
       </div>

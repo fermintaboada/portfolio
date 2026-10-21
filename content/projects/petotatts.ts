@@ -14,7 +14,7 @@ export const petotatts: Project = {
     es: "Diseño, desarrollo, contenido y SEO — proyecto completo",
     en: "Design, development, copy and SEO — end to end",
   },
-  domain: { es: "Sitio de autor · Cliente real", en: "Portfolio site · Real client" },
+  domain: { es: "Sitio de autor · Cliente", en: "Portfolio site · Client" },
   chips: [
     { name: "React", slug: "react" },
     { name: "Next.js", slug: "nextdotjs" },

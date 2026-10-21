@@ -10,7 +10,8 @@ export type Fact = { label: L; value: L };
 
 /** Un puesto. Los chips son las tecnologías reales de ese trabajo. */
 export type Role = {
-  period: string;
+  /** Mismo formato que el CV: si cambia una fecha, cambia en los dos. */
+  period: L;
   title: L;
   org: L;
   body: L;
@@ -28,8 +29,8 @@ export const profile = {
     en: "Data · systems · judgement.",
   } as L,
   lede: {
-    es: "Construyo productos completos y me ocupo de que sigan siendo ciertos cuando entran datos reales.",
-    en: "I build complete products and I make sure they stay true once real data comes in.",
+    es: "Construyo productos web completos —de la base de datos a la interfaz— y me ocupo de que lo que muestran siga siendo correcto en producción.",
+    en: "I build complete web products — from the database to the interface — and I make sure what they show stays correct in production.",
   } as L,
   facts: [
     {
@@ -52,12 +53,12 @@ export const profile = {
   experienceLabel: { es: "Experiencia", en: "Experience" } as L,
   experience: [
     {
-      period: "2024 — hoy",
+      period: { es: "Dic 2025 — hoy", en: "Dec 2025 — present" },
       title: { es: "Desarrollador full-stack freelance", en: "Freelance full-stack developer" } as L,
       org: { es: "Proyectos independientes", en: "Independent projects" } as L,
       body: {
-        es: "Plataformas web de punta a punta para clientes reales: base de datos, API, integraciones, despliegue y soporte. Dos de los sitios que hice están en producción y son los que sus dueños comparten cuando les piden presupuesto.",
-        en: "End-to-end web platforms for real clients: database, API, integrations, deployment and support. Two of the sites I built are in production and are what their owners share when someone asks for a quote.",
+        es: "Plataformas web de punta a punta para clientes: base de datos, API, integraciones, despliegue y soporte. Dos de los sitios que hice están en producción y son los que sus dueños comparten cuando les piden presupuesto.",
+        en: "End-to-end web platforms for clients: database, API, integrations, deployment and support. Two of the sites I built are in production and are what their owners share when someone asks for a quote.",
       } as L,
       chips: [
         { name: "Next.js", slug: "nextdotjs" },
@@ -68,7 +69,7 @@ export const profile = {
       ],
     },
     {
-      period: "2019 — hoy",
+      period: { es: "2019 — hoy", en: "2019 — present" },
       title: { es: "Operaciones y atención al cliente", en: "Operations and customer service" } as L,
       org: { es: "Fiskyn", en: "Fiskyn" } as L,
       body: {
@@ -77,7 +78,7 @@ export const profile = {
       } as L,
     },
     {
-      period: "2019 — 2024",
+      period: { es: "2019 — 2024", en: "2019 — 2024" },
       title: { es: "Cofundador y operaciones digitales", en: "Co-founder and digital operations" } as L,
       org: { es: "Waikama", en: "Waikama" } as L,
       body: {
@@ -89,7 +90,7 @@ export const profile = {
   educationLabel: { es: "Formación", en: "Education" } as L,
   education: [
     {
-      period: "2025 — 2026",
+      period: { es: "Feb 2025 — Jun 2026", en: "Feb 2025 — Jun 2026" },
       title: {
         es: "Desarrollo web full-stack y metodologías ágiles",
         en: "Full-stack web development and agile methods",
@@ -101,7 +102,7 @@ export const profile = {
       } as L,
     },
     {
-      period: "2019 — 2024",
+      period: { es: "2019 — 2024", en: "2019 — 2024" },
       title: { es: "Licenciatura en Psicología", en: "BSc in Psychology" } as L,
       org: { es: "Universidad del Salvador", en: "Universidad del Salvador" } as L,
       body: {
@@ -120,8 +121,8 @@ export const stack = {
     en: "What I work with.",
   } as L,
   lede: {
-    es: "Nada está acá por haberlo probado una vez: todo sostiene alguno de los proyectos de abajo.",
-    en: "Nothing is here because I tried it once: all of it holds up one of the projects below.",
+    es: "Nada está acá por haberlo probado una vez: todo sostiene alguno de los proyectos de arriba.",
+    en: "Nothing is here because I tried it once: all of it holds up one of the projects above.",
   } as L,
   groups: [
     {

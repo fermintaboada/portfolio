@@ -17,28 +17,37 @@ export const site = {
 };
 
 export const hero = {
-  eyebrow: {
-    es: "Desarrollador full-stack",
-    en: "Full-stack developer",
+  /** Rol y stack debajo del nombre: la misma línea que abre el CV. */
+  role: {
+    es: "Desarrollador Full Stack con IA",
+    en: "Full Stack Developer with AI",
   } as L,
+  stack: [
+    { name: "React", slug: "react" },
+    { name: "Next.js", slug: "nextdotjs" },
+    { name: "TypeScript", slug: "typescript" },
+    { name: "Node.js", slug: "nodedotjs" },
+    { name: "PostgreSQL", slug: "postgresql" },
+  ],
   headline: {
     es: "Cada número que muestra un sistema mío tiene que poder rastrearse hasta una query verificable.",
     en: "Every number a system of mine displays has to trace back to a verifiable query.",
   } as L,
-  /** El hallazgo que abre la página. Es real: está documentado en el caso de Upscale Lab. */
-  proof: {
-    caption: {
-      es: "El asistente de un cliente respondía preguntas sobre su catálogo completo de productos. En el contexto que recibía, el catálogo tenía:",
-      en: "A client's AI assistant answered questions about their entire product catalogue. In the context it received, the catalogue had:",
+  /**
+   * La ficha del hero: el proyecto más fuerte, contado en lo que un
+   * reclutador lee en cinco segundos — qué es, en qué estado y cuánto.
+   * Los números salen del propio proyecto, no se duplican acá.
+   */
+  featured: {
+    slug: "upscale-lab",
+    label: { es: "Proyecto destacado", en: "Featured project" } as L,
+    status: { es: "En producción", en: "In production" } as L,
+    summary: {
+      es: "Plataforma de marketing con IA, multi-tenant, que hice de punta a punta. Corre en producción y la está probando su primer cliente.",
+      en: "Multi-tenant AI marketing platform I built end to end. It runs in production and its first client is trialling it.",
     } as L,
-    wrong: "25",
-    right: "197",
-    note: {
-      es: "El contexto le pasaba sólo los productos sincronizados más recientemente, como si fueran el catálogo completo. Ante un producto real y con stock, el asistente le decía al cliente que no existía — lo encontraron los evals, no una lectura de código.",
-      en: "The context passed only the most recently synced products, as if they were the whole catalogue. Asked about a real, in-stock product, the assistant told the client it did not exist — caught by the evals, not by reading code.",
-    } as L,
-    href: "/proyectos/upscale-lab#catalogo-parcial",
     linkLabel: { es: "Ver el caso completo", en: "Read the full case" } as L,
+    liveLabel: { es: "Ver en vivo", en: "View live" } as L,
   },
 };
 

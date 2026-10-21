@@ -15,9 +15,9 @@ import { cn } from "@/lib/utils";
  */
 export const SECTIONS = [
   { id: "inicio", num: "00", label: nav.home },
-  { id: "perfil", num: "01", label: nav.profile },
+  { id: "proyectos", num: "01", label: nav.projects },
   { id: "stack", num: "02", label: nav.stack },
-  { id: "proyectos", num: "03", label: nav.projects },
+  { id: "perfil", num: "03", label: nav.profile },
   { id: "ahora", num: "04", label: nav.now },
   { id: "contacto", num: "05", label: nav.contact },
 ] as const;

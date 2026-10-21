@@ -74,14 +74,6 @@ export const upscaleLab: Project = {
   ],
   metrics: [
     {
-      value: "7",
-      label: { es: "bugs de datos encontrados y verificados", en: "data bugs found and verified" },
-    },
-    {
-      value: "7.546",
-      label: { es: "pedidos históricos procesados", en: "historical orders processed" },
-    },
-    {
       value: "-40%",
       label: {
         es: "de costo por respuesta, medido",
@@ -94,6 +86,14 @@ export const upscaleLab: Project = {
         es: "casos de evaluación del agente",
         en: "evaluation cases for the agent",
       },
+    },
+    {
+      value: "7.546",
+      label: { es: "pedidos históricos procesados", en: "historical orders processed" },
+    },
+    {
+      value: "7",
+      label: { es: "bugs de datos encontrados y verificados", en: "data bugs found and verified" },
     },
   ],
   flow: {
@@ -418,6 +418,6 @@ export const upscaleLab: Project = {
   },
   closing: {
     es: "El trabajo acá no fue escribir features aisladas: fue sostener un sistema multi-tenant en producción con datos reales de un cliente, donde cada número que la IA menciona tiene que poder rastrearse hasta una query verificable — y donde encontrar que un dato está mal antes de que lo note el cliente es tan parte del trabajo como construir la función que lo calcula. Casi todo lo que sumé después existe para eso: no para que la IA conteste, sino para poder saber si contestó bien.",
-    en: "The work here was not writing isolated features: it was keeping a multi-tenant system alive in production on a real client data, where every number the AI mentions has to trace back to a verifiable query — and where catching a wrong number before the client does is as much the job as building the function that computes it. Almost everything I added later exists for that: not to make the AI answer, but to be able to know whether it answered well.",
+    en: "The work here was not writing isolated features: it was keeping a multi-tenant system alive in production on a client's live data, where every number the AI mentions has to trace back to a verifiable query — and where catching a wrong number before the client does is as much the job as building the function that computes it. Almost everything I added later exists for that: not to make the AI answer, but to be able to know whether it answered well.",
   },
 };

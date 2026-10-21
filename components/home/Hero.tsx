@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { useLang } from "@/lib/i18n";
-import { hero, caseLabels, contact, site } from "@/content/site";
-import { CountUp, StrikeOut } from "@/components/motion/Correction";
+import { hero, contact, site } from "@/content/site";
+import { getProject } from "@/content/projects";
+import { CountUp } from "@/components/motion/Correction";
 import { TechIcon } from "@/components/ui/TechIcon";
 import { MailIcon, LinkedInMark, DownloadIcon, ArrowUpRightIcon } from "@/components/ui/Icons";
 import { CopyIconButton } from "@/components/ui/CopyIconButton";
@@ -124,6 +125,7 @@ function SectionPills() {
 export function Hero() {
   const { t } = useLang();
   const reduced = useReducedMotion();
+  const featured = getProject(hero.featured.slug);
 
   return (
     <section id="inicio" className="relative overflow-clip pb-24 pt-32 md:pb-32 md:pt-40">
@@ -153,8 +155,24 @@ export function Hero() {
             {site.name}
           </motion.h1>
 
+          <motion.div className="mt-5" {...enter(0.12, reduced)}>
+            <p className="font-display text-[clamp(1.15rem,2.2vw,1.45rem)] font-semibold leading-snug text-ink">
+              {t(hero.role)}
+            </p>
+            <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+              {hero.stack.map((tech) => (
+                <li key={tech.slug} className="flex items-center gap-1.5">
+                  <TechIcon slug={tech.slug} className="h-[14px] w-[14px] shrink-0" />
+                  <span className="font-mono text-[12px] uppercase tracking-[0.08em] text-ink-2">
+                    {tech.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
           <motion.p
-            className="mt-5 max-w-lg text-[17px] leading-relaxed text-ink-2"
+            className="mt-6 max-w-lg text-[17px] leading-relaxed text-ink-2"
             {...enter(0.15, reduced)}
           >
             {t(hero.headline)}
@@ -165,50 +183,92 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* La ficha: el gesto que define la página. */}
-        <motion.figure
-          className="relative lg:col-span-5 lg:pt-3"
-          {...enter(0.3, reduced)}
-        >
-          <div className="rounded-sm border border-rule bg-paper-raised p-6 sm:p-7">
-            <figcaption className="max-w-[36ch] font-mono text-[12px] leading-relaxed text-ink-3">
-              {t(hero.proof.caption)}
-            </figcaption>
+        {/* La ficha: el proyecto más fuerte, legible sin contexto previo. */}
+        {featured && (
+          <motion.figure
+            className="relative lg:col-span-5 lg:pt-3"
+            {...enter(0.3, reduced)}
+          >
+            <div className="rounded-sm border border-rule bg-paper-raised p-6 sm:p-7">
+              <div className="flex items-center justify-between gap-3">
+                <p className="label">{t(hero.featured.label)}</p>
+                <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-correction" />
+                  {t(hero.featured.status)}
+                </span>
+              </div>
 
-            <div className="mt-6 flex items-baseline gap-3">
-              <span className="label w-20 shrink-0">{t(caseLabels.showed)}</span>
-              <StrikeOut className="font-display text-[2.1rem] font-semibold leading-none text-ink-3">
-                {hero.proof.wrong}
-              </StrikeOut>
+              <figcaption className="mt-4">
+                <p className="font-display-tight text-[2rem] font-bold leading-none text-ink">
+                  {featured.name}
+                </p>
+                <p className="mt-3 text-[14px] leading-relaxed text-ink-2">
+                  {t(hero.featured.summary)}
+                </p>
+              </figcaption>
+
+              {featured.metrics && (
+                <dl className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-rule bg-rule">
+                  {featured.metrics.map((metric, index) => (
+                    <div key={metric.value} className="bg-paper-raised px-4 py-4">
+                      <dt className="sr-only">{t(metric.label)}</dt>
+                      <dd>
+                        <CountUp
+                          value={metric.value}
+                          delay={0.6 + index * 0.08}
+                          className="font-display-tight block text-[1.9rem] font-bold leading-none text-ink"
+                        />
+                        <span aria-hidden="true" className="mt-2 block text-[12px] leading-snug text-ink-3">
+                          {t(metric.label)}
+                        </span>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {featured.chips.map((chip) => (
+                  <li
+                    key={chip.slug}
+                    className="flex items-center gap-1.5 rounded-sm border border-rule px-2 py-1"
+                  >
+                    <TechIcon slug={chip.slug} className="h-[12px] w-[12px] shrink-0" />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.06em] text-ink-2">
+                      {chip.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-rule pt-5">
+                <Link
+                  href={`/proyectos/${featured.slug}`}
+                  className="group inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] text-correction transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.98]"
+                >
+                  {t(hero.featured.linkLabel)}
+                  <span
+                    aria-hidden="true"
+                    className="inline-block transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
+                {featured.liveUrl && (
+                  <a
+                    href={featured.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-1.5 font-mono text-[12px] uppercase tracking-[0.12em] text-ink-2 transition-colors duration-200 hover:text-ink"
+                  >
+                    {t(hero.featured.liveLabel)}
+                    <ArrowUpRightIcon className="h-3 w-3 transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                )}
+              </div>
             </div>
-
-            <div className="mt-5 flex items-baseline gap-3 border-t border-rule pt-5">
-              <span className="label w-20 shrink-0 text-correction">{t(caseLabels.was)}</span>
-              <CountUp
-                value={hero.proof.right}
-                delay={0.75}
-                className="font-display-tight text-[clamp(2.6rem,7vw,3.6rem)] font-bold leading-none text-ink"
-              />
-            </div>
-
-            <p className="mt-6 border-t border-rule pt-5 text-[14px] leading-relaxed text-ink-2">
-              {t(hero.proof.note)}
-            </p>
-
-            <Link
-              href={hero.proof.href}
-              className="group mt-5 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] text-correction transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.98]"
-            >
-              {t(hero.proof.linkLabel)}
-              <span
-                aria-hidden="true"
-                className="inline-block transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </Link>
-          </div>
-        </motion.figure>
+          </motion.figure>
+        )}
       </div>
     </section>
   );

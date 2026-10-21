@@ -118,7 +118,7 @@ export function WorkIndex() {
     <section id="proyectos" className="scroll-mt-24 border-t border-rule py-20 md:py-28">
       <div className="shell">
         <SectionHead
-          number="03"
+          number="01"
           eyebrow={t(workSection.eyebrow)}
           title={t(workSection.title)}
           lede={t(workSection.intro)}

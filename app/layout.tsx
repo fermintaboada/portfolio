@@ -30,7 +30,7 @@ const splineMono = Spline_Sans_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Desarrollador full-stack`,
+    default: `${site.name} — Desarrollador Full Stack con IA`,
     template: `%s — ${site.name}`,
   },
   description:

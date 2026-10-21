@@ -14,7 +14,7 @@ export const barrasNomades: Project = {
     es: "Diseño, desarrollo y SEO técnico — proyecto completo",
     en: "Design, development and technical SEO — end to end",
   },
-  domain: { es: "Landing · Cliente real", en: "Landing page · Real client" },
+  domain: { es: "Landing · Cliente", en: "Landing page · Client" },
   chips: [
     { name: "React", slug: "react" },
     { name: "Next.js", slug: "nextdotjs" },
