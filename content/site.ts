@@ -75,11 +75,6 @@ export const contact = {
   emailCopied: { es: "Copiado", en: "Copied" } as L,
   /** Un archivo por idioma: el botón sirve el que corresponde al activo. */
   cvHref: { es: "/cv-es.pdf", en: "/cv-en.pdf" } as L,
-  /** Aclaración honesta: el proyecto más grande es más nuevo que el perfil público. */
-  note: {
-    es: "Upscale Lab lo terminé esta semana y todavía no figura en mi LinkedIn. El caso completo está acá.",
-    en: "I finished Upscale Lab this week and it is not on my LinkedIn yet. The full case is here.",
-  } as L,
 };
 
 export const nav = {

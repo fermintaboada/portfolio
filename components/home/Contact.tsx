@@ -158,12 +158,6 @@ export function Contact() {
               </a>
             </Reveal>
 
-            <Reveal delay={0.08}>
-              <p className="mt-6 max-w-lg border-l-2 border-correction pl-4 text-[14px] leading-relaxed text-ink-3">
-                {t(contact.note)}
-              </p>
-            </Reveal>
-
             {/* El CV va aparte de los links: es la acción que alguien
                 evaluando el perfil viene a buscar. */}
             <Reveal delay={0.1} className="mt-8">

@@ -103,7 +103,7 @@ export const profile = {
     },
     {
       period: { es: "2019 — 2024", en: "2019 — 2024" },
-      title: { es: "Licenciatura en Psicología", en: "BSc in Psychology" } as L,
+      title: { es: "Estudios de Psicología", en: "Psychology Studies" } as L,
       org: { es: "Universidad del Salvador", en: "Universidad del Salvador" } as L,
       body: {
         es: "Cinco años leyendo cómo la gente decide y qué la confunde. Se nota en cómo redacto un error y en dónde pongo un número en pantalla.",
