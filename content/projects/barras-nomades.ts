@@ -11,8 +11,8 @@ export const barrasNomades: Project = {
   kind: { es: "Encargo de cliente", en: "Client commission" },
   status: { es: "Entregado y en línea", en: "Delivered and live" },
   role: {
-    es: "Diseño, desarrollo y SEO técnico — proyecto completo",
-    en: "Design, development and technical SEO — end to end",
+    es: "Diseño, desarrollo y SEO técnico, de punta a punta",
+    en: "Design, development and technical SEO, end to end",
   },
   domain: { es: "Landing · Cliente", en: "Landing page · Client" },
   chips: [
@@ -29,12 +29,12 @@ export const barrasNomades: Project = {
   },
   overview: {
     es: [
-      "Barras Nómades es un servicio de barra para eventos en Buenos Aires: veinte años de oficio, hoy un proyecto familiar. El encargo era concreto — una página a la altura del servicio, que cargue rápido en el teléfono donde la va a abrir la mayoría, y que empuje a la única conversión que importa: escribir por WhatsApp.",
-      "El trabajo incluyó el diseño, la escritura de todo el contenido, el desarrollo y el SEO técnico. Está en producción y es la página que el cliente comparte cuando le piden presupuesto.",
+      "Barras Nómades es un servicio de barra para eventos en Buenos Aires, con veinte años de oficio y hoy un proyecto familiar. Me pidieron una página a la altura del servicio, que cargara rápido en el teléfono, que es donde la abre casi todo el mundo, y que llevara a una sola acción: escribir por WhatsApp.",
+      "Hice el diseño, escribí todo el contenido y me ocupé del desarrollo y del SEO técnico. Está en producción y es la página que el cliente comparte cuando le piden presupuesto.",
     ],
     en: [
-      "Barras Nómades is an event bar service in Buenos Aires: twenty years of craft, today a family business. The brief was specific — a page worthy of the service, loading fast on the phone where most people will open it, driving the only conversion that matters: sending a WhatsApp message.",
-      "The work covered design, all the copy, development and technical SEO. It is in production and it is the page the client shares when someone asks for a quote.",
+      "Barras Nómades is an event bar service in Buenos Aires, with twenty years of craft and now a family business. The brief was a page worthy of the service that loads fast on a phone, where almost everyone opens it, and leads to one action: sending a WhatsApp message.",
+      "I did the design, wrote all the copy, and handled development and technical SEO. It is in production, and it is the page the client shares when someone asks for a quote.",
     ],
   },
   shots: [
@@ -45,8 +45,8 @@ export const barrasNomades: Project = {
         en: "Barras Nómades home page with a photo of a bar at an event",
       },
       caption: {
-        es: "La entrada del hero es CSS puro: arranca apenas pinta el navegador, sin esperar a que hidrate y sin mover el layout.",
-        en: "The hero entrance is pure CSS: it starts the moment the browser paints, without waiting for hydration and without shifting the layout.",
+        es: "La animación de entrada del hero es CSS puro, así que arranca apenas pinta el navegador, sin esperar la hidratación y sin mover el layout.",
+        en: "The hero entrance is pure CSS, so it starts as soon as the browser paints, without waiting for hydration and without shifting the layout.",
       },
     },
     {
@@ -56,8 +56,8 @@ export const barrasNomades: Project = {
         en: "Service section with numbered navigation and a photo of the setup",
       },
       caption: {
-        es: "Qué incluye el servicio, punto por punto. El cliente cobra por un paquete cerrado y la página tenía que dejarlo tan claro como él lo explica por teléfono.",
-        en: "What the service includes, item by item. The client charges for a fixed package, and the page had to make it as clear as he does on the phone.",
+        es: "Qué incluye el servicio, punto por punto. El cliente cobra un paquete cerrado y la página lo tenía que explicar tan claro como él por teléfono.",
+        en: "What the service includes, item by item. The client charges for a fixed package, and the page had to explain it as clearly as he does on the phone.",
       },
     },
     {
@@ -67,8 +67,8 @@ export const barrasNomades: Project = {
         en: "Photo gallery of Barras Nómades events",
       },
       caption: {
-        es: "La galería es la prueba del oficio. Imágenes en WebP con carga diferida: pesa poco en el teléfono, que es donde se abre.",
-        en: "The gallery is the proof of the craft. WebP images with lazy loading: light on the phone, which is where it gets opened.",
+        es: "La galería muestra eventos reales del servicio. Las imágenes van en WebP con carga diferida para que pesen poco en el teléfono.",
+        en: "The gallery shows real events from the service. Images are WebP with lazy loading so they stay light on a phone.",
       },
     },
   ],
@@ -103,8 +103,8 @@ export const barrasNomades: Project = {
         en: "instead of shipping kilobytes for a fade",
       },
       body: {
-        es: "Los revelados por scroll los resuelve un componente propio de cuarenta líneas sobre IntersectionObserver, con soporte de dirección y retardo escalonado. Para lo que esta página necesita, una librería sería peso muerto en el bundle y trabajo extra en tiempo de ejecución.",
-        en: "Scroll reveals are handled by a forty-line component of my own built on IntersectionObserver, with direction support and staggered delays. For what this page needs, a library would be dead weight in the bundle and extra work at runtime.",
+        es: "Los revelados por scroll los resuelve un componente propio de cuarenta líneas sobre IntersectionObserver, con dirección y retardo escalonado. Para lo que necesita esta página, una librería sumaría peso al bundle y trabajo en tiempo de ejecución sin aportar nada.",
+        en: "Scroll reveals come from a forty-line component of my own built on IntersectionObserver, with direction and staggered delays. For what this page needs, a library would add bundle weight and runtime work for nothing.",
       },
     },
     {
@@ -114,8 +114,8 @@ export const barrasNomades: Project = {
         en: "instead of waiting for hydration",
       },
       body: {
-        es: "La animación de entrada usa keyframes con retardos en línea. Al no depender de JavaScript, arranca apenas pinta el navegador y no produce desplazamiento de layout: lo primero que ve el visitante nunca queda en blanco esperando.",
-        en: "The entrance animation uses keyframes with inline delays. Because it does not depend on JavaScript, it starts the moment the browser paints and produces no layout shift: the first thing a visitor sees never sits blank waiting.",
+        es: "La animación de entrada usa keyframes con retardos en línea. Como no depende de JavaScript, arranca apenas pinta el navegador, no mueve el layout y el visitante nunca ve la pantalla en blanco.",
+        en: "The entrance animation uses keyframes with inline delays. Because it does not depend on JavaScript, it starts as soon as the browser paints, causes no layout shift, and the visitor never sees a blank screen.",
       },
     },
     {
@@ -125,8 +125,8 @@ export const barrasNomades: Project = {
         en: "instead of marking everything as client",
       },
       body: {
-        es: "El único componente de cliente del proyecto es el del revelado por scroll, porque necesita IntersectionObserver. Todo lo demás — incluidas las secciones que lo usan — se queda en el servidor.",
-        en: "The only client component in the project is the scroll-reveal one, because it needs IntersectionObserver. Everything else — including the sections that use it — stays on the server.",
+        es: "El único componente de cliente del proyecto es el del revelado por scroll, porque necesita IntersectionObserver. Todo lo demás, incluidas las secciones que lo usan, se renderiza en el servidor.",
+        en: "The only client component in the project is the scroll-reveal one, because it needs IntersectionObserver. Everything else, including the sections that use it, renders on the server.",
       },
     },
     {
@@ -136,25 +136,25 @@ export const barrasNomades: Project = {
         en: "instead of repeating the domain across five files",
       },
       body: {
-        es: "La URL del sitio se define una vez y se resuelve en cascada: variable de entorno, después la que inyecta Vercel, después localhost. La usan los metadatos, el robots.txt, el sitemap y el JSON-LD. Un solo lugar para cambiar el día que el cliente compre su dominio.",
-        en: "The site URL is defined once and resolves in cascade: environment variable, then the one Vercel injects, then localhost. Metadata, robots.txt, sitemap and JSON-LD all read from it. One place to change the day the client buys their own domain.",
+        es: "La URL del sitio se define una vez y se resuelve en cascada: primero la variable de entorno, después la que inyecta Vercel y por último localhost. De ahí la toman los metadatos, el robots.txt, el sitemap y el JSON-LD, así que el día que el cliente compre su dominio hay un solo lugar para cambiar.",
+        en: "The site URL is defined once and resolves in cascade: first the environment variable, then the one Vercel injects, and finally localhost. Metadata, robots.txt, sitemap and JSON-LD all read from it, so the day the client buys their own domain there is one place to change.",
       },
     },
   ],
   engineering: {
-    title: { es: "SEO técnico, no plugin de SEO", en: "Technical SEO, not an SEO plugin" },
+    title: { es: "SEO técnico", en: "Technical SEO" },
     items: {
       es: [
-        "Imagen de Open Graph generada en tiempo de ejecución con next/og, servida en /opengraph-image y compuesta con la tipografía del sitio. El link se ve como corresponde cuando el cliente lo manda por WhatsApp o lo pone en Instagram, que es exactamente por donde circula.",
-        "Datos estructurados JSON-LD con esquema LocalBusiness, para que Google entienda que es un negocio local de Buenos Aires y no una página cualquiera.",
-        "robots.txt y sitemap.xml generados por las convenciones de archivo del App Router, no escritos a mano: no pueden quedar desactualizados respecto de las rutas reales.",
+        "Imagen de Open Graph generada en tiempo de ejecución con next/og, servida en /opengraph-image y armada con la tipografía del sitio. El link se ve bien cuando el cliente lo manda por WhatsApp o lo pone en Instagram, que es por donde circula.",
+        "Datos estructurados JSON-LD con esquema LocalBusiness, para que Google sepa que es un negocio local de Buenos Aires.",
+        "robots.txt y sitemap.xml se generan con las convenciones de archivo del App Router, así que siempre coinciden con las rutas del sitio.",
         "Metadatos expandidos con Open Graph y Twitter card, imágenes servidas en WebP con carga diferida y prioridad explícita en el hero.",
         "Analytics de Vercel para ver desde qué dispositivo llega la gente, que en este rubro es casi todo teléfono.",
       ],
       en: [
-        "Open Graph image generated at runtime with next/og, served at /opengraph-image and composed in the site's own typeface. The link looks right when the client sends it over WhatsApp or posts it on Instagram, which is exactly where it travels.",
-        "JSON-LD structured data with LocalBusiness schema, so Google understands this is a local Buenos Aires business and not just another page.",
-        "robots.txt and sitemap.xml generated through App Router file conventions rather than written by hand: they cannot drift out of sync with the real routes.",
+        "Open Graph image generated at runtime with next/og, served at /opengraph-image and set in the site's own typeface. The link looks right when the client sends it over WhatsApp or posts it on Instagram, which is where it gets shared.",
+        "JSON-LD structured data with LocalBusiness schema, so Google knows this is a local Buenos Aires business.",
+        "robots.txt and sitemap.xml are generated through App Router file conventions, so they always match the site's routes.",
         "Expanded metadata with Open Graph and Twitter card, images served as WebP with lazy loading and explicit priority on the hero.",
         "Vercel Analytics to see what devices people arrive on, which in this business is almost entirely phones.",
       ],
@@ -179,7 +179,7 @@ export const barrasNomades: Project = {
     },
   ],
   closing: {
-    es: "Una landing de cliente es el caso donde es más fácil justificar cualquier atajo: total, es una sola página. Acá el criterio fue el contrario — si va a estar en producción representando a alguien que vive de esto, se hace con el mismo cuidado que un producto.",
-    en: "A client landing page is the easiest place to justify any shortcut: it is only one page, after all. Here the standard was the opposite — if it goes to production representing someone whose living depends on it, it gets the same care as a product.",
+    es: "En una landing de cliente es fácil justificar atajos porque es una sola página. Esta va a estar en producción representando a alguien que vive de su servicio, así que la hice con el mismo cuidado que un producto.",
+    en: "On a client landing page it is easy to justify shortcuts because it is a single page. This one represents someone who makes a living from their service, so I built it with the same care as a product.",
   },
 };

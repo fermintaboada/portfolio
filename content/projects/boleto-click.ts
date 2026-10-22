@@ -11,8 +11,8 @@ export const boletoClick: Project = {
   kind: { es: "Equipo de 10", en: "Team of 10" },
   status: { es: "Finalizado", en: "Completed" },
   role: {
-    es: "Frontend y autenticación — OAuth en NestJS, roles, checkout, mapas y sistema visual",
-    en: "Frontend and authentication — OAuth in NestJS, roles, checkout, maps and design system",
+    es: "Frontend y autenticación: OAuth en NestJS, roles, checkout, mapas y sistema visual",
+    en: "Frontend and authentication: OAuth in NestJS, roles, checkout, maps and design system",
   },
   domain: { es: "Ticketing · Equipo distribuido", en: "Ticketing · Distributed team" },
   chips: [
@@ -29,12 +29,12 @@ export const boletoClick: Project = {
   },
   overview: {
     es: [
-      "Boleto Click vende entradas para recitales, partidos y shows: el comprador filtra la cartelera, elige zona, aplica cupones y recibe su entrada con código QR; el organizador administra sus eventos, tipos de boleto y ventas desde un panel propio. El backend es una API modular en NestJS con bloqueo temporal de stock para evitar sobreventa y webhooks de Stripe para conciliar las órdenes.",
-      "Fue un proyecto de equipo: diez colaboradores en distintos países, coordinando por pull request contra una rama común. Mi trabajo estuvo del lado del frontend — veintiséis pull requests mergeados — y también en la autenticación de la API: el flujo de OAuth y la sesión se diseñaron de los dos lados a la vez, en NestJS y en el cliente.",
+      "Boleto Click vende entradas para recitales, partidos y shows. El comprador filtra la cartelera, elige zona, aplica cupones y recibe su entrada con código QR. El organizador administra sus eventos, tipos de boleto y ventas desde un panel propio. El backend es una API modular en NestJS que bloquea el stock por un tiempo para evitar la sobreventa y concilia las órdenes con webhooks de Stripe.",
+      "Fue un proyecto de equipo: diez colaboradores en distintos países, coordinando por pull request contra una rama común. Trabajé sobre todo en el frontend, con veintiséis pull requests mergeados, y también en la autenticación de la API. El flujo de OAuth y la sesión los diseñamos de los dos lados a la vez, en NestJS y en el cliente.",
     ],
     en: [
-      "Boleto Click sells tickets for concerts, matches and live shows: buyers filter the listings, pick a section, apply coupons and receive a QR ticket; organisers manage their events, ticket types and sales from their own dashboard. The backend is a modular NestJS API with temporary stock locking to prevent overselling and Stripe webhooks to reconcile orders.",
-      "It was a team project: ten contributors across different countries, coordinating by pull request against a shared branch. My work was on the frontend — twenty-six pull requests merged — and also on the API's authentication: the OAuth flow and the session were designed from both sides at once, in NestJS and in the client.",
+      "Boleto Click sells tickets for concerts, matches and live shows. Buyers filter the listings, pick a section, apply coupons and receive a QR ticket. Organisers manage their events, ticket types and sales from their own dashboard. The backend is a modular NestJS API that locks stock for a while to prevent overselling and reconciles orders through Stripe webhooks.",
+      "It was a team project: ten contributors across different countries, coordinating by pull request against a shared branch. I worked mostly on the frontend, with twenty-six pull requests merged, and also on the API's authentication. We designed the OAuth flow and the session from both sides at once, in NestJS and in the client.",
     ],
   },
   shots: [
@@ -45,8 +45,8 @@ export const boletoClick: Project = {
         en: "Boleto Click home page with the event listings",
       },
       caption: {
-        es: "La portada pública y sus patrones visuales — navbar, footer, tipografía y modo oscuro — fueron parte de mi trabajo.",
-        en: "The public home page and its visual patterns — navbar, footer, typography and dark mode — were part of my work.",
+        es: "Hice la portada pública y sus patrones visuales: navbar, footer, tipografía y modo oscuro.",
+        en: "I built the public home page and its visual patterns: navbar, footer, typography and dark mode.",
       },
     },
     {
@@ -99,22 +99,22 @@ export const boletoClick: Project = {
     title: { es: "Mi trabajo en el proyecto", en: "My work on the project" },
     items: {
       es: [
-        "Autenticación de punta a punta: en el backend, sobre NestJS, el flujo de OAuth y la emisión y validación de la sesión; en el frontend, el registro por rol, el login con Google y la recuperación de contraseña. Diseñar los dos lados a la vez evitó el ida y vuelta habitual entre quien expone el endpoint y quien lo consume.",
-        "El intercambio OAuth se resolvió con PKCE y detección de sesión en la URL, para que el mismo flujo funcione igual en local y en los despliegues de Vercel — el caso donde estas integraciones normalmente se rompen.",
-        "Roles de usuario reflejados en la interfaz: la navegación y el perfil cambian según sea comprador, organizador o administrador, en vez de esconder botones a todos por igual.",
+        "Autenticación de punta a punta. En el backend, sobre NestJS, el flujo de OAuth y la emisión y validación de la sesión. En el frontend, el registro por rol, el login con Google y la recuperación de contraseña. Al diseñar los dos lados a la vez nos ahorramos el ida y vuelta entre quien expone el endpoint y quien lo consume.",
+        "Resolví el intercambio OAuth con PKCE y detección de sesión en la URL, para que el mismo flujo funcione igual en local y en los despliegues de Vercel, que es donde estas integraciones suelen romperse.",
+        "Roles de usuario en la interfaz: la navegación y el perfil cambian según la persona sea compradora, organizadora o administradora.",
         "Flujo de compra: resumen de orden, cupones de descuento y temporizador de reserva, contra el checkout de Stripe.",
         "Geolocalización y mapas con Mapbox GL para ubicar recintos, más el formulario de carga de venues del panel de organizador.",
         "Diseño de la landing pública y los patrones visuales de la aplicación: navbar y footer globales, modo oscuro con contraste corregido, y páginas legales.",
-        "Unificación de la estructura del repositorio: migración de la carpeta client/ a src/ para que diez personas trabajaran sobre una convención sola en vez de dos.",
+        "Unificación de la estructura del repositorio: migré la carpeta client/ a src/ para que las diez personas trabajaran con una sola convención.",
       ],
       en: [
-        "Authentication end to end: on the backend, in NestJS, the OAuth flow plus issuing and validating the session; on the frontend, role-based sign-up, Google login and password recovery. Designing both sides at once removed the usual back-and-forth between whoever exposes the endpoint and whoever consumes it.",
-        "The OAuth exchange was solved with PKCE and session detection in the URL, so the same flow behaves identically in local and on Vercel deployments — precisely where these integrations usually break.",
-        "User roles reflected in the interface: navigation and profile change depending on whether you are a buyer, an organiser or an admin, rather than hiding buttons from everyone alike.",
+        "Authentication end to end. On the backend, in NestJS, the OAuth flow plus issuing and validating the session. On the frontend, role-based sign-up, Google login and password recovery. Designing both sides at once saved the back-and-forth between whoever exposes the endpoint and whoever consumes it.",
+        "I solved the OAuth exchange with PKCE and session detection in the URL, so the same flow behaves the same locally and on Vercel deployments, which is where these integrations tend to break.",
+        "User roles in the interface: navigation and profile change depending on whether you are a buyer, an organiser or an admin.",
         "Purchase flow: order summary, discount coupons and reservation timer, against Stripe checkout.",
         "Geolocation and maps with Mapbox GL to place venues, plus the venue creation form in the organiser dashboard.",
         "Design of the public landing page and the app's visual patterns: global navbar and footer, dark mode with corrected contrast, and legal pages.",
-        "Unifying the repository structure: migrating the client/ folder into src/ so ten people worked against one convention instead of two.",
+        "Unifying the repository structure: I migrated the client/ folder into src/ so all ten people worked with a single convention.",
       ],
     },
   },
@@ -126,8 +126,8 @@ export const boletoClick: Project = {
         en: "instead of settling for it working only in production",
       },
       body: {
-        es: "El login con Google fallaba de forma distinta en local y en los despliegues de preview. La solución no fue una excepción por entorno: se pasó el intercambio a PKCE y se habilitó la detección de sesión en la URL, de modo que el flujo es el mismo en todos lados y el error que ve el usuario dice qué pasó.",
-        en: "Google login failed differently in local and on preview deployments. The fix was not a per-environment exception: the exchange moved to PKCE with session detection in the URL, so the flow is the same everywhere and the error the user sees says what actually happened.",
+        es: "El login con Google fallaba de forma distinta en local y en los despliegues de preview. En lugar de agregar una excepción por entorno, pasé el intercambio a PKCE y habilité la detección de sesión en la URL. Ahora el flujo es el mismo en todos lados y el error que ve el usuario dice qué pasó.",
+        en: "Google login failed differently locally and on preview deployments. Instead of adding a per-environment exception, I moved the exchange to PKCE and enabled session detection in the URL. The flow is now the same everywhere, and the error the user sees says what happened.",
       },
     },
     {
@@ -137,19 +137,19 @@ export const boletoClick: Project = {
         en: "instead of one view with hidden buttons",
       },
       body: {
-        es: "Comprador, organizador y administrador no ven la misma aplicación con partes deshabilitadas: la barra de navegación y el perfil se arman a partir del rol. Es más claro para el usuario y hace explícito, en el código, qué puede hacer cada uno.",
-        en: "Buyer, organiser and admin do not see the same app with parts disabled: the navigation bar and profile are composed from the role. It is clearer for the user and makes explicit, in code, what each one can do.",
+        es: "La barra de navegación y el perfil se arman a partir del rol, así que comprador, organizador y administrador ven cada uno su propia versión de la aplicación. Es más claro para el usuario y deja explícito en el código qué puede hacer cada uno.",
+        en: "The navigation bar and the profile are built from the role, so buyer, organiser and admin each see their own version of the app. It is clearer for the user and makes it explicit in code what each one can do.",
       },
     },
     {
-      title: { es: "Una convención, no dos", en: "One convention, not two" },
+      title: { es: "Una sola estructura de carpetas", en: "A single folder structure" },
       instead: {
         es: "en vez de dejar conviviendo client/ y src/",
         en: "instead of letting client/ and src/ coexist",
       },
       body: {
-        es: "Con diez personas trabajando en paralelo, dos estructuras de carpetas conviviendo garantizan conflictos e imports rotos. Migrar todo a src/ fue trabajo que no agrega ninguna función visible, y era la condición para que el resto avanzara sin pisarse.",
-        en: "With ten people working in parallel, two coexisting folder structures guarantee conflicts and broken imports. Migrating everything to src/ added no visible feature, and it was the precondition for everyone else to move without colliding.",
+        es: "Con diez personas trabajando en paralelo, dos estructuras de carpetas a la vez garantizan conflictos e imports rotos. Migrar todo a src/ no agregó ninguna función visible, pero hacía falta para que el resto avanzara sin pisarse.",
+        en: "With ten people working in parallel, two folder structures at once guarantee conflicts and broken imports. Migrating everything to src/ added no visible feature, but everyone else needed it to keep moving without colliding.",
       },
     },
   ],
@@ -172,7 +172,7 @@ export const boletoClick: Project = {
     },
   ],
   closing: {
-    es: "El desafío técnico más grande de este proyecto no fue ninguna feature: fue que diez personas en distintos husos horarios pudieran mergear sobre la misma base sin romperse el trabajo. Buena parte de lo que hice —unificar la estructura, dejar la navegación derivada del rol, hacer que el OAuth ande igual en todos los entornos— existe por eso.",
-    en: "The biggest technical challenge here was not any single feature: it was letting ten people in different time zones merge into the same codebase without breaking each other's work. A good part of what I did — unifying the structure, deriving navigation from the role, making OAuth behave identically across environments — exists for that reason.",
+    es: "Lo más difícil de este proyecto fue que diez personas en distintos husos horarios pudieran mergear sobre la misma base sin romperse el trabajo. Por eso unifiqué la estructura, hice que la navegación saliera del rol y dejé el OAuth andando igual en todos los entornos.",
+    en: "The hardest part of this project was letting ten people in different time zones merge into the same codebase without breaking each other's work. That is why I unified the structure, derived navigation from the role and made OAuth behave the same in every environment.",
   },
 };

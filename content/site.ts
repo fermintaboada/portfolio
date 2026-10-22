@@ -105,8 +105,8 @@ export const caseLabels = {
   decisions: { es: "Decisiones", en: "Decisions" } as L,
   findings: { es: "Hallazgos", en: "Findings" } as L,
   findingsIntro: {
-    es: "Bugs reales. Cada uno se confirmó leyendo la causa antes de tocar código, y se verificó después del fix.",
-    en: "Real bugs. Each one was confirmed by reading the cause before touching code, and verified again after the fix.",
+    es: "Bugs que encontré en el sistema. Confirmé la causa de cada uno antes de tocar código y lo volví a verificar después del arreglo.",
+    en: "Bugs I found in the system. I confirmed the cause of each one before touching code and checked it again after the fix.",
   } as L,
   showed: { es: "Mostraba", en: "Showed" } as L,
   was: { es: "Era", en: "Was" } as L,

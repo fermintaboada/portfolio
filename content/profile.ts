@@ -29,8 +29,8 @@ export const profile = {
     en: "From business to code.",
   } as L,
   lede: {
-    es: "Construyo productos web completos —de la base de datos a la interfaz— y me ocupo de que lo que muestran siga siendo correcto en producción.",
-    en: "I build complete web products — from the database to the interface — and I make sure what they show stays correct in production.",
+    es: "Construyo productos web completos, de la base de datos a la interfaz, y me ocupo de que lo que muestran siga siendo correcto en producción.",
+    en: "I build complete web products, from the database to the interface, and I make sure what they show stays correct in production.",
   } as L,
   facts: [
     {
@@ -73,8 +73,8 @@ export const profile = {
       title: { es: "Operaciones y atención al cliente", en: "Operations and customer service" } as L,
       org: { es: "Fiskyn", en: "Fiskyn" } as L,
       body: {
-        es: "Post-venta y comunicación con clientes de alto volumen en una marca de calzado. Conocer el negocio desde adentro es lo que después me dejó construir métricas que significan algo para quien las lee, en vez de gráficos lindos.",
-        en: "Post-sale and communication with high-volume customers at a footwear brand. Knowing the business from the inside is what later let me build metrics that mean something to whoever reads them, instead of pretty charts.",
+        es: "Post-venta y comunicación con clientes en una marca de calzado con mucho volumen. Ahí aprendí qué número le sirve a quien tiene que decidir, y con ese criterio armo hoy las métricas de mis proyectos.",
+        en: "Post-sale and customer communication at a high-volume footwear brand. That is where I learned which number helps someone who has to make a decision, and I use that when I design the metrics in my projects.",
       } as L,
     },
     {
@@ -121,8 +121,8 @@ export const stack = {
     en: "What I work with.",
   } as L,
   lede: {
-    es: "Nada está acá por haberlo probado una vez: todo sostiene alguno de los proyectos de arriba.",
-    en: "Nothing is here because I tried it once: all of it holds up one of the projects above.",
+    es: "Todo lo que aparece acá lo usé en alguno de los proyectos de arriba.",
+    en: "Everything listed here is used in at least one of the projects above.",
   } as L,
   groups: [
     {

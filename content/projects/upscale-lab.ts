@@ -11,8 +11,8 @@ export const upscaleLab: Project = {
   kind: { es: "Producto propio", en: "Own product" },
   status: { es: "En prueba con un cliente", en: "In trial with a client" },
   role: {
-    es: "Diseño, desarrollo e infraestructura — proyecto completo",
-    en: "Design, development and infrastructure — end to end",
+    es: "Diseño, desarrollo e infraestructura, de punta a punta",
+    en: "Design, development and infrastructure, end to end",
   },
   domain: { es: "SaaS · E-commerce · IA", en: "SaaS · E-commerce · AI" },
   chips: [
@@ -29,12 +29,12 @@ export const upscaleLab: Project = {
   },
   overview: {
     es: [
-      "La plataforma centraliza los canales de venta y las redes de cada cliente, calcula señales de negocio reales sobre esos datos, y una capa de IA razona sobre esas señales para sugerir contenido y responder preguntas puntuales — con el contexto de marca de ese cliente, nunca genérico. Cada recurso lleva su clientId a nivel de query y las credenciales se guardan encriptadas por tenant.",
-      "La parte que más trabajo llevó no es el CRUD: es lo que rodea al agente. Un chatbot que responde con datos de negocio tiene un problema que uno genérico no tiene, y es que una respuesta plausible y una correcta se parecen demasiado. Buena parte del sistema existe para poder distinguirlas.",
+      "La plataforma reúne los canales de venta y las redes de cada cliente, calcula señales de negocio sobre esos datos y usa una capa de IA que razona sobre esas señales para sugerir contenido y responder preguntas puntuales, siempre con el contexto de marca de ese cliente. Cada recurso lleva su clientId a nivel de query y las credenciales se guardan encriptadas por tenant.",
+      "Lo que más trabajo llevó fue lo que rodea al agente. Cuando un chatbot responde con datos de negocio, una respuesta plausible y una correcta se parecen demasiado, y buena parte del sistema está para distinguirlas.",
     ],
     en: [
-      "The platform centralises each client's sales channels and social accounts, computes real business signals over that data, and an AI layer reasons about those signals to suggest content and answer specific questions — with that client's brand context, never generic. Every record carries its clientId at the query level and credentials are stored encrypted per tenant.",
-      "The part that took the most work is not the CRUD: it is what surrounds the agent. A chatbot answering with business data has a problem a generic one does not, which is that a plausible answer and a correct one look too much alike. A good part of the system exists to tell them apart.",
+      "The platform brings together each client's sales channels and social accounts, computes business signals over that data, and uses an AI layer that reasons over those signals to suggest content and answer specific questions, always with that client's brand context. Every record carries its clientId at the query level, and credentials are stored encrypted per tenant.",
+      "Most of the work went into what surrounds the agent. When a chatbot answers with business data, a plausible answer and a correct one look too much alike, and a good part of the system is there to tell them apart.",
     ],
   },
   shots: [
@@ -45,8 +45,8 @@ export const upscaleLab: Project = {
         en: "Upscale Lab analysis panel showing profitability findings",
       },
       caption: {
-        es: "El análisis, sobre el tenant de demostración. Cada hallazgo cierra con un qué hacer concreto, redactado sobre señales ya calculadas por código — el modelo interpreta, no cuenta.",
-        en: "The analysis view, on the demo tenant. Every finding closes with a concrete next step, written over signals already computed in code — the model interprets, it does not count.",
+        es: "El análisis, sobre el tenant de demostración. Cada hallazgo cierra con un qué hacer concreto, redactado a partir de señales que el código ya calculó: el modelo interpreta y el código hace las cuentas.",
+        en: "The analysis view, on the demo tenant. Every finding closes with a concrete next step, written from signals the code already computed: the model interprets and the code does the arithmetic.",
       },
     },
     {
@@ -56,8 +56,8 @@ export const upscaleLab: Project = {
         en: "AI-generated content suggestions with feedback controls",
       },
       caption: {
-        es: "Las sugerencias llegan al cliente sólo después de la aprobación del admin, y cada una pide feedback: es el dato que después afina el contexto de marca.",
-        en: "Suggestions reach the client only after admin approval, and each one asks for feedback: that is the signal that later sharpens the brand context.",
+        es: "Las sugerencias llegan al cliente solo después de que las aprueba el admin, y cada una pide feedback. Ese feedback es lo que después afina el contexto de marca.",
+        en: "Suggestions reach the client only after the admin approves them, and each one asks for feedback. That feedback is what later sharpens the brand context.",
       },
     },
     {
@@ -67,8 +67,8 @@ export const upscaleLab: Project = {
         en: "Instagram metrics panel with followers and engagement",
       },
       caption: {
-        es: "El panel de Instagram: el mismo lugar donde el total de seguidores mostraba el cambio del día en vez del acumulado.",
-        en: "The Instagram panel: the same place where the follower total was showing the daily change instead of the running total.",
+        es: "El panel de Instagram, donde el total de seguidores mostraba el cambio del día en vez del acumulado.",
+        en: "The Instagram panel, where the follower total was showing the daily change instead of the running total.",
       },
     },
   ],
@@ -102,43 +102,43 @@ export const upscaleLab: Project = {
       en: "Deterministic signals before the model",
     },
     intro: {
-      es: "Un LLM es malo haciendo aritmética exacta sobre muchos datos y puede alucinar una tendencia inexistente. El código determinístico calcula los números verificables; la IA gasta su razonamiento en interpretar y priorizar, nunca en contar. El flujo real, en orden:",
-      en: "An LLM is bad at exact arithmetic over large datasets and can hallucinate a trend that is not there. Deterministic code computes the verifiable numbers; the AI spends its reasoning on interpreting and prioritising, never on counting. The actual flow, in order:",
+      es: "Un LLM es malo haciendo aritmética exacta sobre muchos datos y puede alucinar una tendencia que no existe. Por eso el código determinístico calcula los números verificables y la IA se dedica a interpretarlos y priorizarlos. El flujo, en orden:",
+      en: "An LLM is bad at exact arithmetic over large datasets and can hallucinate a trend that is not there. So deterministic code computes the verifiable numbers, and the AI spends its reasoning on interpreting and prioritising them. The flow, in order:",
     },
     steps: [
       {
         title: { es: "Módulos de señal, puros y testeados", en: "Signal modules, pure and tested" },
         body: {
-          es: "Once módulos independientes — margen, retención, inventario, fricción de checkout, timing de compra, tendencia semanal, combos, cupones, salud de Instagram — calculan hallazgos con umbrales de confianza explícitos. Sin muestra suficiente, el módulo devuelve null: nunca inventa un número.",
-          en: "Eleven independent modules — margin, retention, inventory, checkout friction, purchase timing, week-over-week trend, bundles, coupons, Instagram health — compute findings with explicit confidence thresholds. Without a large enough sample the module returns null: it never invents a number.",
+          es: "Once módulos independientes (margen, retención, inventario, fricción de checkout, timing de compra, tendencia semanal, combos, cupones y salud de Instagram) calculan hallazgos con umbrales de confianza explícitos. Si la muestra no alcanza, el módulo devuelve null en lugar de un número.",
+          en: "Eleven independent modules (margin, retention, inventory, checkout friction, purchase timing, week-over-week trend, bundles, coupons and Instagram health) compute findings with explicit confidence thresholds. If the sample is too small, the module returns null instead of a number.",
         },
       },
       {
         title: { es: "Interpretación con Claude", en: "Interpretation with Claude" },
         body: {
-          es: "El chatbot y el generador de sugerencias reciben esas señales ya calculadas, nunca filas crudas. Cada prompt lleva una regla de grounding explícita: si un dato no está, hay que decirlo — nunca inventarlo.",
-          en: "The chatbot and the suggestion generator receive those precomputed signals, never raw rows. Every prompt carries an explicit grounding rule: if a data point is missing, say so — never invent it.",
+          es: "El chatbot y el generador de sugerencias reciben esas señales ya calculadas, nunca filas crudas. Cada prompt lleva una regla de grounding explícita: si un dato no está, el modelo tiene que decirlo.",
+          en: "The chatbot and the suggestion generator receive those precomputed signals, never raw rows. Every prompt carries an explicit grounding rule: if a data point is missing, the model has to say so.",
         },
       },
       {
         title: { es: "Agente con herramientas bajo demanda", en: "Agent with on-demand tools" },
         body: {
-          es: "Un loop de tool-use le da al modelo acceso a get_metrics, get_product_sales, get_stock y generate_image. Así responde algo tan puntual como cuántos pares de un modelo se vendieron ayer, sin que ese dato viva en el contexto fijo del prompt.",
-          en: "A tool-use loop gives the model access to get_metrics, get_product_sales, get_stock and generate_image. That lets it answer something as specific as how many pairs of one model sold yesterday, without that detail living in the prompt's fixed context.",
+          es: "Un loop de tool-use le da al modelo acceso a get_metrics, get_product_sales, get_stock y generate_image. Así puede responder algo tan puntual como cuántos pares de un modelo se vendieron ayer, sin que ese dato tenga que estar en el contexto fijo del prompt.",
+          en: "A tool-use loop gives the model access to get_metrics, get_product_sales, get_stock and generate_image. That lets it answer something as specific as how many pairs of one model sold yesterday, without that detail having to sit in the prompt's fixed context.",
         },
       },
       {
         title: { es: "Visión y generación de imagen con marca", en: "Vision and on-brand image generation" },
         body: {
-          es: "El cliente adjunta una foto de referencia en el chat; Claude la interpreta como imagen y, si genera contenido, esa referencia se suma sola a Gemini junto con la paleta y el estilo del cliente — sin pre-cargar nada.",
-          en: "The client attaches a reference photo in the chat; Claude reads it as an image and, if it generates content, that reference is passed along to Gemini together with the client's palette and style — nothing to pre-configure.",
+          es: "El cliente adjunta una foto de referencia en el chat y Claude la interpreta como imagen. Si después genera contenido, esa referencia pasa sola a Gemini junto con la paleta y el estilo del cliente, sin configurar nada antes.",
+          en: "The client attaches a reference photo in the chat and Claude reads it as an image. If it then generates content, that reference goes to Gemini automatically along with the client's palette and style, with nothing to set up beforehand.",
         },
       },
       {
         title: { es: "Filtro de costo antes de la llamada cara", en: "Cost filter before the expensive call" },
         body: {
-          es: "Un clasificador barato — Haiku, sin contexto de marca — corta los pedidos ajenos al negocio antes de la llamada completa, sesgado a propósito hacia dejar pasar ante la duda para no bloquear pedidos creativos legítimos.",
-          en: "A cheap classifier — Haiku, no brand context — rejects off-topic requests before the full call, deliberately biased toward letting borderline cases through so legitimate creative requests never get blocked.",
+          es: "Un clasificador barato (Haiku, sin contexto de marca) corta los pedidos ajenos al negocio antes de la llamada completa. Ante la duda deja pasar el pedido, a propósito, para no bloquear pedidos creativos legítimos.",
+          en: "A cheap classifier (Haiku, with no brand context) rejects off-topic requests before the full call. When in doubt it lets the request through, on purpose, so legitimate creative requests do not get blocked.",
         },
       },
     ],
@@ -149,29 +149,29 @@ export const upscaleLab: Project = {
       en: "A plausible answer and a correct one look too much alike",
     },
     intro: {
-      es: "Si el asistente dice «estos son tus cinco peores productos» y la lista está mal, nadie lo nota hasta que el cliente toma la decisión equivocada. Casi todo lo que sigue existe para poder distinguir esas dos cosas. Es un sistema propio, sin plataformas externas.",
-      en: "If the assistant says \"these are your five worst products\" and the list is wrong, nobody notices until the client makes the wrong call. Almost everything below exists to tell those two apart. It is a system of my own, with no external platform.",
+      es: "Si el asistente dice «estos son tus cinco peores productos» y la lista está mal, nadie lo nota hasta que el cliente toma la decisión equivocada. Para distinguir una respuesta correcta de una que solo suena bien armé un sistema propio de evaluación, sin plataformas externas.",
+      en: "If the assistant says \"these are your five worst products\" and the list is wrong, nobody notices until the client makes the wrong call. To tell a correct answer from one that only sounds right, I built my own evaluation system, with no external platform.",
     },
     steps: [
       {
         title: { es: "El dataset se diseña por dimensiones", en: "The dataset is designed by dimensions" },
         body: {
-          es: "Veinticuatro casos armados cruzando tipo de pedido, forma de la consulta y estado de los datos — no por intuición. Sólo las preguntas son sintéticas: corren contra el pipeline real y los datos reales del tenant, así que respuestas, herramientas y fallas son auténticas.",
-          en: "Twenty-four cases built by crossing request type, question shape and data state — not by intuition. Only the questions are synthetic: they run against the real pipeline over the tenant's real data, so answers, tools and failures are all authentic.",
+          es: "Veinticuatro casos que cruzan tipo de pedido, forma de la consulta y estado de los datos. Solo las preguntas son sintéticas: corren contra el pipeline y los datos reales del tenant, así que las respuestas, las herramientas que se llaman y las fallas son las de verdad.",
+          en: "Twenty-four cases that cross request type, question shape and data state. Only the questions are synthetic: they run against the real pipeline and the tenant's real data, so the answers, the tools called and the failures are the real ones.",
         },
       },
       {
         title: { es: "Cada respuesta deja una traza auditable", en: "Every response leaves an auditable trace" },
         body: {
-          es: "Se guarda el prompt, qué herramientas se llamaron y qué devolvieron, nunca sólo la respuesta final. Ante «hacé una imagen de un modelo en tendencia», la traza deja ver si de verdad consultó ventas o el modelo lo inventó. Nunca se muestra al cliente: existe para auditar después.",
-          en: "It stores the prompt, which tools were called and what they returned, never just the final answer. For \"make an image of a trending model\", the trace shows whether it actually queried sales or the model made it up. Never shown to the client: it exists to audit afterwards.",
+          es: "Por cada respuesta se guarda el prompt, qué herramientas se llamaron y qué devolvieron. Si alguien pide «hacé una imagen de un modelo en tendencia», la traza muestra si el agente consultó las ventas o inventó el modelo. El cliente nunca la ve; sirve para auditar después.",
+          en: "For every response the system stores the prompt, which tools were called and what they returned. If someone asks \"make an image of a trending model\", the trace shows whether the agent checked sales or made the model up. The client never sees it; it is there for auditing later.",
         },
       },
       {
         title: { es: "Comparar corridas y leer a mano", en: "Comparing runs and reading by hand" },
         body: {
-          es: "Un comparador muestra qué casos cambiaron de herramientas, costo o comportamiento entre una corrida y otra — sin eso, «lo arreglé» es una impresión. Y las corridas se leen enteras en una interfaz local: si una respuesta de negocio es buena no lo decide un score automático.",
-          en: "A comparator shows which cases changed tools, cost or behaviour between runs — without it, \"I fixed it\" is an impression. And runs are read in full in a local interface: whether a business answer is any good is not decided by an automatic score.",
+          es: "Un comparador muestra qué casos cambiaron de herramientas, costo o comportamiento entre una corrida y otra, y así «lo arreglé» deja de ser una impresión. Además leo las corridas enteras en una interfaz local, porque un score automático no alcanza para juzgar un consejo de negocio.",
+          en: "A comparator shows which cases changed tools, cost or behaviour between runs, so \"I fixed it\" stops being a hunch. I also read whole runs in a local interface, because an automatic score is not enough to judge business advice.",
         },
       },
     ],
@@ -181,19 +181,19 @@ export const upscaleLab: Project = {
         en: "Five classes of check",
       },
       intro: {
-        es: "Testear un sistema con un modelo de lenguaje adentro no se parece a testear una función: la misma entrada puede dar salidas distintas y ninguna tiene por qué estar mal. Estas son las cinco cosas que se verifican, y qué queda garantizado cuando cada una pasa.",
-        en: "Testing a system with a language model inside is not like testing a function: the same input can produce different outputs and none of them has to be wrong. These are the five things that get checked, and what each one guarantees when it passes.",
+        es: "En un sistema con un modelo de lenguaje adentro, la misma entrada puede dar salidas distintas y todas pueden estar bien, así que testearlo pide más que testear una función. Estas son las cinco verificaciones y lo que garantiza cada una cuando pasa.",
+        en: "In a system with a language model inside, the same input can produce different outputs and all of them can be fine, so testing it takes more than testing a function. These are the five checks and what each one guarantees when it passes.",
       },
       items: [
         {
           kind: { es: "Aislamiento entre clientes", en: "Cross-tenant isolation" },
           ensures: {
             es: "Que el contexto que se le manda al modelo para un cliente no contenga datos de otro, y que ninguna respuesta nombre productos ajenos.",
-            en: "That the context sent to the model for one client carries no data from another, and that no response ever names someone else's products.",
+            en: "That the context sent to the model for one client carries no data from another, and that no response names someone else's products.",
           },
           found: {
-            es: "Corre sin gastar una llamada al modelo, y se controla a sí misma: si el contexto de un cliente no trae ni sus propios productos, se reporta rota en vez de dar verde.",
-            en: "It runs without spending a model call, and it checks itself: if a client's context does not even carry their own products, it reports as broken instead of passing.",
+            es: "Corre sin gastar una llamada al modelo y se controla a sí misma: si el contexto de un cliente no trae ni sus propios productos, se reporta rota.",
+            en: "It runs without spending a model call, and it checks itself: if a client's context does not even carry their own products, it reports itself as broken.",
           },
         },
         {
@@ -203,8 +203,8 @@ export const upscaleLab: Project = {
             en: "That the answer was reached the right way: which tools were called, with which arguments and in what order.",
           },
           found: {
-            es: "Es la que expuso que el agente trabajaba sobre un catálogo recortado: la respuesta sonaba razonable, el camino no lo era.",
-            en: "This is the one that exposed the agent working on a truncated catalogue: the answer sounded reasonable, the path was not.",
+            es: "Esta fue la que mostró que el agente trabajaba sobre un catálogo recortado. La respuesta sonaba razonable; el camino para llegar a ella estaba mal.",
+            en: "This is the one that showed the agent was working on a truncated catalogue. The answer sounded reasonable; the path to it was wrong.",
           },
         },
         {
@@ -214,30 +214,30 @@ export const upscaleLab: Project = {
             en: "That the same request does not change result from one run to the next. Each case is executed three times and compared.",
           },
           found: {
-            es: "Sin esto, una falla intermitente se lee como un caso aislado y se descarta. Así se midió que un pedido legítimo se rechazaba las tres veces.",
-            en: "Without this, an intermittent failure reads as a one-off and gets dismissed. This is how a legitimate request was measured being rejected all three times.",
+            es: "Sin esto, una falla intermitente parece un caso aislado y se descarta. Así medí que un pedido legítimo se rechazaba las tres veces.",
+            en: "Without it, an intermittent failure looks like a one-off and gets dismissed. That is how I measured a legitimate request being rejected all three times.",
           },
         },
         {
           kind: { es: "Regresión de costo", en: "Cost regression" },
           ensures: {
             es: "Que nada volátil se cuele en el bloque cacheado del prompt, que es lo que sostiene el precio por respuesta.",
-            en: "That nothing volatile slips into the cached block of the prompt, which is what holds the price per response down.",
+            en: "That nothing volatile slips into the cached block of the prompt, which is what keeps the price per response down.",
           },
           found: {
-            es: "Es la clase de falla que no rompe nada: la aplicación anda igual, sólo sale más cara. Sin un test que la vigile, se descubre con la factura.",
-            en: "It is the class of failure that breaks nothing: the app works the same, it just costs more. Without a test watching it, you find out from the invoice.",
+            es: "Esta falla no rompe nada: la aplicación anda igual y solo sale más cara. Sin un test que la vigile, aparece en la factura.",
+            en: "This failure breaks nothing: the app works the same and only costs more. Without a test watching for it, it shows up on the invoice.",
           },
         },
         {
           kind: { es: "Revisión humana anotada", en: "Annotated human review" },
           ensures: {
-            es: "Que la respuesta sirva como consejo de negocio, no sólo que sea formalmente correcta. Es la única que no se automatiza.",
-            en: "That the answer works as business advice, not merely that it is formally correct. It is the only one that is not automated.",
+            es: "Que la respuesta sirva como consejo de negocio, además de ser formalmente correcta. Es la única verificación que no está automatizada.",
+            en: "That the answer works as business advice as well as being formally correct. It is the only check that is not automated.",
           },
           found: {
-            es: "Un ranking puede estar bien calculado y ser un mal consejo: fue leyendo respuestas que apareció que confundía sin ventas con agotado.",
-            en: "A ranking can be correctly computed and still be bad advice: reading answers is what surfaced it confusing no sales with out of stock.",
+            es: "Un ranking puede estar bien calculado y ser un mal consejo. Leyendo respuestas apareció que el agente confundía «sin ventas» con «agotado».",
+            en: "A ranking can be computed correctly and still be bad advice. Reading answers showed that the agent was confusing \"no sales\" with \"out of stock\".",
           },
         },
       ],
@@ -277,8 +277,8 @@ export const upscaleLab: Project = {
         en: "instead of taking the cost as a given",
       },
       body: {
-        es: "El caché del modelo es un match de prefijo: cualquier byte que cambie invalida todo lo que viene después. El system prompt tenía las métricas del día y las últimas interacciones en el medio, así que se invalidaba en cada mensaje. Separándolo en un bloque estable —identidad de marca, catálogo, instrucciones— y uno volátil, con el corte entre ambos, el costo por respuesta bajó de US$0,0487 a US$0,0292 y el caché pasó de cubrir el 2,7% de la entrada al 63%. Medido sobre la corrida completa del dataset, no estimado.",
-        en: "The model's cache is a prefix match: any byte that changes invalidates everything after it. The system prompt had the day's metrics and the latest interactions in the middle, so it was invalidated on every message. Splitting it into a stable block — brand identity, catalogue, instructions — and a volatile one, with the boundary between them, brought cost per response from US$0.0487 down to US$0.0292 and took cache coverage of the input from 2.7% to 63%. Measured over the full dataset run, not estimated.",
+        es: "El caché del modelo funciona por coincidencia de prefijo: cualquier byte que cambie invalida todo lo que viene después. El system prompt tenía las métricas del día y las últimas interacciones en el medio, así que se invalidaba en cada mensaje. Lo separé en un bloque estable (identidad de marca, catálogo e instrucciones) y uno volátil, con el corte entre los dos. El costo por respuesta bajó de US$0,0487 a US$0,0292 y el caché pasó de cubrir el 2,7% de la entrada al 63%. Lo medí sobre la corrida completa del dataset.",
+        en: "The model's cache works by prefix match: any byte that changes invalidates everything after it. The system prompt had the day's metrics and the latest interactions in the middle, so it was invalidated on every message. I split it into a stable block (brand identity, catalogue and instructions) and a volatile one, with the boundary between them. Cost per response went from US$0.0487 to US$0.0292, and cache coverage of the input went from 2.7% to 63%. I measured it over the full dataset run.",
       },
     },
     {
@@ -288,24 +288,24 @@ export const upscaleLab: Project = {
         en: "instead of trusting nothing breaks",
       },
       body: {
-        es: "Dos ejemplos del mismo criterio. Uno: el detector de fugas entre clientes se controla a sí mismo — si el contexto de un cliente no trae ni sus propios productos, avisa que está roto en vez de reportar que no hay fugas. Otro: un test verifica que nada volátil se cuele en el bloque cacheado del prompt, la clase de regresión que no rompe nada — la app sigue andando, sólo sale más cara. Sin ese test, se entera por la factura a fin de mes.",
-        en: "Two examples of the same standard. One: the cross-tenant leak detector checks itself — if a client's context does not even carry their own products, it reports as broken instead of reporting no leaks. The other: a test verifies nothing volatile slips into the cached block of the prompt, the kind of regression that breaks nothing — the app keeps working, it just costs more. Without that test, you find out from the invoice.",
+        es: "Dos ejemplos del mismo criterio. El detector de fugas entre clientes se controla a sí mismo: si el contexto de un cliente no trae ni sus propios productos, avisa que está roto. Y un test verifica que nada volátil se cuele en el bloque cacheado del prompt, una regresión que no rompe nada y solo hace que la app salga más cara. Sin ese test, aparece en la factura a fin de mes.",
+        en: "Two examples of the same standard. The cross-tenant leak detector checks itself: if a client's context does not even carry their own products, it reports that it is broken. And a test checks that nothing volatile slips into the cached block of the prompt, a regression that breaks nothing and only makes the app cost more. Without that test, it shows up on the monthly invoice.",
       },
     },
     {
       title: { es: "Sin infraestructura anticipada", en: "No premature infrastructure" },
       instead: { es: "en vez de sumar una cola por si acaso", en: "instead of adding a queue just in case" },
       body: {
-        es: "Sin cola ni Redis, por decisión explícita: a la escala actual esa pieza sería sobrepeso. El repositorio documenta el gatillo concreto para reevaluarlo — el cuarto cliente activo — en vez de escalar de antemano.",
-        en: "No queue, no Redis, by explicit decision: at the current scale that piece would be dead weight. The repo documents the concrete trigger to revisit it — the fourth active client — instead of scaling up front.",
+        es: "No hay cola ni Redis, por decisión explícita: a la escala actual serían peso de más. El repositorio documenta cuándo reevaluarlo: al llegar al cuarto cliente activo.",
+        en: "There is no queue and no Redis, by explicit decision: at the current scale they would be dead weight. The repo documents when to revisit it: once there is a fourth active client.",
       },
     },
     {
       title: { es: "Guardas en el seed de la base", en: "Guards on the database seed" },
       instead: { es: "en vez de confiar en no equivocarse", en: "instead of trusting nobody slips" },
       body: {
-        es: "El seed se niega a correr en producción sin contraseñas definidas por variable de entorno, y detecta si la base ya tiene datos para negarse igual: forzarlo requiere un flag explícito. Nació de un incidente real — casi se corre el seed contra la base de producción con el cliente ya cargado.",
-        en: "The seed refuses to run in production without passwords supplied by environment variable, and detects whether the database already holds data to refuse anyway: forcing it takes an explicit flag. It came out of a real near-miss — the seed was almost run against the production database with the live client already loaded.",
+        es: "El seed se niega a correr en producción si las contraseñas no vienen por variable de entorno, y también si detecta que la base ya tiene datos. Para forzarlo hace falta un flag explícito. Lo agregué después de casi correr el seed contra la base de producción con el cliente ya cargado.",
+        en: "The seed refuses to run in production unless the passwords come from environment variables, and also if it detects that the database already holds data. Forcing it takes an explicit flag. I added this after nearly running the seed against the production database with the client already loaded.",
       },
     },
   ],
@@ -319,20 +319,20 @@ export const upscaleLab: Project = {
       wrong: "25",
       right: "197",
       cause: {
-        es: "El contexto traía sólo los veinticinco productos sincronizados más recientemente, presentados como si fueran el catálogo completo. El ochenta y siete por ciento del catálogo le era invisible.",
-        en: "The context carried only the twenty-five most recently synced products, presented as if they were the whole catalogue. Eighty-seven percent of the catalogue was invisible to it.",
+        es: "El contexto traía solo los veinticinco productos sincronizados más recientemente, presentados como si fueran el catálogo completo. El asistente no veía el ochenta y siete por ciento del catálogo.",
+        en: "The context carried only the twenty-five most recently synced products, presented as if they were the whole catalogue. The assistant could not see eighty-seven percent of the catalogue.",
       },
       impact: {
-        es: "Ante una consulta por un producto que existía y tenía stock, respondía que no aparecía en el catálogo y que podía estar descontinuado. Le decía al cliente que su propia mercadería no existe.",
-        en: "Asked about a product that existed and had stock, it replied that it was not in the catalogue and might be discontinued. It was telling the client their own merchandise did not exist.",
+        es: "Ante una consulta por un producto que existía y tenía stock, respondía que no aparecía en el catálogo y que podía estar descontinuado.",
+        en: "Asked about a product that existed and had stock, it replied that it was not in the catalogue and might be discontinued.",
       },
       verification: {
-        es: "Apareció al correr el dataset de evaluación, no revisando código.",
-        en: "It surfaced by running the evaluation dataset, not by reading code.",
+        es: "Lo encontró una corrida del dataset de evaluación.",
+        en: "A run of the evaluation dataset caught it.",
       },
       fix: {
-        es: "Pasar el catálogo entero con sólo nombre y precio. El resultado fue contraintuitivo: pesa menos que los veinticinco anteriores —18.625 contra 19.204 tokens— porque las URLs de las imágenes ocupaban más que todo el resto junto. El arreglo salió más barato que el bug.",
-        en: "Pass the whole catalogue with just name and price. The result was counterintuitive: it weighs less than the previous twenty-five — 18,625 against 19,204 tokens — because the image URLs took up more room than everything else combined. The fix came out cheaper than the bug.",
+        es: "Pasar el catálogo entero con solo nombre y precio. Pesa menos que los veinticinco productos anteriores (18.625 contra 19.204 tokens), porque las URLs de las imágenes ocupaban más que todo el resto junto.",
+        en: "Pass the whole catalogue with just name and price. It weighs less than the previous twenty-five products (18,625 against 19,204 tokens), because the image URLs took up more room than everything else combined.",
       },
     },
     {
@@ -344,16 +344,16 @@ export const upscaleLab: Project = {
       wrong: "42",
       right: "103.286",
       cause: {
-        es: "El insight follower_count con period=day devuelve el cambio neto del día, no el total acumulado. Se guardaba el delta como si fuera el total.",
-        en: "The follower_count insight with period=day returns the net change for that day, not the running total. The delta was being stored as if it were the total.",
+        es: "El insight follower_count con period=day devuelve el cambio neto del día, no el total acumulado, y se guardaba ese cambio como si fuera el total.",
+        en: "The follower_count insight with period=day returns the net change for that day, not the running total, and that change was being stored as if it were the total.",
       },
       verification: {
-        es: "Confirmado en vivo contra la API con el token real de la cuenta, antes de escribir una línea del fix.",
-        en: "Confirmed live against the API with the account real token, before writing a single line of the fix.",
+        es: "Lo confirmé en vivo contra la API con el token real de la cuenta, antes de escribir una línea del arreglo.",
+        en: "I confirmed it live against the API with the account's real token before writing a line of the fix.",
       },
       fix: {
-        es: "Se trae el total real una vez por sync y se reconstruye el histórico hacia atrás restando los deltas día a día.",
-        en: "The real total is fetched once per sync and the history is rebuilt backwards by subtracting the daily deltas.",
+        es: "Ahora se trae el total real una vez por sincronización y el histórico se reconstruye hacia atrás restando el cambio de cada día.",
+        en: "The real total is now fetched once per sync, and the history is rebuilt backwards by subtracting each day's change.",
       },
     },
     {
@@ -366,36 +366,36 @@ export const upscaleLab: Project = {
       right: "6%",
       cause: {
         es: "Se agrupaba por nombre completo de producto, pero la plataforma de e-commerce codifica el color dentro del nombre: cada color contaba como un producto distinto.",
-        en: "Grouping was by full product name, but the e-commerce platform encodes colour inside the name: every colour counted as a separate product.",
+        en: "Grouping was by full product name, but the e-commerce platform encodes colour inside the name, so every colour counted as a separate product.",
       },
       impact: {
-        es: "El ganador original representaba 31 de 1.452 recompradores. Agrupando por modelo, el patrón real concentra 88 — y señala un producto distinto.",
-        en: "The original winner accounted for 31 of 1,452 repeat buyers. Grouped by model, the real pattern holds 88 — and points at a different product.",
+        es: "El ganador original representaba 31 de 1.452 recompradores. Agrupando por modelo, el patrón real concentra 88 y señala un producto distinto.",
+        en: "The original winner accounted for 31 of 1,452 repeat buyers. Grouped by model, the real pattern holds 88 and points at a different product.",
       },
       fix: {
-        es: "Agrupar por modelo base, no por variante de color.",
-        en: "Group by base model, not by colour variant.",
+        es: "Agrupar por modelo base y sumar todas sus variantes de color.",
+        en: "Group by base model and add up all its colour variants.",
       },
     },
     {
       id: "objetivo-congelado",
       headline: {
         es: "El progreso de un objetivo quedaba congelado para siempre.",
-        en: "A goal progress froze forever.",
+        en: "A goal's progress froze for good.",
       },
       wrong: "$618",
       right: "$29,5M",
       cause: {
-        es: "Al pasar a logrado o no alcanzado, el objetivo se excluía del recálculo. El valor mostrado se congelaba en ese instante aunque las ventas reales siguieran sumando.",
-        en: "Once marked met or missed, the goal was excluded from recalculation. The displayed value froze at that instant even as real sales kept adding up.",
+        es: "Al pasar a logrado o no alcanzado, el objetivo dejaba de recalcularse. El valor mostrado quedaba fijo en ese instante aunque las ventas reales siguieran sumando.",
+        en: "Once marked met or missed, the goal stopped being recalculated. The displayed value stayed fixed at that moment even as real sales kept adding up.",
       },
       impact: {
         es: "Un objetivo de facturación mostraba $618 con una facturación real de $29,5M en el mismo período.",
         en: "A revenue goal displayed $618 against real revenue of $29.5M over the same period.",
       },
       fix: {
-        es: "Se recalculan todos los objetivos siempre; el estado se deriva de datos reales en cada corrida.",
-        en: "All goals are recalculated every run; state is derived from real data each time.",
+        es: "Ahora todos los objetivos se recalculan en cada corrida y el estado se deriva de los datos del momento.",
+        en: "Every goal is now recalculated on each run, and its state is derived from current data.",
       },
     },
   ],
@@ -403,21 +403,21 @@ export const upscaleLab: Project = {
     title: { es: "Testing e integración continua", en: "Testing and continuous integration" },
     items: {
       es: [
-        "18 archivos de test en el backend con Vitest, incluidos los webhooks con verificación de firma HMAC en los tres escenarios: no alcanza con que compile, la seguridad del endpoint está probada.",
-        "Los tests de análisis usan datos sintéticos representativos, no casos triviales. El de retención simula 14 clientes de relleno y 6 recompradores reales — eso fue lo que permitió confirmar el bug de agrupación por color antes de tocar producción.",
-        "Los tests no pegan contra una Postgres real: usan una URL de base dummy que sólo satisface la validación de entorno. Eso obliga a que la lógica de negocio sea función pura que recibe datos, no que hace su propia query. El trade-off está escrito como decisión en el repositorio, no es un descuido.",
-        "El módulo de IA no tenía ni un test, y era justamente donde estaban saliendo los bugs — hoy está cubierto. Sentry reporta los 500 y los fallos silenciosos del cron: la clase de error que, sin instrumentar, se descubre cuando el cliente pregunta por qué sus datos no se actualizan.",
+        "18 archivos de test en el backend con Vitest. Los webhooks tienen tests propios de verificación de firma HMAC en los tres escenarios, así que la seguridad del endpoint está probada.",
+        "Los tests de análisis usan datos sintéticos representativos. El de retención simula 14 clientes de relleno y 6 recompradores, y fue el que confirmó el bug de agrupación por color antes de que llegara a producción.",
+        "Los tests no se conectan a una Postgres real: usan una URL de base ficticia que solo satisface la validación de entorno. Eso obliga a que la lógica de negocio sean funciones puras que reciben datos, en lugar de hacer sus propias queries. El trade-off está documentado como decisión en el repositorio.",
+        "El módulo de IA no tenía ningún test y era justo donde aparecían los bugs; hoy está cubierto. Sentry reporta los errores 500 y las fallas silenciosas del cron, que sin instrumentar se descubren cuando el cliente pregunta por qué sus datos no se actualizan.",
       ],
       en: [
-        "18 backend test files with Vitest, including webhooks with dedicated HMAC signature tests across all three scenarios: compiling is not enough, the endpoint security is tested.",
-        "Analysis tests use representative synthetic data, not trivial cases. The retention one simulates 14 filler customers and 6 real repeat buyers — that is what confirmed the colour-grouping bug before it reached production.",
-        "Tests do not hit a real Postgres: they use a dummy database URL that only satisfies environment validation. That forces business logic to be pure functions receiving data rather than issuing their own queries. The trade-off is written down as a decision in the repo, not an oversight.",
-        "The AI module had no tests at all, and it was exactly where the bugs were coming from — it is covered now. Sentry reports 500s and silent cron failures: the kind of error that, uninstrumented, gets discovered when the client asks why their data stopped updating.",
+        "18 backend test files with Vitest. The webhooks have their own HMAC signature tests across all three scenarios, so the endpoint's security is tested.",
+        "Analysis tests use representative synthetic data. The retention one simulates 14 filler customers and 6 repeat buyers, and it is the test that confirmed the colour-grouping bug before it reached production.",
+        "Tests do not connect to a real Postgres: they use a dummy database URL that only satisfies environment validation. That forces business logic to be pure functions that receive data instead of running their own queries. The trade-off is documented as a decision in the repo.",
+        "The AI module had no tests at all, and it was exactly where the bugs were showing up; it is covered now. Sentry reports 500 errors and silent cron failures, which without instrumentation get discovered when the client asks why their data stopped updating.",
       ],
     },
   },
   closing: {
-    es: "El trabajo acá no fue escribir features aisladas: fue sostener un sistema multi-tenant en producción con datos reales de un cliente, donde cada número que la IA menciona tiene que poder rastrearse hasta una query verificable — y donde encontrar que un dato está mal antes de que lo note el cliente es tan parte del trabajo como construir la función que lo calcula. Casi todo lo que sumé después existe para eso: no para que la IA conteste, sino para poder saber si contestó bien.",
-    en: "The work here was not writing isolated features: it was keeping a multi-tenant system alive in production on a client's live data, where every number the AI mentions has to trace back to a verifiable query — and where catching a wrong number before the client does is as much the job as building the function that computes it. Almost everything I added later exists for that: not to make the AI answer, but to be able to know whether it answered well.",
+    es: "Mi trabajo acá fue sostener un sistema multi-tenant en producción con datos reales de un cliente, donde cada número que menciona la IA tiene que poder rastrearse hasta una query verificable. Encontrar un dato mal antes de que lo note el cliente es tan parte del trabajo como construir la función que lo calcula. Casi todo lo que sumé después sirve para saber si la IA contestó bien.",
+    en: "My job here was keeping a multi-tenant system running in production on a client's live data, where every number the AI mentions has to trace back to a verifiable query. Catching a wrong number before the client does is as much part of the job as building the function that computes it. Almost everything I added later is there to tell whether the AI answered correctly.",
   },
 };

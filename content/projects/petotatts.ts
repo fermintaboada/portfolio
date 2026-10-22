@@ -11,8 +11,8 @@ export const petotatts: Project = {
   kind: { es: "Encargo de cliente", en: "Client commission" },
   status: { es: "Entregado y en línea", en: "Delivered and live" },
   role: {
-    es: "Diseño, desarrollo, contenido y SEO — proyecto completo",
-    en: "Design, development, copy and SEO — end to end",
+    es: "Diseño, desarrollo, contenido y SEO, de punta a punta",
+    en: "Design, development, copy and SEO, end to end",
   },
   domain: { es: "Sitio de autor · Cliente", en: "Portfolio site · Client" },
   chips: [
@@ -28,12 +28,12 @@ export const petotatts: Project = {
   },
   overview: {
     es: [
-      "peto.tatts es un tatuador independiente de Recoleta especializado en blackwork, fineline, estética japonesa y realismo. En este rubro la decisión de compra es puramente visual: alguien mira el trabajo, decide si le gusta ese trazo, y escribe. El sitio tenía que sostener esa mirada, no explicarla.",
-      "Son seis páginas — trabajos, inspiración, turnos, sobre mí y contacto — con el proceso creativo, los estilos y las condiciones de reserva escritas con claridad, para que la conversación por WhatsApp empiece con las dudas ya resueltas.",
+      "peto.tatts es un tatuador independiente de Recoleta especializado en blackwork, fineline, estética japonesa y realismo. En este rubro la decisión es visual: alguien mira el trabajo, decide si le gusta ese trazo y escribe. Por eso el sitio deja que hablen las imágenes y usa poco texto.",
+      "Son seis páginas, entre ellas trabajos, inspiración, turnos, sobre mí y contacto. Explican con claridad el proceso creativo, los estilos y las condiciones de reserva, para que la conversación por WhatsApp empiece con las dudas ya resueltas.",
     ],
     en: [
-      "peto.tatts is an independent tattoo artist in Recoleta specialising in blackwork, fineline, Japanese aesthetics and realism. In this field the decision is purely visual: someone looks at the work, decides whether that line speaks to them, and writes. The site had to hold that gaze, not explain it.",
-      "It is six pages — work, inspiration, booking, about and contact — with the creative process, the styles and the booking terms written plainly, so the WhatsApp conversation starts with the questions already answered.",
+      "peto.tatts is an independent tattoo artist in Recoleta specialising in blackwork, fineline, Japanese aesthetics and realism. In this field the decision is visual: someone looks at the work, decides whether they like that line, and writes. So the site lets the images do the talking and keeps the text short.",
+      "It has six pages, including work, inspiration, booking, about and contact. They explain the creative process, the styles and the booking terms plainly, so the WhatsApp conversation starts with the questions already answered.",
     ],
   },
   shots: [
@@ -44,8 +44,8 @@ export const petotatts: Project = {
         en: "peto.tatts home page with Japanese-inspired imagery",
       },
       caption: {
-        es: "La portada compromete el estilo antes que el texto: quien llega tiene que reconocer el trazo en los primeros dos segundos.",
-        en: "The opening commits to the style before the copy does: whoever lands has to recognise the line within two seconds.",
+        es: "La portada muestra el estilo antes que cualquier texto, para que quien llega reconozca el trazo en los primeros dos segundos.",
+        en: "The home page shows the style before any text, so whoever lands recognises the line within two seconds.",
       },
     },
     {
@@ -55,8 +55,8 @@ export const petotatts: Project = {
         en: "Gallery of featured tattoos grouped by style",
       },
       caption: {
-        es: "Los destacados vienen etiquetados por estilo — blackwork, japonés, realismo — porque el visitante ya sabe cuál busca.",
-        en: "Featured work is tagged by style — blackwork, Japanese, realism — because visitors already know which one they came for.",
+        es: "Los destacados están etiquetados por estilo (blackwork, japonés, realismo) porque el visitante ya sabe cuál busca.",
+        en: "Featured work is tagged by style (blackwork, Japanese, realism) because visitors already know which one they came for.",
       },
     },
     {
@@ -66,8 +66,8 @@ export const petotatts: Project = {
         en: "Inspiration section describing the working process step by step",
       },
       caption: {
-        es: "El proceso, escrito antes de que lo pregunten. Acá el orden sí es información: la conversación, el diseño, la sesión, el resultado.",
-        en: "The process, written before anyone asks. Here the order really is information: the conversation, the design, the session, the result.",
+        es: "El proceso está escrito antes de que alguien lo pregunte, en el orden en que pasa: la conversación, el diseño, la sesión y el resultado.",
+        en: "The process is written out before anyone asks, in the order it happens: the conversation, the design, the session and the result.",
       },
     },
   ],
@@ -79,8 +79,8 @@ export const petotatts: Project = {
         en: "instead of opening with a sales pitch",
       },
       body: {
-        es: "La estructura entera está subordinada a mostrar trabajo: portada con obra a pantalla completa, destacados por estilo, y una sección de inspiración que muestra el proceso y las referencias antes que el precio. En un rubro donde se elige por trazo, el copy acompaña.",
-        en: "The whole structure is subordinate to showing work: a full-bleed opening piece, highlights by style, and an inspiration section that shows process and references before price. In a field where people choose by the line, the copy plays support.",
+        es: "Toda la estructura está pensada para mostrar trabajo: una portada con una obra a pantalla completa, destacados por estilo y una sección de inspiración que muestra el proceso y las referencias antes que el precio. Como la gente elige por el trazo, el texto queda en segundo plano.",
+        en: "The whole structure is built to show work: a full-screen piece on the home page, highlights by style, and an inspiration section that shows process and references before price. Since people choose by the line, the text stays in the background.",
       },
     },
     {
@@ -90,19 +90,19 @@ export const petotatts: Project = {
         en: "instead of negotiating them in chat every time",
       },
       body: {
-        es: "La página de turnos deja explícitas la seña del diez por ciento, el plazo de cancelación de veinticuatro horas y los únicos canales por los que se reserva. Es contenido, no diseño, pero es lo que evita la fricción real del negocio.",
-        en: "The booking page states the ten percent deposit, the twenty-four hour cancellation window and the only channels through which bookings happen. It is content, not design, but it is what removes the actual friction in this business.",
+        es: "La página de turnos deja explícitas la seña del diez por ciento, el plazo de cancelación de veinticuatro horas y los únicos canales por los que se reserva. Es un cambio de contenido, y es el que más roce le ahorra al negocio.",
+        en: "The booking page states the ten percent deposit, the twenty-four hour cancellation window and the only channels through which bookings happen. It is a content change, and it is the one that saves the business the most friction.",
       },
     },
     {
       title: { es: "Datos estructurados de negocio local", en: "Local business structured data" },
       instead: {
-        es: "en vez de sólo poner la dirección en el pie",
+        es: "en vez de solo poner la dirección en el pie",
         en: "instead of just putting the address in the footer",
       },
       body: {
-        es: "El sitio declara un esquema JSON-LD de estudio de tatuajes con nombre, descripción, teléfono, correo y rango de precio. Para un negocio de barrio, aparecer bien en una búsqueda local vale más que cualquier optimización de palabra clave.",
-        en: "The site declares a tattoo parlour JSON-LD schema with name, description, phone, email and price range. For a neighbourhood business, showing up properly in a local search is worth more than any keyword optimisation.",
+        es: "El sitio declara un esquema JSON-LD de estudio de tatuajes con nombre, descripción, teléfono, correo y rango de precio. A un negocio de barrio le sirve más aparecer bien en una búsqueda local que optimizar palabras clave.",
+        en: "The site declares a tattoo parlour JSON-LD schema with name, description, phone, email and price range. A neighbourhood business gets more out of showing up properly in a local search than out of keyword optimisation.",
       },
     },
   ],
@@ -125,7 +125,7 @@ export const petotatts: Project = {
     },
   ],
   closing: {
-    es: "El encargo era una página para mostrar tatuajes. El trabajo real fue decidir qué se dice y qué se calla para que la primera conversación con un cliente arranque en el lugar correcto.",
-    en: "The brief was a page to show tattoos. The real work was deciding what to say and what to leave out so the first conversation with a client starts in the right place.",
+    es: "El encargo era una página para mostrar tatuajes. La mayor parte del trabajo fue decidir qué decir y qué dejar afuera, para que la primera conversación con un cliente arranque con lo importante ya claro.",
+    en: "The brief was a page to show tattoos. Most of the work was deciding what to say and what to leave out, so the first conversation with a client starts with the important things already clear.",
   },
 };
