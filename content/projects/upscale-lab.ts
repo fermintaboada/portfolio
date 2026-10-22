@@ -9,7 +9,7 @@ export const upscaleLab: Project = {
   },
   year: "2026",
   kind: { es: "Producto propio", en: "Own product" },
-  status: { es: "En prueba con un cliente", en: "In trial with a client" },
+  status: { es: "En producción · 2 clientes", en: "In production · 2 clients" },
   role: {
     es: "Diseño, desarrollo e infraestructura, de punta a punta",
     en: "Design, development and infrastructure, end to end",
@@ -31,10 +31,12 @@ export const upscaleLab: Project = {
     es: [
       "La plataforma reúne los canales de venta y las redes de cada cliente, calcula señales de negocio sobre esos datos y usa una capa de IA que razona sobre esas señales para sugerir contenido y responder preguntas puntuales, siempre con el contexto de marca de ese cliente. Cada recurso lleva su clientId a nivel de query y las credenciales se guardan encriptadas por tenant.",
       "Lo que más trabajo llevó fue lo que rodea al agente. Cuando un chatbot responde con datos de negocio, una respuesta plausible y una correcta se parecen demasiado, y buena parte del sistema está para distinguirlas.",
+      "El primer cliente fue Fiskyn, la marca de calzado donde trabajo desde 2019. Conocer su operación desde adentro definió qué tenía que medir la plataforma. Hoy la usan dos clientes, con ocho usuarios activos.",
     ],
     en: [
       "The platform brings together each client's sales channels and social accounts, computes business signals over that data, and uses an AI layer that reasons over those signals to suggest content and answer specific questions, always with that client's brand context. Every record carries its clientId at the query level, and credentials are stored encrypted per tenant.",
       "Most of the work went into what surrounds the agent. When a chatbot answers with business data, a plausible answer and a correct one look too much alike, and a good part of the system is there to tell them apart.",
+      "The first client was Fiskyn, the footwear brand where I have worked since 2019. Knowing its operation from the inside shaped what the platform had to measure. Two clients use it today, with eight active users.",
     ],
   },
   shots: [
@@ -416,8 +418,20 @@ export const upscaleLab: Project = {
       ],
     },
   },
+  testimonial: {
+    quote: {
+      es: "Upscale Lab está hecha a medida de cómo trabajamos. Fermín entendió el negocio antes de escribir una línea de código, y cada mejora que le propusimos la sumó a la plataforma usando nuestros propios datos.",
+      en: "Upscale Lab is built around the way we work. Fermín understood the business before writing a line of code, and every improvement we suggested he added to the platform using our own data.",
+    },
+    short: {
+      es: "Se hizo a medida de cómo trabajamos y fue creciendo con cada idea que le llevábamos.",
+      en: "It was built around the way we work, and it grew with every idea we brought him.",
+    },
+    name: "Silvina Fischkyn",
+    org: "Fiskyn",
+  },
   closing: {
-    es: "Mi trabajo acá fue sostener un sistema multi-tenant en producción con datos reales de un cliente, donde cada número que menciona la IA tiene que poder rastrearse hasta una query verificable. Encontrar un dato mal antes de que lo note el cliente es tan parte del trabajo como construir la función que lo calcula. Casi todo lo que sumé después sirve para saber si la IA contestó bien.",
-    en: "My job here was keeping a multi-tenant system running in production on a client's live data, where every number the AI mentions has to trace back to a verifiable query. Catching a wrong number before the client does is as much part of the job as building the function that computes it. Almost everything I added later is there to tell whether the AI answered correctly.",
+    es: "Mi trabajo acá fue sostener un sistema multi-tenant en producción con datos reales de clientes, donde cada número que menciona la IA tiene que poder rastrearse hasta una query verificable. Encontrar un dato mal antes de que lo note el cliente es tan parte del trabajo como construir la función que lo calcula. Casi todo lo que sumé después sirve para saber si la IA contestó bien.",
+    en: "My job here was keeping a multi-tenant system running in production on clients' live data, where every number the AI mentions has to trace back to a verifiable query. Catching a wrong number before the client does is as much part of the job as building the function that computes it. Almost everything I added later is there to tell whether the AI answered correctly.",
   },
 };

@@ -44,8 +44,8 @@ export const hero = {
     label: { es: "Proyecto destacado", en: "Featured project" } as L,
     status: { es: "En producción", en: "In production" } as L,
     summary: {
-      es: "La hice de punta a punta, del dato al agente de IA, y mido si el agente responde bien. Ya la usa su primer cliente.",
-      en: "I built it end to end, from the data to the AI agent, and I measure whether the agent answers correctly. Its first client is already using it.",
+      es: "La hice de punta a punta, de los datos al agente de IA, y mido si sus respuestas son correctas. Ya la usan dos clientes, con ocho usuarios activos.",
+      en: "I built it end to end, from the data to the AI agent, and I measure whether its answers are correct. Two clients already use it, with eight active users.",
     } as L,
     linkLabel: { es: "Ver el caso completo", en: "Read the full case" } as L,
     liveLabel: { es: "Probá la demo", en: "Try the demo" } as L,

@@ -73,8 +73,8 @@ export const profile = {
       title: { es: "Operaciones y atención al cliente", en: "Operations and customer service" } as L,
       org: { es: "Fiskyn", en: "Fiskyn" } as L,
       body: {
-        es: "Post-venta y comunicación con clientes en una marca de calzado con mucho volumen. Ahí aprendí qué número le sirve a quien tiene que decidir, y con ese criterio armo hoy las métricas de mis proyectos.",
-        en: "Post-sale and customer communication at a high-volume footwear brand. That is where I learned which number helps someone who has to make a decision, and I use that when I design the metrics in my projects.",
+        es: "Post-venta y comunicación con clientes en una marca de calzado con mucho volumen. Ahí aprendí qué número le sirve a quien tiene que decidir, y con ese criterio armo hoy las métricas de mis proyectos. Fiskyn fue el primer cliente de Upscale Lab.",
+        en: "Post-sale and customer communication at a high-volume footwear brand. That is where I learned which number helps someone who has to make a decision, and I use that when I design the metrics in my projects. Fiskyn was Upscale Lab's first client.",
       } as L,
     },
     {

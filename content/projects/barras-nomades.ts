@@ -178,6 +178,14 @@ export const barrasNomades: Project = {
       items: ["Vercel", "Vercel Analytics", "next/image (WebP)"],
     },
   ],
+  testimonial: {
+    quote: {
+      es: "Llegamos sin una idea clara de lo que queríamos. Fermín diseñó la página, escribió los textos y hoy es lo primero que mandamos cuando nos piden un presupuesto. Y funciona perfecto.",
+      en: "We came in without a clear idea of what we wanted. Fermín designed the page, wrote the copy, and today it is the first thing we send when someone asks for a quote. And it works perfectly.",
+    },
+    name: "Félix Taboada",
+    org: "Barras Nómades",
+  },
   closing: {
     es: "En una landing de cliente es fácil justificar atajos porque es una sola página. Esta va a estar en producción representando a alguien que vive de su servicio, así que la hice con el mismo cuidado que un producto.",
     en: "On a client landing page it is easy to justify shortcuts because it is a single page. This one represents someone who makes a living from their service, so I built it with the same care as a product.",

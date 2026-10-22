@@ -61,6 +61,13 @@ export type Shot = {
   caption: L;
 };
 
+export type Testimonial = {
+  quote: L;
+  short?: L;
+  name: string;
+  org: string;
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -97,6 +104,11 @@ export type Project = {
   findings?: Finding[];
   engineering?: { title: L; items: LL };
   closing?: L;
+  /**
+   * Lo que dice el cliente. Redactado con cada uno y publicado con su
+   * aprobación del texto final. `short` es la versión para el hero.
+   */
+  testimonial?: Testimonial;
   /** true mientras falten datos reales del proyecto. */
   draft?: boolean;
 };

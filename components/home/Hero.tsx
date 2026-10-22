@@ -209,6 +209,17 @@ export function Hero() {
                 </p>
               </figcaption>
 
+              {featured.testimonial?.short && (
+                <blockquote className="mt-5 border-l-2 border-correction pl-4">
+                  <p className="text-[14px] leading-snug text-ink">
+                    “{t(featured.testimonial.short)}”
+                  </p>
+                  <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">
+                    {featured.testimonial.name} · {featured.testimonial.org}
+                  </footer>
+                </blockquote>
+              )}
+
               {featured.metrics && (
                 <dl className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-rule bg-rule">
                   {featured.metrics.map((metric, index) => (

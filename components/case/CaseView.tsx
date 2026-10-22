@@ -318,6 +318,20 @@ export function CaseView({ project, next }: { project: Project; next?: Project }
                 </RevealItem>
               ))}
             </RevealGroup>
+
+            {/* La voz del cliente, al lado de lo que cuenta el caso. */}
+            {project.testimonial && (
+              <Reveal delay={0.1}>
+                <figure className="mt-10 max-w-2xl border-l-2 border-correction pl-6">
+                  <blockquote className="font-display text-[19px] font-medium leading-snug text-ink">
+                    “{t(project.testimonial.quote)}”
+                  </blockquote>
+                  <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3">
+                    {project.testimonial.name} · {project.testimonial.org}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            )}
           </div>
         </div>
       </section>
