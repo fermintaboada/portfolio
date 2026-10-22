@@ -6,6 +6,7 @@ import { ThemeProvider, themeScript } from "@/components/chrome/Theme";
 import { SmoothScroll } from "@/components/chrome/SmoothScroll";
 import { FloatingControls } from "@/components/chrome/FloatingControls";
 import { site } from "@/content/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -71,6 +72,8 @@ export default function RootLayout({
             <FloatingControls />
           </LangProvider>
         </ThemeProvider>
+        {/* Visitas por página. No registra nada en desarrollo. */}
+        <Analytics />
       </body>
     </html>
   );

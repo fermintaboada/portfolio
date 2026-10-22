@@ -144,8 +144,11 @@ export function Hero() {
         }}
       />
 
-      <div className="shell grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-7">
+      {/* Tres piezas en la grilla: presentación, ficha y menú. En celular
+          van en ese orden, así la ficha aparece antes que las seis píldoras;
+          en escritorio la ficha ocupa la columna derecha a lo alto. */}
+      <div className="shell grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-10">
+        <div className="lg:col-span-7 lg:row-start-1">
           <motion.div {...enter(0, reduced)}>
             <TopActions />
           </motion.div>
@@ -179,16 +182,12 @@ export function Hero() {
           >
             {t(hero.headline)}
           </motion.p>
-
-          <motion.div className="mt-10" {...enter(0.24, reduced)}>
-            <SectionPills />
-          </motion.div>
         </div>
 
         {/* La ficha: el proyecto más fuerte, legible sin contexto previo. */}
         {featured && (
           <motion.figure
-            className="relative lg:col-span-5 lg:pt-3"
+            className="relative self-start lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:pt-3"
             {...enter(0.3, reduced)}
           >
             <div className="rounded-sm border border-rule bg-paper-raised p-6 sm:p-7">
@@ -283,6 +282,10 @@ export function Hero() {
             </div>
           </motion.figure>
         )}
+
+        <motion.div className="lg:col-span-7 lg:row-start-2" {...enter(0.24, reduced)}>
+          <SectionPills />
+        </motion.div>
       </div>
     </section>
   );

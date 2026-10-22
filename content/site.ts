@@ -70,9 +70,16 @@ export const contact = {
     en: "Available for work",
   } as L,
   body: {
-    es: "Si estás armando un equipo que construye producto con IA, escribime. Mientras tanto, podés probar la demo de Upscale Lab sin registrarte.",
-    en: "If you are building a team that ships AI products, write to me. In the meantime, you can try the Upscale Lab demo without signing up.",
+    es: "Si estás armando un equipo que construye producto con IA, escribime.",
+    en: "If you are building a team that ships AI products, write to me.",
   } as L,
+  /** La demo va como link dentro de la frase: antes, el enlace y después. */
+  demo: {
+    before: { es: "Mientras tanto, podés ", en: "In the meantime, you can " } as L,
+    link: { es: "probar la demo de Upscale Lab", en: "try the Upscale Lab demo" } as L,
+    after: { es: " sin registrarte.", en: " without signing up." } as L,
+    slug: "upscale-lab",
+  },
   cvLabel: { es: "Descargar CV", en: "Download CV" } as L,
   emailCopied: { es: "Copiado", en: "Copied" } as L,
   /** Un archivo por idioma: el botón sirve el que corresponde al activo. */

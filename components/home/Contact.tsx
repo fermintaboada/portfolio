@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/lib/i18n";
 import { contact, site } from "@/content/site";
+import { getProject } from "@/content/projects";
 import { TechIcon } from "@/components/ui/TechIcon";
 import { MailIcon, LinkedInMark, ArrowUpRightIcon, DownloadIcon } from "@/components/ui/Icons";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
@@ -91,6 +92,7 @@ function ContactRow({
 
 export function Contact() {
   const { t } = useLang();
+  const demoUrl = getProject(contact.demo.slug)?.liveUrl;
 
   const rows = [
     {
@@ -140,7 +142,23 @@ export function Contact() {
           {/* Izquierda: el llamado grande a escribir, y por qué. */}
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="max-w-md text-[15px] leading-relaxed text-ink-2">{t(contact.body)}</p>
+              <p className="max-w-md text-[15px] leading-relaxed text-ink-2">
+                {t(contact.body)}{" "}
+                {demoUrl && (
+                  <>
+                    {t(contact.demo.before)}
+                    <a
+                      href={demoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-ink underline decoration-correction decoration-2 underline-offset-4 transition-colors duration-200 hover:text-correction"
+                    >
+                      {t(contact.demo.link)}
+                    </a>
+                    {t(contact.demo.after)}
+                  </>
+                )}
+              </p>
             </Reveal>
 
             <Reveal delay={0.05}>
