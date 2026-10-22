@@ -4,8 +4,8 @@ export const upscaleLab: Project = {
   slug: "upscale-lab",
   name: "Upscale Lab",
   tagline: {
-    es: "Plataforma de marketing con IA, multi-tenant. Corre en producción y la está probando su primer cliente.",
-    en: "Multi-tenant AI marketing platform. It runs in production and its first client is trialling it.",
+    es: "Plataforma con IA que explica las métricas de marcas que venden en Instagram y Tienda Nube.",
+    en: "AI platform that explains the numbers of brands selling on Instagram and Tienda Nube.",
   },
   year: "2026",
   kind: { es: "Producto propio", en: "Own product" },
@@ -22,7 +22,7 @@ export const upscaleLab: Project = {
     { name: "PostgreSQL", slug: "postgresql" },
     { name: "Claude", slug: "anthropic" },
   ],
-  liveUrl: "https://marketing-metrics-nine.vercel.app/",
+  liveUrl: "https://marketing-metrics-iota.vercel.app/",
   thesis: {
     es: "Que una PyME o un influencer pueda prescindir de contratar marketing digital.",
     en: "Letting a small business or a creator do without hiring a digital marketing agency.",

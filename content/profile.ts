@@ -25,8 +25,8 @@ export const profile = {
   eyebrow: { es: "Perfil", en: "Profile" } as L,
   /** El titular de la sección. Tres palabras que resumen el oficio. */
   title: {
-    es: "Datos · sistemas · criterio.",
-    en: "Data · systems · judgement.",
+    es: "Del negocio al código.",
+    en: "From business to code.",
   } as L,
   lede: {
     es: "Construyo productos web completos —de la base de datos a la interfaz— y me ocupo de que lo que muestran siga siendo correcto en producción.",
@@ -148,6 +148,11 @@ export const stack = {
         { name: "NestJS", slug: "nestjs" },
         { name: "Express", slug: "express" },
         { name: "Zod", slug: "zod" },
+      ] as Tech[],
+    },
+    {
+      label: { es: "Testing", en: "Testing" } as L,
+      items: [
         { name: "Vitest", slug: "vitest" },
         { name: "Jest", slug: "jest" },
       ] as Tech[],
@@ -215,17 +220,16 @@ export const now = {
     es: "En qué estoy trabajando.",
     en: "What I am working on.",
   } as L,
-  /** Fecha de la última vez que se revisó este texto. */
-  updated: "2026-09-25",
-  updatedLabel: { es: "Actualizado", en: "Updated" } as L,
+  /** Sin fecha ni plazos: un texto que no envejece si nadie lo toca. */
+  statusLabel: { es: "En curso", en: "In progress" } as L,
   body: {
     es: [
-      "Appointment Platform — una plataforma de turnos donde varios negocios operan sobre el mismo producto: cada uno con sus servicios, profesionales, horarios y políticas propias. TypeScript, Next.js, NestJS, Prisma y PostgreSQL en un monorepo con Turborepo. La idea es que el cliente escriba por WhatsApp como a una recepcionista real — y ahí está el desafío: separar la interpretación del lenguaje de las reglas de negocio, para que un motor determinista, no el modelo, calcule disponibilidad y confirme la reserva.",
-      "El flujo web ya corre contra PostgreSQL sobre un consultorio de prueba con cinco profesionales y tres especialidades: asigna al de menor carga diaria, aísla los datos por negocio y protege contra solicitudes simultáneas con transacciones e idempotencia. Veintiséis escenarios automatizados pasan sobre esa base. Sigue el laboratorio conversacional con Gemini y conectar WhatsApp; calculo entre 3 y 4 semanas para tener el código listo para un primer cliente.",
+      "Appointment Platform: una plataforma de turnos para varios negocios sobre el mismo producto, donde el cliente reserva escribiendo por WhatsApp. El modelo interpreta el mensaje; la disponibilidad y la reserva las resuelve código propio, con reglas que se pueden testear.",
+      "Ya corre sobre un consultorio de prueba con cinco profesionales y pasan 26 escenarios automatizados. Lo que sigue es conectar WhatsApp.",
     ],
     en: [
-      "Appointment Platform — a booking platform where several businesses run on the same product: each with its own services, professionals, hours and policies. TypeScript, Next.js, NestJS, Prisma and PostgreSQL in a Turborepo monorepo. The idea is that a client can write over WhatsApp the way they would to a real receptionist — and that is the real challenge: separating language interpretation from business rules, so a deterministic engine, not the model, computes availability and confirms the booking.",
-      "The web flow already runs against PostgreSQL over a test clinic with five professionals and three specialties: it assigns whoever has the lightest daily load, isolates data per business, and guards against simultaneous requests with transactions and idempotency. Twenty-six automated scenarios pass against that base. Next is the conversational lab with Gemini and connecting WhatsApp; I expect 3 to 4 weeks to have the code ready for a first client.",
+      "Appointment Platform: a booking platform for several businesses on the same product, where clients book by writing on WhatsApp. The model interprets the message; availability and the booking itself are handled by my own code, with rules that can be tested.",
+      "It already runs on a test clinic with five professionals, and 26 automated scenarios pass. Next is connecting WhatsApp.",
     ],
   },
   activityLabel: { es: "Actividad reciente", en: "Recent activity" } as L,

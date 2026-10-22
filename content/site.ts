@@ -29,9 +29,10 @@ export const hero = {
     { name: "Node.js", slug: "nodedotjs" },
     { name: "PostgreSQL", slug: "postgresql" },
   ],
+  /** La historia antes que el principio: el negocio vino primero, el código después. */
   headline: {
-    es: "Cada número que muestra un sistema mío tiene que poder rastrearse hasta una query verificable.",
-    en: "Every number a system of mine displays has to trace back to a verifiable query.",
+    es: "Vendí online cinco años antes de programar. Ahora construyo el software que me faltaba.",
+    en: "I sold online for five years before I wrote code. Now I build the software I was missing.",
   } as L,
   /**
    * La ficha del hero: el proyecto más fuerte, contado en lo que un
@@ -43,11 +44,12 @@ export const hero = {
     label: { es: "Proyecto destacado", en: "Featured project" } as L,
     status: { es: "En producción", en: "In production" } as L,
     summary: {
-      es: "Plataforma de marketing con IA, multi-tenant, que hice de punta a punta. Corre en producción y la está probando su primer cliente.",
-      en: "Multi-tenant AI marketing platform I built end to end. It runs in production and its first client is trialling it.",
+      es: "La hice de punta a punta, del dato al agente de IA, y mido si el agente responde bien. Ya la usa su primer cliente.",
+      en: "I built it end to end, from the data to the AI agent, and I measure whether the agent answers correctly. Its first client is already using it.",
     } as L,
     linkLabel: { es: "Ver el caso completo", en: "Read the full case" } as L,
-    liveLabel: { es: "Ver en vivo", en: "View live" } as L,
+    liveLabel: { es: "Probá la demo", en: "Try the demo" } as L,
+    liveNote: { es: "sin registro", en: "no sign-up" } as L,
   },
 };
 
@@ -55,8 +57,8 @@ export const workSection = {
   eyebrow: { es: "Trabajo", en: "Work" } as L,
   title: { es: "Proyectos que hice.", en: "Projects I built." } as L,
   intro: {
-    es: "Cuatro están terminados y en línea. El primero corre en producción y lo está probando su primer cliente.",
-    en: "Four are finished and live. The first one runs in production and its first client is trialling it.",
+    es: "Productos para negocios que venden: una plataforma con IA para marcas de e-commerce, una ticketera hecha en equipo y sitios para clientes.",
+    en: "Products for businesses that sell: an AI platform for e-commerce brands, a ticketing app built as a team, and sites for clients.",
   } as L,
   caseLabel: { es: "Ver caso completo", en: "View full case" } as L,
 };
@@ -68,8 +70,8 @@ export const contact = {
     en: "Available for work",
   } as L,
   body: {
-    es: "Si estás evaluando el perfil para una búsqueda, escribime y te paso acceso a la demo en vivo de Upscale Lab con datos de prueba.",
-    en: "If you are evaluating this profile for a role, write to me and I will give you access to the live Upscale Lab demo with test data.",
+    es: "Si estás armando un equipo que construye producto con IA, escribime. Mientras tanto, podés probar la demo de Upscale Lab sin registrarte.",
+    en: "If you are building a team that ships AI products, write to me. In the meantime, you can try the Upscale Lab demo without signing up.",
   } as L,
   cvLabel: { es: "Descargar CV", en: "Download CV" } as L,
   emailCopied: { es: "Copiado", en: "Copied" } as L,

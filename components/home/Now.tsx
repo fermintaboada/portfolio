@@ -97,18 +97,7 @@ function ActivityFeed() {
 }
 
 export function Now() {
-  const { t, tl, lang } = useLang();
-  // now.updated es date-only ("2026-09-21"). new Date() lo interpreta
-  // como medianoche UTC, y toLocaleDateString sin timeZone lo vuelve a
-  // pasar por la hora local del navegador: en cualquier huso detrás de
-  // UTC (Argentina incluida) el día se corre uno para atrás. timeZone:
-  // "UTC" mantiene los dos extremos en el mismo huso.
-  const fecha = new Date(now.updated).toLocaleDateString(lang === "es" ? "es-AR" : "en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
+  const { t, tl } = useLang();
 
   return (
     <section id="ahora" className="scroll-mt-24 border-t border-rule py-20 md:py-28">
@@ -125,7 +114,7 @@ export function Now() {
                     className="h-1.5 w-1.5 rounded-full bg-verified motion-safe:animate-pulse"
                   />
                   <p className="label">
-                    {t(now.updatedLabel)} · {fecha}
+                    {t(now.statusLabel)}
                   </p>
                 </div>
               </div>

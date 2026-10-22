@@ -86,7 +86,9 @@ function SectionPills() {
   return (
     <nav aria-label={t({ es: "Secciones", en: "Sections" })} className="flex flex-col items-start gap-2">
       {SECTIONS.map((item) => {
-        const isActive = active === item.id;
+        // En Inicio no se marca nada: la píldora más saturada de la
+        // primera pantalla no puede ser la que lleva a donde ya estás.
+        const isActive = active === item.id && item.id !== "inicio";
         return (
           <a
             key={item.id}
@@ -172,7 +174,7 @@ export function Hero() {
           </motion.div>
 
           <motion.p
-            className="mt-6 max-w-lg text-[17px] leading-relaxed text-ink-2"
+            className="mt-6 max-w-lg text-[clamp(1.1rem,1.7vw,1.3rem)] leading-snug text-ink"
             {...enter(0.15, reduced)}
           >
             {t(hero.headline)}
@@ -263,6 +265,7 @@ export function Hero() {
                   >
                     {t(hero.featured.liveLabel)}
                     <ArrowUpRightIcon className="h-3 w-3 transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <span className="normal-case tracking-normal text-ink-3">· {t(hero.featured.liveNote)}</span>
                   </a>
                 )}
               </div>
